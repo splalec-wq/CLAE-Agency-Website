@@ -18,18 +18,13 @@
       --spring:cubic-bezier(.34,1.56,.64,1);
     }
     html,body{height:100%;overflow:hidden}
-    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;cursor:none}
+    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif}
 
     /* ── GRAIN ── */
     #grain{pointer-events:none;position:fixed;inset:0;z-index:998;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
       opacity:.55}
 
-    /* ── CURSOR ── */
-    #cur{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;
-      pointer-events:none;z-index:1001;transform:translate(-50%,-50%);
-      transition:width .3s var(--ease),height .3s var(--ease);mix-blend-mode:difference}
-    #cur.big{width:52px;height:52px;opacity:.35}
 
     /* ══════════════════════════════════════
        CINEMATIC INTRO
@@ -149,7 +144,7 @@
 
     /* Panels */
     .panels{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr}
-    .panel{position:relative;overflow:hidden;cursor:none;display:block;text-decoration:none}
+    .panel{position:relative;overflow:hidden;cursor:pointer;display:block;text-decoration:none}
 
     .panel-slides{position:absolute;inset:0;z-index:0}
     .slide{position:absolute;inset:0;background-size:cover;background-position:center;
@@ -273,7 +268,6 @@
 <body>
 
 <div id="grain"></div>
-<div id="cur"></div>
 <canvas id="c"></canvas>
 
 <!-- ═══ CINEMATIC INTRO ═══ -->
@@ -427,13 +421,6 @@
 </div><!-- #select -->
 
 <script>
-/* Cursor */
-const cur = document.getElementById('cur');
-document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
-document.querySelectorAll('.panel').forEach(p => {
-  p.addEventListener('mouseenter', () => cur.classList.add('big'));
-  p.addEventListener('mouseleave', () => cur.classList.remove('big'));
-});
 
 /* Particles */
 const canvas = document.getElementById('c');
