@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAE Agency — Video. Story. Impact.</title>
+
+<!-- SEO -->
+<meta name="robots" content="index,follow">
+<meta name="description" content="CLAE Agency — Studio de production vidéo cinématique à Paris. Films de mariage, couverture d'événements et création de contenu de marque haut de gamme.">
+<link rel="canonical" href="https://claeagency.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CLAE Agency">
+<meta property="og:url" content="https://claeagency.com/">
+<meta property="og:title" content="CLAE Agency — Studio de Production Vidéo Cinématique à Paris">
+<meta property="og:description" content="Films de mariage, couverture d'événements et création de contenu cinématique à Paris. Studio haut de gamme, œil de réalisateur.">
+<meta property="og:image" content="https://claeagency.com/Logo-removebg-preview.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@claeagency">
+<meta name="twitter:title" content="CLAE Agency — Studio de Production Vidéo Cinématique à Paris">
+<meta name="twitter:description" content="Films de mariage, couverture d'événements et création de contenu cinématique à Paris. Studio haut de gamme, œil de réalisateur.">
+<meta name="twitter:image" content="https://claeagency.com/Logo-removebg-preview.png">
+
+<!-- Sécurité -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta name="description" content="Paris-based cinematic video production. Wedding films, event coverage & premium content creation.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="Logo-removebg-preview.png">
+<link rel="apple-touch-icon" href="Logo-removebg-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#080808;--bg2:#0D0D0D;--bg3:#111111;--bg4:#161616;
+  --gold:#D4AF37;--gold-l:#E8C84A;--gold-dim:rgba(212,175,55,.2);--gold-faint:rgba(212,175,55,.07);
+  --white:#F0EDE6;--w70:rgba(240,237,230,.7);--w38:rgba(240,237,230,.38);--w20:rgba(240,237,230,.2);
+  --glass:rgba(255,255,255,.028);--gb:rgba(255,255,255,.07);--gg:rgba(212,175,55,.22);
+  --D:'Syne',sans-serif;--B:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--B);overflow-x:hidden;line-height:1.5}
+
+/* ── GRAIN ── */
+#grain{position:fixed;inset:0;z-index:9997;pointer-events:none}
+#grain::before{content:'';position:absolute;inset:-200%;width:400%;height:400%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px;opacity:.024;animation:gs .12s steps(1) infinite}
+@keyframes gs{0%{transform:translate(0,0)}25%{transform:translate(-5%,-5%)}50%{transform:translate(-10%,5%)}75%{transform:translate(5%,-10%)}100%{transform:translate(5%,0)}}
+
+/* ── INTRO ── */
+/* ── INTRO FUTURISTE ── */
+#intro{position:fixed;inset:0;z-index:9999;background:#030303;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer}
+#intro.out{animation:introExit .7s cubic-bezier(.76,0,.24,1) forwards}
+@keyframes introExit{0%{clip-path:inset(0 0 0% 0)}100%{clip-path:inset(0 0 100% 0)}}
+
+/* Grid */
+.intro-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.045) 1px,transparent 1px);background-size:64px 64px;opacity:0;animation:fadeIn .8s ease .1s forwards}
+
+/* Scan line */
+.intro-scan{position:absolute;left:0;right:0;height:1px;top:0;background:linear-gradient(90deg,transparent 0%,rgba(212,175,55,.7) 40%,rgba(255,220,80,1) 50%,rgba(212,175,55,.7) 60%,transparent 100%);box-shadow:0 0 18px rgba(212,175,55,.5);animation:scanDown 1.3s cubic-bezier(.4,0,.6,1) .15s forwards}
+@keyframes scanDown{from{top:0}to{top:100%}}
+
+/* Corner brackets */
+.intro-corner{position:absolute;width:28px;height:28px;border-color:rgba(212,175,55,.7);border-style:solid;opacity:0;animation:cornerIn .4s var(--ease) .9s forwards}
+.intro-corner.tl{top:2.2rem;left:2.2rem;border-width:1px 0 0 1px}
+.intro-corner.tr{top:2.2rem;right:2.2rem;border-width:1px 1px 0 0}
+.intro-corner.bl{bottom:2.2rem;left:2.2rem;border-width:0 0 1px 1px}
+.intro-corner.br{bottom:2.2rem;right:2.2rem;border-width:0 1px 1px 0}
+@keyframes cornerIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* HUD data */
+.intro-data{position:absolute;font-family:monospace;font-size:.48rem;color:rgba(212,175,55,.3);letter-spacing:.08em;line-height:2;opacity:0;animation:fadeIn .5s ease 1.1s forwards;text-transform:uppercase}
+.intro-data.tl{top:3.4rem;left:2.8rem;text-align:left}
+.intro-data.br{bottom:3.4rem;right:2.8rem;text-align:right}
+
+/* Logo + tagline */
+.intro-center{display:flex;flex-direction:column;align-items:center;gap:1.1rem;position:relative;z-index:2}
+.intro-logo{width:min(220px,48vw);opacity:0;animation:introLogoIn .9s cubic-bezier(.16,1,.3,1) 1s forwards}
+@keyframes introLogoIn{0%{opacity:0;transform:translateY(12px) scale(.93);filter:drop-shadow(0 0 0 rgba(212,175,55,0))}60%{filter:drop-shadow(0 0 45px rgba(212,175,55,.55))}100%{opacity:1;transform:translateY(0) scale(1);filter:drop-shadow(0 0 28px rgba(212,175,55,.32))}}
+.intro-tagline{font-family:var(--D);font-size:.55rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(212,175,55,.65);opacity:0;animation:fadeIn .6s ease 1.7s forwards}
+
+/* Progress bar */
+.intro-bar-wrap{position:absolute;bottom:2.8rem;left:50%;transform:translateX(-50%);width:min(180px,36vw)}
+.intro-bar-track{height:1px;background:rgba(212,175,55,.12);overflow:hidden}
+.intro-bar-fill{height:100%;width:0;background:linear-gradient(90deg,rgba(212,175,55,.5),var(--gold));animation:barFill 2.4s ease .4s forwards}
+@keyframes barFill{to{width:100%}}
+.intro-bar-label{font-family:var(--D);font-size:.45rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,55,.28);text-align:right;margin-top:.4rem;opacity:0;animation:fadeIn .4s ease .5s forwards}
+@keyframes fadeIn{to{opacity:1}}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:1000;padding:1.3rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,8,8,.9);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom-color:var(--gb)}
+.nav-brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
+.nav-logo{height:44px;filter:drop-shadow(0 0 6px rgba(212,175,55,.2))}
+.nav-brand-name{font-family:var(--D);font-size:1rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-family:var(--D);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-pill{padding:.5rem 1.1rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background .25s,box-shadow .25s,transform .2s}
+.nav-pill:hover{background:var(--gold-l);box-shadow:0 0 22px rgba(212,175,55,.35);transform:translateY(-1px)}
+
+/* ── NAV DROPDOWN MEGA MENU ── */
+.nav-dropdown{position:relative}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;vertical-align:middle}
+.nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s var(--ease)}
+.nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
+/* Invisible bridge — prevents gap from killing hover state */
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
+
+/* Panel */
+.nav-drop-menu{
+  position:absolute;top:calc(100% + .7rem);left:50%;
+  transform:translateX(-50%) translateY(-14px) scale(.96);
+  transform-origin:top center;
+  opacity:0;pointer-events:none;
+  background:rgba(7,7,7,.98);
+  backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);
+  border:1px solid rgba(212,175,55,.14);border-radius:22px;
+  padding:1.4rem;width:min(860px,92vw);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);
+  z-index:200
+}
+.nav-drop-menu::before{
+  content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:9px;height:9px;background:rgba(7,7,7,.98);
+  border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)
+}
+.nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{
+  opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)
+}
+/* 3-col grid */
+.ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
+
+/* Card */
+.ndm-card{
+  display:flex;flex-direction:column;gap:.9rem;
+  padding:1.4rem 1.3rem;border-radius:16px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(212,175,55,.07);
+  text-decoration:none;
+  transition:background .28s,border-color .28s,transform .32s var(--ease),box-shadow .32s;
+  position:relative;overflow:hidden
+}
+.ndm-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.07) 0%,transparent 55%);opacity:0;transition:opacity .28s}
+.ndm-card:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.18)}
+.ndm-card:hover::before{opacity:1}
+
+/* Icon */
+.ndm-icon{width:54px;height:54px;border-radius:14px;background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .28s,border-color .28s,box-shadow .28s}
+.ndm-card:hover .ndm-icon{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.5);box-shadow:0 0 22px rgba(212,175,55,.2)}
+.ndm-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6}
+
+/* Text */
+.ndm-title{font-family:var(--D);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);line-height:1.1;transition:color .25s}
+.ndm-card:hover .ndm-title{color:var(--gold)}
+.ndm-desc{font-size:.8rem;color:var(--w70);line-height:1.65;flex:1;margin-top:.25rem}
+.ndm-tags{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-top:.3rem}
+.ndm-arr{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.4);margin-top:.3rem;transition:color .25s,gap .25s var(--ease)}
+.ndm-arr svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .25s var(--ease)}
+.ndm-card:hover .ndm-arr{color:var(--gold);gap:.6rem}
+.ndm-card:hover .ndm-arr svg{transform:translateX(4px)}
+
+/* Footer */
+.ndm-footer{border-top:1px solid rgba(212,175,55,.09);padding-top:.9rem;display:flex;justify-content:flex-end}
+.ndm-all{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.65;transition:opacity .2s,gap .25s var(--ease)}
+.ndm-all:hover{opacity:1;gap:.65rem}
+.ndm-all svg{width:11px;height:11px;stroke:var(--gold);fill:none;stroke-width:2.5;transition:transform .25s var(--ease)}
+.ndm-all:hover svg{transform:translateX(4px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(5,5,5,.97);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--D);font-size:2.5rem;font-weight:800;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .25s}
+.mobile-menu a:hover{color:var(--gold)}
+.mob-section-title{color:var(--gold)!important}
+.mob-sub-link{font-size:1.2rem!important;font-weight:600!important;color:var(--w70)!important;letter-spacing:.06em;padding-left:1rem}
+
+/* ── UTILS ── */
+section{position:relative;z-index:1}
+.container{max-width:1320px;margin:0 auto;padding:0 2.5rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}.d4{transition-delay:.46s}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO ── */
+#hero{height:100dvh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-top:4.5rem;padding-bottom:6rem;gap:2rem}
+
+/* Ambient orbs */
+.h-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px)}
+.h-orb-1{width:700px;height:700px;top:-15%;right:-8%;background:radial-gradient(ellipse,rgba(212,175,55,.16) 0%,transparent 68%);animation:orbDrift1 14s ease-in-out infinite}
+.h-orb-2{width:450px;height:450px;bottom:0%;left:25%;background:radial-gradient(ellipse,rgba(212,175,55,.07) 0%,transparent 68%);animation:orbDrift2 10s ease-in-out infinite}
+.h-orb-3{width:280px;height:280px;top:15%;right:42%;background:radial-gradient(ellipse,rgba(180,110,15,.08) 0%,transparent 70%);animation:orbDrift3 17s ease-in-out infinite}
+@keyframes orbDrift1{0%,100%{transform:translate(0,0) scale(1)}35%{transform:translate(-28px,22px) scale(1.06)}68%{transform:translate(18px,-14px) scale(.94)}}
+@keyframes orbDrift2{0%,100%{transform:translate(0,0)}50%{transform:translate(22px,-28px) scale(1.09)}}
+@keyframes orbDrift3{0%,100%{transform:translate(0,0)}42%{transform:translate(-18px,22px)}}
+.h-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.028) 3px,rgba(0,0,0,.028) 4px);pointer-events:none;z-index:10}
+
+/* Top text block — centered */
+.hero-top{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 3rem 0;position:relative;z-index:10;flex-shrink:0}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.32rem .9rem;border:1px solid var(--gg);border-radius:100px;background:rgba(212,175,55,.07);font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 auto 0.6rem;width:fit-content;opacity:0;animation:fadeUp .7s var(--ease) 2.2s forwards}
+.hero-pill::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease infinite;flex-shrink:0}
+.hero-h1{font-family:var(--D);font-size:clamp(2.6rem,5vw,5.5rem);font-weight:800;line-height:.88;letter-spacing:-.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.6rem;text-align:center}
+.hero-h1 .gold{color:var(--gold)}
+.hero-h1 .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.hero-h1 .word{display:block;overflow:hidden}
+.hero-h1 .word span{display:block;opacity:0;transform:translateY(110%)}
+.hero-h1 .word:nth-child(1) span{animation:wordReveal .85s var(--spring) 2.3s forwards}
+.hero-h1 .word:nth-child(2) span{animation:wordReveal .85s var(--spring) 2.52s forwards}
+.hero-h1 .word:nth-child(3) span{animation:wordReveal .85s var(--spring) 2.74s forwards}
+@keyframes wordReveal{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-sub{font-size:.88rem;color:var(--w70);max-width:560px;line-height:1.55;margin:0 auto 0.7rem;text-align:center;opacity:0;animation:fadeUp .8s var(--ease) 3s forwards}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:0.7rem;opacity:0;animation:fadeUp .8s var(--ease) 3.2s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:background .25s,box-shadow .3s,transform .2s var(--spring)}
+.btn-primary:hover{background:var(--gold-l);box-shadow:0 8px 30px rgba(212,175,55,.35);transform:translateY(-2px) scale(1.01)}
+.btn-primary:active{transform:scale(.98)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;background:transparent;color:var(--w70);border:1px solid var(--gb);border-radius:6px;font-family:var(--D);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s,transform .2s}
+.btn-secondary:hover{border-color:var(--gold-dim);color:var(--white);transform:translateY(-2px)}
+.hero-metrics{display:flex;gap:0;justify-content:center;padding-top:0.5rem;border-top:1px solid var(--gb);opacity:0;animation:fadeUp .8s var(--ease) 3.4s forwards}
+.metric-item{display:flex;flex-direction:column;align-items:center;padding:0 1.5rem;border-right:1px solid var(--gb)}
+.metric-item:last-child{border-right:none}
+.metric-n{font-family:var(--D);font-size:1.5rem;font-weight:800;color:var(--white);line-height:1}
+.metric-l{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w38);margin-top:.2rem}
+.hero-socials{display:none}
+.hs-label{font-family:var(--D);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--w38)}
+.hs-links{display:flex;gap:.55rem}
+.hs-links a{width:28px;height:28px;border-radius:50%;border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .25s,background .25s}
+.hs-links a:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.hs-links svg{width:11px;height:11px;fill:none;stroke:var(--w38);stroke-width:1.5;transition:stroke .25s}
+.hs-links a:hover svg{stroke:var(--gold)}
+
+/* Bottom carousel section */
+.hero-bottom{flex:1;width:100%;position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;z-index:5}
+
+/* Fan-carousel reel */
+.vf-reel{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;perspective:1500px}
+
+/* Individual reel cards — NO overflow:hidden (handled by inner .rc-frame) */
+.reel-card{position:absolute;border-radius:20px;will-change:transform,opacity,width,height;transition:transform .82s cubic-bezier(.16,1,.3,1),opacity .82s,width .82s,height .82s;cursor:pointer}
+.reel-card:hover .rc-frame{filter:brightness(1.07)}
+
+/* Slot positions */
+.reel-card[data-slot="2"]{width:min(340px,22vw);height:min(420px,calc(100dvh - 660px));z-index:5;opacity:1;transform:translateX(0) translateZ(0) rotateY(0deg)}
+.reel-card[data-slot="1"]{width:min(220px,15vw);height:min(290px,30vh);z-index:4;opacity:.62;transform:translateX(min(-285px,-18vw)) translateZ(-110px) rotateY(14deg)}
+.reel-card[data-slot="3"]{width:min(220px,15vw);height:min(290px,30vh);z-index:4;opacity:.62;transform:translateX(max(285px,18vw)) translateZ(-110px) rotateY(-14deg)}
+.reel-card[data-slot="0"]{width:min(145px,10vw);height:min(195px,20vh);z-index:3;opacity:.22;transform:translateX(min(-490px,-31vw)) translateZ(-240px) rotateY(25deg)}
+.reel-card[data-slot="4"]{width:min(145px,10vw);height:min(195px,20vh);z-index:3;opacity:.22;transform:translateX(max(490px,31vw)) translateZ(-240px) rotateY(-25deg)}
+.reel-card[data-slot="5"]{opacity:0;pointer-events:none;width:min(110px,8vw);height:min(158px,16vh);transform:translateX(max(650px,42vw)) translateZ(-360px) rotateY(-32deg)}
+.reel-card[data-slot="-1"]{opacity:0;pointer-events:none;width:min(110px,8vw);height:min(158px,16vh);transform:translateX(min(-650px,-42vw)) translateZ(-360px) rotateY(32deg)}
+
+/* Inner frame — contains image with overflow:hidden */
+.rc-frame{position:absolute;inset:0;border-radius:20px;overflow:hidden;box-shadow:0 60px 130px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.1)}
+
+/* Card image */
+.rc-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s var(--ease);filter:saturate(.78) brightness(.8)}
+.reel-card[data-slot="2"] .rc-img{filter:saturate(.95) brightness(.92)}
+.reel-card:hover .rc-img{transform:scale(1.04)}
+
+/* Card layers */
+.rc-overlay{position:absolute;inset:0;background:linear-gradient(170deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.18) 45%,rgba(0,0,0,.88) 100%);z-index:2;pointer-events:none}
+.rc-scanlines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none}
+.rc-grade{position:absolute;inset:0;z-index:4;background:linear-gradient(50deg,rgba(212,175,55,.07) 0%,transparent 55%),radial-gradient(ellipse at 50% 105%,rgba(212,175,55,.1) 0%,transparent 55%);pointer-events:none}
+.rc-sweep{position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none}
+.reel-card[data-slot="2"] .rc-sweep::after{content:'';position:absolute;top:0;left:-120%;width:50%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.07) 50%,transparent 70%);animation:sweepLight 3.5s ease-in-out 3s infinite}
+@keyframes sweepLight{0%,100%{left:-120%}50%{left:220%}}
+
+/* ── CENTER CARD EFFECTS ── */
+
+/* Ambient gold glow behind center card */
+.rc-glow{position:absolute;width:200%;height:200%;left:-50%;top:-50%;background:radial-gradient(ellipse at 50% 50%,rgba(212,175,55,.28) 0%,rgba(180,110,10,.1) 38%,transparent 65%);border-radius:50%;animation:glowPulse 4.5s ease-in-out infinite;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s}
+.reel-card[data-slot="2"] .rc-glow{opacity:1}
+@keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.14)}}
+
+/* Pulsing expansion rings */
+.rc-rings{position:absolute;inset:-55px;pointer-events:none;z-index:8;opacity:0;transition:opacity .6s}
+.reel-card[data-slot="2"] .rc-rings{opacity:1}
+.rc-ring{position:absolute;inset:0;border-radius:28px;border:1px solid rgba(212,175,55,.3);animation:rcRingPulse 3.8s ease-out infinite}
+.rc-ring:nth-child(2){inset:-22px;border-radius:32px;animation-delay:1.3s;border-color:rgba(212,175,55,.18)}
+.rc-ring:nth-child(3){inset:-44px;border-radius:36px;animation-delay:2.6s;border-color:rgba(212,175,55,.09)}
+@keyframes rcRingPulse{0%{opacity:0;transform:scale(.9)}14%{opacity:1}100%{opacity:0;transform:scale(1.16)}}
+
+/* Float animation inner layer */
+.rc-float{position:absolute;inset:0;animation:none}
+.reel-card[data-slot="2"] .rc-float{animation:rcFloat 6s ease-in-out infinite}
+@keyframes rcFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* Enhanced center card border glow */
+.reel-card[data-slot="2"] .rc-frame{box-shadow:0 60px 130px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.35),0 0 60px rgba(212,175,55,.18),0 0 120px rgba(212,175,55,.08)}
+
+/* HUD (only visible on center card) */
+.rc-hud{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0;transition:opacity .5s}
+.reel-card[data-slot="2"] .rc-hud{opacity:1}
+.rc-rec{position:absolute;top:1rem;left:1.2rem;display:flex;align-items:center;gap:.35rem}
+.rc-rec-dot{width:6px;height:6px;border-radius:50%;background:#FF3333;box-shadow:0 0 12px rgba(255,50,50,.9);animation:recBlink 1.3s ease-in-out infinite}
+@keyframes recBlink{0%,100%{opacity:1}50%{opacity:.08}}
+.rc-rec-lbl{font-family:var(--D);font-size:.42rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.rc-timecode{position:absolute;top:1rem;right:1.2rem;font-family:var(--D);font-size:.4rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.28);font-variant-numeric:tabular-nums}
+.rc-meta{position:absolute;bottom:1.2rem;left:1.2rem;right:1.2rem;display:flex;align-items:flex-end;justify-content:space-between}
+.rc-cat{font-family:var(--D);font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.rc-loc{font-family:var(--D);font-size:.44rem;letter-spacing:.07em;color:rgba(240,237,230,.3);margin-top:.1rem}
+.rc-play{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(212,175,55,.55);background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);cursor:pointer;pointer-events:all;transition:background .25s,transform .25s,box-shadow .25s;flex-shrink:0}
+.rc-play:hover{background:rgba(212,175,55,.28);transform:scale(1.12);box-shadow:0 0 22px rgba(212,175,55,.35)}
+.rc-play svg{width:11px;height:11px;fill:var(--gold);transform:translateX(1px)}
+
+/* Gold corner brackets */
+.rc-bracket,.rc-bracket-2{position:absolute;inset:-5px;border-radius:22px;pointer-events:none;z-index:9;opacity:0;transition:opacity .5s}
+.reel-card[data-slot="2"] .rc-bracket,.reel-card[data-slot="2"] .rc-bracket-2{opacity:1}
+.rc-bracket::before{content:'';position:absolute;top:0;left:0;width:24px;height:24px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);border-radius:5px 0 0 0}
+.rc-bracket::after{content:'';position:absolute;bottom:0;right:0;width:24px;height:24px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);border-radius:0 0 5px 0}
+.rc-bracket-2::before{content:'';position:absolute;bottom:0;left:0;width:24px;height:24px;border-bottom:2px solid rgba(212,175,55,.55);border-left:2px solid rgba(212,175,55,.55);border-radius:0 0 0 5px}
+.rc-bracket-2::after{content:'';position:absolute;top:0;right:0;width:24px;height:24px;border-top:2px solid rgba(212,175,55,.55);border-right:2px solid rgba(212,175,55,.55);border-radius:0 5px 0 0}
+
+/* Floating chips */
+.h-chip{position:absolute;background:rgba(10,10,10,.9);border:1px solid var(--gg);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-radius:14px;padding:.85rem 1.2rem;z-index:14;opacity:0}
+.h-chip-a{top:12%;right:10%;animation:chipFloat 6s ease-in-out infinite,fadeUp .8s ease 3.3s forwards}
+.h-chip-b{bottom:12%;right:8%;animation:chipFloat 6s ease-in-out 1.8s infinite,fadeUp .8s ease 3.5s forwards}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.chip-val{font-family:var(--D);font-size:1.45rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:.14rem}
+.chip-lbl{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--w38)}
+.chip-stars{display:flex;gap:2px;margin-bottom:.3rem}
+.chip-stars svg{width:9px;height:9px;fill:var(--gold)}
+
+/* Cursor glow */
+#cursor-glow{position:fixed;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07) 0%,transparent 70%);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:opacity .4s;mix-blend-mode:screen}
+
+.scroll-cue{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.75rem;font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--w38);z-index:12;opacity:0;animation:fadeUp .8s ease 4.1s forwards}
+.scroll-line{width:38px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+
+/* ── STATEMENT ── */
+#statement{padding:3.5rem 0;background:var(--bg2);overflow:hidden}
+.stmt{font-family:var(--D);font-size:clamp(1.9rem,4.2vw,4.4rem);font-weight:800;line-height:1.04;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);max-width:1180px;margin:0 auto;text-align:center}
+.stmt .gold{color:var(--gold)}
+.stmt .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.stmt .dim{color:var(--w38)}
+
+/* ── BAND ── */
+#band{padding:0 0 5.5rem;background:var(--bg2)}
+.band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+
+.band-card{background:var(--glass);border:1px solid var(--gb);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .35s var(--ease)}
+.band-card:hover{border-color:var(--gg);transform:translateY(-4px)}
+
+/* location */
+.loc-eyebrow{display:flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.loc-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease infinite}
+.loc-city{font-family:var(--D);font-size:1.5rem;font-weight:800;line-height:1.1;color:var(--white);margin-bottom:1.3rem}
+.loc-city span{color:var(--gold)}
+.loc-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.52rem 1.1rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s}
+.loc-btn:hover{background:var(--gold-l);transform:translateY(-1px)}
+.loc-img{position:absolute;bottom:0;left:0;right:0;height:45%;object-fit:cover;opacity:.18;mask-image:linear-gradient(to top,black,transparent);-webkit-mask-image:linear-gradient(to top,black,transparent)}
+
+/* stats */
+.band-stats{display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+.big-num{font-family:var(--D);font-size:clamp(3.5rem,6vw,6.5rem);font-weight:800;color:var(--white);line-height:1;letter-spacing:-.04em}
+.rating-row{display:flex;gap:3px;margin-bottom:.5rem}
+.rating-row svg{width:13px;height:13px;fill:var(--gold)}
+.rating-sub{font-size:.75rem;color:var(--w38);line-height:1.5}
+
+/* quote */
+.band-quote blockquote{font-size:.93rem;line-height:1.65;color:var(--w70);border-left:2px solid var(--gold);padding-left:1.2rem;margin-bottom:1.2rem;font-style:italic}
+.bq-row{display:flex;align-items:center;gap:.75rem}
+.bq-av{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gg)}
+.bq-name{font-family:var(--D);font-size:.82rem;font-weight:700;color:var(--white)}
+.bq-role{font-size:.65rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
+
+/* ── MARQUEE ── */
+#marquee{padding:1.4rem 0;background:var(--bg);border-top:1px solid var(--gb);border-bottom:1px solid var(--gb);overflow:hidden;cursor:default}
+.mq-track{display:flex;width:max-content;animation:mq 24s linear infinite}
+#marquee:hover .mq-track{animation-play-state:paused}
+.mq-item{display:flex;align-items:center;gap:1.5rem;padding:0 3rem;border-right:1px solid var(--gb);white-space:nowrap}
+.mq-item span{font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--w38);transition:color .25s}
+.mq-item:hover span{color:var(--gold)}
+.mq-dot{width:4px;height:4px;border-radius:50%;background:rgba(212,175,55,.3)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SERVICES ── */
+#services{padding:8rem 0;background:var(--bg)}
+.svc-layout{display:grid;grid-template-columns:38% 1fr;gap:5rem;align-items:start}
+.svc-sticky{position:sticky;top:7.5rem}
+.svc-big{font-family:var(--D);font-size:clamp(2.5rem,4.5vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.035em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem}
+.svc-big .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.svc-big .gold{color:var(--gold)}
+.svc-desc{font-size:.88rem;color:var(--w38);line-height:1.78;max-width:320px;margin-bottom:2.2rem}
+.svc-list{display:flex;flex-direction:column;gap:.8rem}
+.svc-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:1.8rem 2.2rem;display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:1.5rem;cursor:pointer;transition:border-color .35s,background .35s,transform .35s var(--ease);position:relative;overflow:hidden;text-decoration:none;color:inherit}
+.svc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.04) 0%,transparent 60%);opacity:0;transition:opacity .35s}
+.svc-card:hover{border-color:var(--gg);background:rgba(255,255,255,.04);transform:translateX(6px)}
+.svc-card:hover::after{opacity:1}
+.svc-num{font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--gold);padding-top:.2rem}
+.svc-body{}
+.svc-title{font-family:var(--D);font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--white);margin-bottom:.4rem}
+.svc-copy{font-size:.84rem;color:var(--w38);line-height:1.7;margin-bottom:.9rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.svc-tag{padding:.22rem .65rem;background:var(--gold-faint);border:1px solid var(--gg);border-radius:100px;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.06em;color:var(--gold)}
+.svc-arr{font-size:1.1rem;color:var(--gold);transition:transform .3s var(--ease);align-self:center}
+.svc-card:hover .svc-arr{transform:translateX(5px)}
+
+/* ── ABOUT ── */
+#about{padding:8rem 0;background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:center}
+.about-visual{position:relative}
+.about-img-wrap{border-radius:16px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(8,8,8,.5))}
+.about-img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%) contrast(1.05);transition:transform .8s ease}
+.about-img-wrap:hover .about-img{transform:scale(1.03)}
+.about-badge{position:absolute;bottom:-1.2rem;right:-1.2rem;width:108px;height:108px;border-radius:50%;background:var(--bg3);border:1px solid var(--gg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2}
+.badge-n{font-family:var(--D);font-size:1.8rem;font-weight:800;color:var(--gold);line-height:1}
+.badge-l{font-size:.58rem;color:var(--w38);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem}
+.about-h{font-family:var(--D);font-size:clamp(1.8rem,3.2vw,3.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
+.about-h .gold{color:var(--gold)}
+.about-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.about-quote{border-left:2px solid var(--gold);padding-left:1.2rem;font-style:italic;font-size:1rem;color:var(--w70);line-height:1.6;margin-bottom:1.5rem}
+.about-body{font-size:.88rem;color:var(--w38);line-height:1.8;margin-bottom:.9rem}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:2rem}
+.skill-pill{padding:.35rem .88rem;background:var(--glass);border:1px solid var(--gb);border-radius:100px;font-family:var(--D);font-size:.7rem;font-weight:600;letter-spacing:.06em;color:var(--w70);transition:border-color .25s,color .25s}
+.skill-pill:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── PORTFOLIO ── */
+#portfolio{padding:8rem 0;background:var(--bg)}
+.port-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.8rem;gap:2rem}
+.port-title{font-family:var(--D);font-size:clamp(2rem,4vw,4.2rem);font-weight:800;letter-spacing:-.035em;text-transform:uppercase;line-height:1;color:var(--white)}
+.port-title .gold{color:var(--gold)}
+.port-title .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.port-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.pf{padding:.4rem 1rem;border-radius:6px;border:1px solid var(--gb);background:transparent;color:var(--w38);font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.pf:hover{border-color:rgba(212,175,55,.4);color:var(--white)}
+.pf.active{border-color:var(--gold);color:var(--gold);background:var(--gold-faint)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:278px;gap:.9rem}
+.port-item{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;transition:opacity .4s,transform .4s var(--ease)}
+.port-item.tall{grid-row:span 2}
+.port-item.wide{grid-column:span 2}
+.port-item.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
+.port-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s ease}
+.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.82) 0%,rgba(8,8,8,.15) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem;opacity:0;transition:opacity .35s var(--ease)}
+.port-item:hover .port-img{transform:scale(1.06)}
+.port-item:hover .port-ov{opacity:1}
+.port-play{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:.65rem;transform:scale(.8);transition:transform .35s var(--spring);align-self:flex-start}
+.port-play svg{width:18px;height:18px}
+.port-item:hover .port-play{transform:scale(1)}
+.port-item{cursor:zoom-in}
+
+/* ── LIGHTBOX HOMEPAGE ── */
+#hp-lightbox{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#hp-lightbox.open{opacity:1;pointer-events:auto}
+#hp-lightbox .lb-img-wrap{position:relative;max-width:min(1100px,92vw);max-height:88vh;display:flex;align-items:center;justify-content:center}
+#hp-lightbox .lb-img-wrap img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.8);display:block;transform:scale(.94);opacity:0;transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s cubic-bezier(.16,1,.3,1)}
+#hp-lightbox.open .lb-img-wrap img{transform:scale(1);opacity:1}
+#hp-lightbox .lb-close{position:fixed;top:1.5rem;right:1.8rem;width:44px;height:44px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s;z-index:2}
+#hp-lightbox .lb-close:hover{background:rgba(255,255,255,.18);transform:scale(1.1)}
+#hp-lightbox .lb-close svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none}
+#hp-lightbox .lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .3s;z-index:2}
+#hp-lightbox .lb-nav:hover{background:rgba(255,255,255,.18)}
+#hp-lightbox .lb-prev{left:1.5rem}
+#hp-lightbox .lb-next{right:1.5rem}
+#hp-lightbox .lb-prev:hover{transform:translateY(-50%) translateX(-3px)}
+#hp-lightbox .lb-next:hover{transform:translateY(-50%) translateX(3px)}
+#hp-lightbox .lb-nav svg{width:20px;height:20px;stroke:#fff;stroke-width:2;fill:none}
+#hp-lightbox .lb-info{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center;z-index:2}
+#hp-lightbox .lb-title{font-family:var(--D);font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
+#hp-lightbox .lb-counter{font-family:var(--D);font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.3);margin-top:.25rem}
+.port-ttl{font-family:var(--D);font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--white)}
+
+/* ── WHY ── */
+#why{padding:8rem 0;background:var(--bg2)}
+.why-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3.5rem}
+.why-big{font-family:var(--D);font-size:clamp(2.5rem,4.5vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.035em;text-transform:uppercase;color:var(--white)}
+.why-big .gold{color:var(--gold)}
+.why-big .out{-webkit-text-stroke:1.5px rgba(240,237,230,.25);color:transparent}
+.why-sub{font-size:.9rem;color:var(--w38);line-height:1.78}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.why-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:border-color .35s,transform .35s var(--ease)}
+.why-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.04) 0%,transparent 60%);opacity:0;transition:opacity .35s}
+.why-card:hover{border-color:var(--gg);transform:translateY(-6px)}
+.why-card:hover::before{opacity:1}
+.why-num{font-family:var(--D);font-size:2.6rem;font-weight:800;color:rgba(212,175,55,.1);line-height:1;margin-bottom:1.2rem;letter-spacing:-.04em}
+.why-icon{width:42px;height:42px;border-radius:10px;border:1px solid var(--gg);background:var(--gold-faint);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:background .25s}
+.why-card:hover .why-icon{background:rgba(212,175,55,.13)}
+.why-icon svg{width:18px;height:18px;stroke:var(--gold)}
+.why-title{font-family:var(--D);font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--white);margin-bottom:.5rem}
+.why-desc{font-size:.83rem;color:var(--w38);line-height:1.74}
+
+/* ── TESTIMONIALS ── */
+#testimonials{padding:8rem 0 6rem;background:var(--bg);overflow:hidden}
+.test-h{font-family:var(--D);font-size:clamp(2rem,3.8vw,4rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin-bottom:3.5rem;line-height:1}
+.test-h .gold{color:var(--gold)}
+.test-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.track-wrap{position:relative;overflow:hidden}
+.track-wrap::before,.track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.track-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.track-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.track{display:flex;gap:1rem;padding:.5rem 0;animation:tMarquee 32s linear infinite;will-change:transform}
+.track-wrap:hover .track{animation-play-state:paused}
+@keyframes tMarquee{to{transform:translateX(calc(-50% - .5rem))}}
+.t-card{flex:0 0 360px;background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:1.8rem;backdrop-filter:blur(10px);transition:border-color .3s,transform .3s var(--ease)}
+.t-card:hover{border-color:var(--gg);transform:translateY(-4px)}
+.stars{display:flex;gap:3px;margin-bottom:.9rem}
+.star{width:12px;height:12px;fill:var(--gold)}
+.t-text{font-size:.9rem;font-style:italic;line-height:1.7;color:var(--w70);margin-bottom:1.3rem}
+.t-author{display:flex;align-items:center;gap:.75rem}
+.t-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gg)}
+.t-name{font-family:var(--D);font-size:.82rem;font-weight:700;color:var(--white)}
+.t-event{font-size:.64rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-top:.1rem}
+
+
+/* ── CTA BAND ── */
+#cta{padding:7rem 0;background:var(--bg2);position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(212,175,55,.05) 0%,transparent 65%);pointer-events:none}
+.cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.cta-h{font-family:var(--D);font-size:clamp(2rem,4vw,4.5rem);font-weight:800;line-height:.92;letter-spacing:-.035em;text-transform:uppercase;color:var(--white)}
+.cta-h .gold{color:var(--gold)}
+.cta-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+.cta-sub{font-size:.9rem;color:var(--w38);line-height:1.75;max-width:380px}
+
+/* ── CONTACT ── */
+#contact{padding:8rem 0;background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:start}
+.contact-h{font-family:var(--D);font-size:clamp(1.8rem,3vw,3.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
+.contact-h .gold{color:var(--gold)}
+.contact-body{font-size:.88rem;color:var(--w38);line-height:1.78;margin-bottom:2rem}
+.c-items{display:flex;flex-direction:column;gap:1.2rem}
+.c-item{display:flex;gap:.9rem;align-items:flex-start}
+.c-icon{width:36px;height:36px;border-radius:8px;border:1px solid var(--gg);background:var(--gold-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon svg{width:15px;height:15px;stroke:var(--gold)}
+.c-label{font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--w38)}
+.c-val{font-size:.88rem;color:var(--white);font-weight:500;margin-top:.1rem}
+.c-form{background:var(--glass);border:1px solid var(--gb);border-radius:20px;padding:2.5rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.f-group{display:flex;flex-direction:column;gap:.38rem;margin-bottom:.85rem}
+.f-group label{font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--w38)}
+.f-group input,.f-group textarea,.f-group select{background:rgba(255,255,255,.03);border:1px solid var(--gb);border-radius:8px;padding:.76rem 1rem;font-family:var(--B);font-size:.88rem;color:var(--white);outline:none;width:100%;transition:border-color .25s;-webkit-appearance:none}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(240,237,230,.18)}
+.f-group input:focus,.f-group textarea:focus,.f-group select:focus{border-color:var(--gold)}
+.f-group select option{background:var(--bg3)}
+.f-group textarea{resize:none;height:120px}
+.f-submit{width:100%;padding:.95rem 2rem;background:var(--gold);color:#080808;border:none;border-radius:8px;font-family:var(--D);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s,box-shadow .3s,transform .2s var(--spring)}
+.f-submit:hover{background:var(--gold-l);box-shadow:0 8px 28px rgba(212,175,55,.28);transform:translateY(-2px)}
+.f-submit:active{transform:scale(.98)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
+.foot-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;border-bottom:1px solid var(--gb);margin-bottom:1.5rem;gap:2rem;flex-wrap:wrap}
+.foot-logo{height:28px}
+.foot-tag{font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--w38);margin-top:.35rem}
+.foot-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
+.foot-links a{font-family:var(--D);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-socials{display:flex;gap:.55rem}
+.soc{width:32px;height:32px;border-radius:8px;border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .25s,background .25s}
+.soc:hover{border-color:var(--gold);background:rgba(212,175,55,.08)}
+.soc svg{width:13px;height:13px;fill:var(--w38);transition:fill .25s}
+.soc:hover svg{fill:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.foot-copy{font-size:.7rem;color:rgba(240,237,230,.2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .hero-top{padding:0 2rem 1.5rem}
+  .hero-h1{font-size:clamp(2.8rem,7vw,5rem)}
+  .hero-bottom{min-height:320px}
+  .reel-card[data-slot="0"],.reel-card[data-slot="4"]{opacity:.15}
+  .h-chip-a,.h-chip-b,.scroll-cue{display:none}
+  .svc-layout{grid-template-columns:1fr}
+  .svc-sticky{position:static}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .why-top{grid-template-columns:1fr;gap:2rem}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr;gap:2.5rem}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .band-grid{grid-template-columns:1fr 1fr}
+  .port-grid{grid-template-columns:1fr 1fr;grid-auto-rows:240px}
+  .port-item.tall{grid-row:span 1}
+  .port-item.wide{grid-column:span 1}
+  .nav-links{display:none}
+  .nav-pill{display:none}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .hamburger{display:flex}
+  .hero-top{padding:0 1.2rem 1.2rem}
+  .hero-h1{font-size:clamp(2.2rem,9vw,3.5rem)}
+  .band-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr;grid-auto-rows:280px}
+  .port-item.tall,.port-item.wide{grid-column:span 1;grid-row:span 1}
+  .t-card{flex:0 0 300px}
+  .f-row{grid-template-columns:1fr}
+  .foot-top{flex-direction:column;align-items:flex-start}
+  .container{padding:0 1.25rem}
+}
+
+/* ── WHATSAPP FLOAT ── */
+#wa-btn{position:fixed;bottom:2rem;right:2rem;z-index:9990;opacity:0;transform:translateY(20px) scale(.9);transition:opacity .5s var(--ease),transform .5s var(--spring);pointer-events:none}
+#wa-btn.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+#wa-btn a{display:flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;border-radius:50px;padding:.72rem 1.25rem .72rem .9rem;text-decoration:none;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 32px rgba(37,211,102,.38),0 0 0 1px rgba(37,211,102,.2);transition:background .25s,box-shadow .25s,transform .2s var(--spring)}
+#wa-btn a:hover{background:#1ebe58;box-shadow:0 12px 44px rgba(37,211,102,.5);transform:translateY(-3px) scale(1.03)}
+#wa-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.wa-ring{position:absolute;inset:-6px;border-radius:50px;border:2px solid rgba(37,211,102,.35);animation:waRing 2.4s ease-out infinite;pointer-events:none}
+.wa-ring:nth-child(2){animation-delay:.8s}
+@keyframes waRing{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.22)}}
+
+
+/* ── SCROLL PROGRESS BAR ── */
+#scroll-prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold));z-index:10000;pointer-events:none;transition:width .08s linear}
+
+/* ── PROCESS SECTION ── */
+#process{padding:8rem 0;background:var(--bg3)}
+.proc-header{text-align:center;margin-bottom:4.5rem}
+.proc-h{font-family:var(--D);font-size:clamp(2rem,4vw,4rem);font-weight:800;letter-spacing:-.035em;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:.5rem}
+.proc-h .gold{color:var(--gold)}
+.proc-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.proc-sub{font-size:.88rem;color:var(--w38);max-width:480px;margin:0 auto;line-height:1.7}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.proc-connector{position:absolute;top:2rem;left:calc(12.5% + 32px);right:calc(12.5% + 32px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold),transparent);opacity:.18;z-index:0;pointer-events:none}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1.5rem;position:relative;z-index:1}
+.proc-circle{width:64px;height:64px;border-radius:50%;border:1px solid var(--gg);background:var(--gold-faint);display:flex;align-items:center;justify-content:center;margin-bottom:1.6rem;position:relative;transition:background .4s,border-color .4s,box-shadow .4s}
+.proc-step.reveal.on .proc-circle{background:rgba(212,175,55,.15);border-color:var(--gold);box-shadow:0 0 28px rgba(212,175,55,.22)}
+.proc-circle svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.proc-num{position:absolute;top:-5px;right:-5px;width:22px;height:22px;border-radius:50%;background:var(--bg3);border:1px solid var(--gold);font-family:var(--D);font-size:.48rem;font-weight:700;color:var(--gold);display:flex;align-items:center;justify-content:center;letter-spacing:.04em}
+.proc-step-title{font-family:var(--D);font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--white);margin-bottom:.5rem}
+.proc-step-desc{font-size:.8rem;color:var(--w38);line-height:1.72}
+@media(max-width:900px){
+  .proc-steps{grid-template-columns:1fr 1fr;gap:3rem}
+  .proc-connector{display:none}
+}
+@media(max-width:500px){
+  .proc-steps{grid-template-columns:1fr;gap:2rem}
+}
+
+/* ── FAQ SECTION ── */
+#faq{padding:8rem 0;background:var(--bg)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.45fr;gap:6rem;align-items:start}
+.faq-left-h{font-family:var(--D);font-size:clamp(1.8rem,3.2vw,3.4rem);font-weight:800;line-height:.92;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
+.faq-left-h .gold{color:var(--gold)}
+.faq-left-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.faq-left-p{font-size:.88rem;color:var(--w38);line-height:1.78;margin-bottom:2rem}
+.faq-cta-link{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .25s var(--ease)}
+.faq-cta-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .25s var(--ease)}
+.faq-cta-link:hover{gap:.7rem}
+.faq-cta-link:hover svg{transform:translateX(4px)}
+.faq-list{display:flex;flex-direction:column;gap:.5rem}
+.faq-item{border:1px solid var(--gb);border-radius:14px;overflow:hidden;background:var(--glass);transition:border-color .3s}
+.faq-item.open{border-color:var(--gg)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.15rem 1.4rem;background:none;border:none;cursor:pointer;gap:1rem;text-align:left}
+.faq-q-txt{font-family:var(--D);font-size:.85rem;font-weight:700;letter-spacing:.02em;color:var(--white);line-height:1.4}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .3s,background .3s,transform .35s var(--ease)}
+.faq-item.open .faq-icon{border-color:var(--gold);background:var(--gold-faint);transform:rotate(45deg)}
+.faq-icon svg{width:11px;height:11px;stroke:var(--w38);fill:none;stroke-width:2.5;transition:stroke .3s}
+.faq-item.open .faq-icon svg{stroke:var(--gold)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-ans{max-height:400px}
+.faq-ans-inner{padding:.2rem 1.4rem 1.2rem;font-size:.83rem;color:var(--w70);line-height:1.78}
+@media(max-width:900px){
+  .faq-layout{grid-template-columns:1fr;gap:3rem}
+}
+
+/* ── AVAILABLE DATES BADGE ── */
+.avail-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border:1px solid rgba(34,197,94,.3);border-radius:100px;background:rgba(34,197,94,.06);font-family:var(--D);font-size:.64rem;font-weight:700;letter-spacing:.14em;color:rgba(34,197,94,.85);margin-bottom:1.2rem}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);animation:blink 1.8s ease infinite;flex-shrink:0}
+
+/* ── TILT CARD ── */
+.tilt{transform-style:preserve-3d;will-change:transform}
+
+/* ── FOOT LEGAL LINKS ── */
+.foot-legal{display:flex;gap:1.5rem;align-items:center}
+.foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
+.foot-legal-link:hover{color:var(--gold,#D4AF37)}
+
+/* ── ACCÈS DIRECT : supprime les délais du hero ── */
+body.direct-nav .hero-pill,
+body.direct-nav .hero-h1 .word span,
+body.direct-nav .hero-sub,
+body.direct-nav .hero-btns,
+body.direct-nav .hero-metrics,
+body.direct-nav .h-chip-a,
+body.direct-nav .h-chip-b,
+body.direct-nav .scroll-cue{animation-delay:0s!important;animation-duration:.4s!important}
+
+/* ── CINEMATIC INTRO ── */
+.i-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.04) 1px,transparent 1px);background-size:64px 64px;opacity:0;animation:iFadeIn .8s ease .1s forwards}
+.i-scan{position:absolute;left:0;right:0;height:1px;top:0;background:linear-gradient(90deg,transparent,rgba(212,175,55,.7) 40%,#fff 50%,rgba(212,175,55,.7) 60%,transparent);box-shadow:0 0 18px rgba(212,175,55,.5);animation:iScanDown 1.3s cubic-bezier(.4,0,.6,1) .15s forwards}
+@keyframes iScanDown{from{top:0}to{top:100%}}
+.ic{position:absolute;width:30px;height:30px;border-color:rgba(212,175,55,.65);border-style:solid;opacity:0;animation:iFadeIn .4s ease .9s forwards}
+.ic.tl{top:2rem;left:2rem;border-width:1px 0 0 1px}.ic.tr{top:2rem;right:2rem;border-width:1px 1px 0 0}
+.ic.bl{bottom:2rem;left:2rem;border-width:0 0 1px 1px}.ic.br{bottom:2rem;right:2rem;border-width:0 1px 1px 0}
+.i-data{position:absolute;font-family:monospace;font-size:.48rem;color:rgba(212,175,55,.3);letter-spacing:.08em;line-height:2;text-transform:uppercase;opacity:0;animation:iFadeIn .5s ease 1.1s forwards}
+.i-data.tl{top:3.2rem;left:2.7rem;text-align:left}.i-data.br{bottom:3.2rem;right:2.7rem;text-align:right}
+.i-rec{position:absolute;top:2.4rem;right:3rem;display:flex;align-items:center;gap:.4rem;font-family:monospace;font-size:.5rem;letter-spacing:.15em;color:rgba(255,255,255,.25);opacity:0;animation:iFadeIn .4s ease .9s forwards}
+.i-rec-dot{width:5px;height:5px;border-radius:50%;background:#e44;animation:iRecBlink 1s ease-in-out .9s infinite}
+@keyframes iRecBlink{0%,100%{opacity:1}50%{opacity:.15}}
+.i-center{display:flex;flex-direction:column;align-items:center;gap:1rem;position:relative;z-index:2}
+.i-logo{width:min(200px,44vw);opacity:0;animation:iLogoIn .9s cubic-bezier(.16,1,.3,1) 1s forwards}
+@keyframes iLogoIn{0%{opacity:0;transform:translateY(10px) scale(.92);filter:drop-shadow(0 0 0 rgba(212,175,55,0))}60%{filter:drop-shadow(0 0 40px rgba(212,175,55,.55))}100%{opacity:1;transform:translateY(0) scale(1);filter:drop-shadow(0 0 24px rgba(212,175,55,.3))}}
+.i-tagline{font-family:'Syne',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:rgba(212,175,55,.65);opacity:0;animation:iFadeIn .6s ease 1.7s forwards}
+.i-skip{position:absolute;bottom:3.5rem;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-size:.48rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,.18);opacity:0;animation:iFadeIn .5s ease 2s forwards}
+.i-bar-wrap{position:absolute;bottom:2.8rem;left:50%;transform:translateX(-50%);width:min(180px,36vw)}
+.i-bar-track{height:1px;background:rgba(212,175,55,.12);overflow:hidden}
+.i-bar-fill{height:100%;width:0;background:linear-gradient(90deg,rgba(212,175,55,.5),var(--gold));animation:iBarFill 2.6s ease .4s forwards}
+@keyframes iBarFill{to{width:100%}}
+.i-bar-label{font-family:'Syne',sans-serif;font-size:.44rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,55,.28);text-align:right;margin-top:.4rem;opacity:0;animation:iFadeIn .4s ease .5s forwards}
+.i-flare{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07) 0%,transparent 65%);opacity:0;animation:iFlare 2s ease 1.2s forwards;pointer-events:none}
+@keyframes iFlare{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}
+@keyframes iFadeIn{from{opacity:0}to{opacity:1}}
+#icanvas{position:fixed;inset:0;z-index:9001;pointer-events:none}
+
+/* ── SELECTION OVERLAY ── */
+#select{position:fixed;inset:0;z-index:8000;opacity:0;pointer-events:none;transition:opacity .9s cubic-bezier(.16,1,.3,1)}
+#select.show{opacity:1;pointer-events:auto}
+.sel-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.sel-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.sel-logo img{height:36px;filter:drop-shadow(0 0 6px rgba(212,175,55,.3))}
+.sel-logo-name{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.sel-skip{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.75);background:none;border:1px solid rgba(212,175,55,.3);cursor:pointer;padding:.55rem 1.3rem;border-radius:6px;transition:color .3s,border-color .3s,background .3s,box-shadow .3s;display:inline-flex;align-items:center;gap:.5rem}
+.sel-skip::after{content:'→';display:inline-block;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.sel-skip:hover{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.08);box-shadow:0 0 22px rgba(212,175,55,.18)}
+.sel-skip:hover::after{transform:translateX(5px)}
+.panels{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr}
+.panel{position:relative;overflow:hidden;cursor:pointer;display:block;text-decoration:none}
+.panel-slides{position:absolute;inset:0;z-index:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.72) saturate(.95);opacity:0;transition:opacity .7s ease,filter .7s ease,transform 8s linear;transform:scale(1.06)}
+.slide.active{opacity:1}
+.panel:hover .slide.active{filter:brightness(.85) saturate(1.05);transform:scale(1)}
+.panel-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(3,3,3,.88) 0%,rgba(3,3,3,.15) 50%,rgba(3,3,3,.02) 100%);transition:background .5s}
+.panel:hover .panel-overlay{background:linear-gradient(to top,rgba(3,3,3,.82) 0%,rgba(3,3,3,.06) 45%,transparent 100%)}
+.panel-scan{position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.008) 3px,rgba(255,255,255,.008) 4px)}
+.panel:not(:last-child)::after{content:'';position:absolute;top:8%;bottom:8%;right:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,175,55,.2),transparent);z-index:3}
+.corners{position:absolute;inset:2rem;pointer-events:none;z-index:4;opacity:0;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
+.panel:hover .corners{opacity:1}
+.corner{position:absolute;width:24px;height:24px;border-color:var(--gold);border-style:solid;transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1)}
+.corner-tl{top:0;left:0;border-width:2px 0 0 2px}.corner-tr{top:0;right:0;border-width:2px 2px 0 0}
+.corner-bl{bottom:0;left:0;border-width:0 0 2px 2px}.corner-br{bottom:0;right:0;border-width:0 2px 2px 0}
+.panel:hover .corner{width:34px;height:34px}
+.panel-dots{position:absolute;bottom:6.5rem;left:2.8rem;z-index:5;display:flex;gap:.4rem;opacity:0;transition:opacity .4s cubic-bezier(.16,1,.3,1) .1s}
+.panel:hover .panel-dots{opacity:1}
+.pdot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .3s,transform .3s}
+.pdot.on{background:var(--gold);transform:scale(1.4)}
+.panel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;text-align:center;pointer-events:none;transition:opacity .4s,transform .4s cubic-bezier(.16,1,.3,1)}
+.panel:hover .panel-center{opacity:0;transform:translate(-50%,-60%)}
+.panel-center-title{font-family:'Syne',sans-serif;font-size:clamp(1.2rem,2vw,1.7rem);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.82);white-space:nowrap;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.panel-center-line{width:28px;height:1px;background:rgba(212,175,55,.45);margin:.6rem auto 0}
+.panel-inner{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem 2.8rem}
+.panel-num{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.3em;color:var(--gold);opacity:.6;margin-bottom:.9rem}
+.panel-title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;line-height:1.1;color:var(--white);transform:translateY(10px);transition:transform .6s cubic-bezier(.16,1,.3,1),color .4s}
+.panel:hover .panel-title{transform:translateY(0);color:#fff}
+.panel-desc{font-size:.8rem;line-height:1.65;color:rgba(245,240,232,.5);margin-top:.6rem;max-width:260px;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.16,1,.3,1),opacity .5s cubic-bezier(.16,1,.3,1)}
+.panel:hover .panel-desc{max-height:80px;opacity:1}
+.panel-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;transform:translateY(8px);opacity:0;transition:transform .55s cubic-bezier(.16,1,.3,1) .07s,opacity .45s cubic-bezier(.16,1,.3,1) .07s}
+.panel:hover .panel-tags{transform:translateY(0);opacity:1}
+.panel-tag{font-family:'Syne',sans-serif;font-size:.57rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid rgba(212,175,55,.3);color:rgba(212,175,55,.75);border-radius:3px}
+.panel-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(8px);transition:opacity .5s cubic-bezier(.16,1,.3,1) .1s,transform .5s cubic-bezier(.16,1,.3,1) .1s,gap .3s}
+.panel:hover .panel-cta{opacity:1;transform:translateY(0)}
+.panel-cta:hover{gap:1rem}
+.panel-cta svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.sel-bottom{position:absolute;bottom:0;left:0;right:0;z-index:20;padding:1.3rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.sel-hint{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,.2);animation:selPulse 3s ease-in-out infinite}
+@keyframes selPulse{0%,100%{opacity:.2}50%{opacity:.5}}
+.sel-contact{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,175,55,.5);text-decoration:none;transition:color .3s}
+.sel-contact:hover{color:var(--gold)}
+.hud-dot{position:fixed;z-index:8001;width:4px;height:4px;border-radius:50%;background:var(--gold);animation:hdot 4s ease-in-out infinite}
+.hud-dot:nth-child(1){top:1.6rem;left:50%;margin-left:-2px;animation-delay:0s}
+.hud-dot:nth-child(2){bottom:1.6rem;left:50%;margin-left:-2px;animation-delay:1.3s}
+.hud-dot:nth-child(3){top:50%;left:1.8rem;margin-top:-2px;animation-delay:.6s}
+.hud-dot:nth-child(4){top:50%;right:1.8rem;margin-top:-2px;animation-delay:2s}
+@keyframes hdot{0%,100%{opacity:.12}50%{opacity:.45}}
+@media(max-width:768px){
+  .panels{grid-template-columns:1fr;grid-template-rows:33.33vh 33.33vh 33.33vh;position:relative;height:100vh}
+  .panel-desc{max-height:80px!important;opacity:1!important}
+  .panel-tags,.panel-cta{opacity:1!important;transform:none!important}
+  .panel-title{transform:none!important}
+  .panel-center{display:none}
+  .sel-header{padding:1.2rem 1.5rem}
+  .panel-inner{padding:1.5rem 1.8rem}
+  .sel-bottom{padding:1rem 1.5rem}
+}
+</style>
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CLAE Agency",
+  "description": "Studio de production vidéo et photo cinématique à Paris. Spécialisé en films de mariage, couverture d'événements et création de contenu.",
+  "url": "https://claeagency.com",
+  "logo": "https://claeagency.com/Logo-removebg-preview.png",
+  "image": "https://claeagency.com/Logo-removebg-preview.png",
+  "telephone": "",
+  "email": "hello@claeagency.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "48.8566",
+    "longitude": "2.3522"
+  },
+  "areaServed": ["Paris", "Île-de-France", "France", "International"],
+  "priceRange": "€€€",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "19:00"
+  },
+  "sameAs": [
+    "https://www.instagram.com/claeagency"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Prestations CLAE Agency",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Film de Mariage Cinématique",
+        "description": "Films de mariage cinématiques — cérémonie, réception, montage same-day, film résumé.",
+        "url": "https://claeagency.com/mariage.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "Couverture Événement",
+        "description": "Vidéo d'événements professionnels — galas, corporate, activations de marque.",
+        "url": "https://claeagency.com/evenement.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "Création de Contenu",
+        "description": "Films de marque, Reels et contenu éditorial pour les réseaux sociaux.",
+        "url": "https://claeagency.com/contenu.html"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="scroll-prog"></div>
+<div id="grain"></div>
+<!-- ═══ SÉLECTION PRESTATION ═══ -->
+<div id="select">
+  <div class="hud-dot"></div><div class="hud-dot"></div>
+  <div class="hud-dot"></div><div class="hud-dot"></div>
+
+  <div class="sel-header">
+    <a href="#" class="sel-logo">
+      <img src="Logo-removebg-preview.png" alt="CLAE Agency">
+      <span class="sel-logo-name">CLAE Agency</span>
+    </a>
+    <button class="sel-skip" onclick="dismissSelect()">Accueil complet</button>
+  </div>
+
+  <div class="panels">
+    <!-- MARIAGE -->
+    <a href="mariage.html" class="panel" data-panel="0">
+      <div class="panel-slides">
+        <div class="slide active" style="background-image:url('photos/EVENTS/mariage-libre.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/mariage-1.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/portrait-1.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/portrait-2.jpg')"></div>
+      </div>
+      <div class="panel-overlay"></div><div class="panel-scan"></div>
+      <div class="corners">
+        <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+      </div>
+      <div class="panel-dots"><span class="pdot on"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span></div>
+      <div class="panel-center"><div class="panel-center-title">Mariage</div><div class="panel-center-line"></div></div>
+      <div class="panel-inner">
+        <div class="panel-num">01 / 03</div>
+        <div class="panel-title">Mariage<br>Immortalisé</div>
+        <div class="panel-desc">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard.</div>
+        <div class="panel-tags"><span class="panel-tag">Cérémonie</span><span class="panel-tag">Réception</span><span class="panel-tag">Film Résumé</span></div>
+        <span class="panel-cta">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+    <!-- ÉVÉNEMENT -->
+    <a href="evenement.html" class="panel" data-panel="1">
+      <div class="panel-slides">
+        <div class="slide active" style="background-image:url('photos/EVENTS/echo-main.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/echo-crowd.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/echo-3.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/eglise-1.jpg')"></div>
+      </div>
+      <div class="panel-overlay"></div><div class="panel-scan"></div>
+      <div class="corners">
+        <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+      </div>
+      <div class="panel-dots"><span class="pdot on"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span></div>
+      <div class="panel-center"><div class="panel-center-title">Événement</div><div class="panel-center-line"></div></div>
+      <div class="panel-inner">
+        <div class="panel-num">02 / 03</div>
+        <div class="panel-title">Production<br>Événement</div>
+        <div class="panel-desc">Galas d'entreprise, activations de marque et célébrations captés avec la même précision cinématique.</div>
+        <div class="panel-tags"><span class="panel-tag">Corporate</span><span class="panel-tag">Gala</span><span class="panel-tag">Multi-Caméra</span></div>
+        <span class="panel-cta">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+    <!-- CONTENU -->
+    <a href="contenu.html" class="panel" data-panel="2">
+      <div class="panel-slides">
+        <div class="slide active" style="background-image:url('photos/EVENTS/contenu-libre.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/contenu-1.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/contenu-2.jpg')"></div>
+        <div class="slide" style="background-image:url('photos/EVENTS/shooting-1.jpg')"></div>
+      </div>
+      <div class="panel-overlay"></div><div class="panel-scan"></div>
+      <div class="corners">
+        <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+      </div>
+      <div class="panel-dots"><span class="pdot on"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span></div>
+      <div class="panel-center"><div class="panel-center-title">Contenu</div><div class="panel-center-line"></div></div>
+      <div class="panel-inner">
+        <div class="panel-num">03 / 03</div>
+        <div class="panel-title">Création de<br>Contenu</div>
+        <div class="panel-desc">Films de marque, Reels et visuels éditoriaux pensés pour stopper le scroll et convertir durablement.</div>
+        <div class="panel-tags"><span class="panel-tag">Film de Marque</span><span class="panel-tag">Reels</span><span class="panel-tag">Éditorial</span></div>
+        <span class="panel-cta">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="sel-bottom">
+    <span class="sel-hint">Survolez pour explorer</span>
+    <a href="contact.html" class="sel-contact">Prendre contact →</a>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-grid"></div>
+  <div class="intro-scan"></div>
+  <div class="intro-corner tl"></div>
+  <div class="intro-corner tr"></div>
+  <div class="intro-corner bl"></div>
+  <div class="intro-corner br"></div>
+  <div class="intro-data tl">CLAE AGENCY<br>PARIS · FR<br>48°51'N · 2°21'E</div>
+  <div class="intro-data br">INIT SEQUENCE<br>CINEMATIC SYSTEMS<br>V2.0 · 2026</div>
+  <div class="intro-center">
+    <img src="Logo-removebg-preview.png" alt="CLAE Agency" class="intro-logo">
+    <div class="intro-tagline">Studio Cinématique</div>
+  </div>
+  <div class="intro-bar-wrap">
+    <div class="intro-bar-track"><div class="intro-bar-fill"></div></div>
+    <div class="intro-bar-label">Chargement Système</div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mob">
+  <a href="#hero"      onclick="closeMob()">Accueil</a>
+  <a href="services.html" onclick="closeMob()" class="mob-section-title">Services</a>
+  <a href="mariage.html" onclick="closeMob()" class="mob-sub-link">↳ Mariage Immortalisé</a>
+  <a href="evenement.html" onclick="closeMob()" class="mob-sub-link">↳ Production Événement</a>
+  <a href="contenu.html" onclick="closeMob()" class="mob-sub-link">↳ Création de Contenu</a>
+  <a href="about.html" onclick="closeMob()">À Propos</a>
+  <a href="portfolio.html" onclick="closeMob()">Portfolio</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-brand">
+    <img src="Logo-removebg-preview.png" alt="CLAE Agency" class="nav-logo">
+    <span class="nav-brand-name">CLAE Agency</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Accueil</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html" class="nav-drop-trigger">Services
+        <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-drop-menu">
+        <div class="ndm-cards">
+          <a href="mariage.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 14 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 13-9 13z"/></svg></div>
+            <div>
+              <div class="ndm-title">Mariage Immortalisé</div>
+              <div class="ndm-desc">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard.</div>
+              <div class="ndm-tags">Cérémonie · Réception · Montage Same-Day · Film Résumé</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="evenement.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+            <div>
+              <div class="ndm-title">Production Événement</div>
+              <div class="ndm-desc">Galas d'entreprise, activations de marque et célébrations captés avec la même précision cinématique.</div>
+              <div class="ndm-tags">Corporate · Gala · Événement Live · Multi-Caméra</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="contenu.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+            <div>
+              <div class="ndm-title">Création de Contenu</div>
+              <div class="ndm-desc">Films de marque, Reels et visuels éditoriaux pensés pour stopper le scroll et convertir durablement.</div>
+              <div class="ndm-tags">Film de Marque · Éditorial · Reels · Lookbook</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <div class="ndm-footer">
+          <a href="services.html" class="ndm-all">Voir tous les services
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li><a href="about.html">À Propos</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.9rem">
+    <a href="contact.html" class="nav-pill">Réserver</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Cursor glow -->
+<div id="cursor-glow"></div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <!-- Ambient orbs -->
+  <div class="h-orb h-orb-1"></div>
+  <div class="h-orb h-orb-2"></div>
+  <div class="h-orb h-orb-3"></div>
+  <!-- Scanline texture -->
+  <div class="h-scanlines"></div>
+
+  <!-- TOP ─────────────────────────────── -->
+  <div class="hero-top">
+    <div class="hero-pill">
+      Studio Cinématique · Paris
+    </div>
+
+    <h1 class="hero-h1">
+      <div class="word"><span>VOTRE</span></div>
+      <div class="word"><span><span class="gold">HISTOIRE.</span></span></div>
+      <div class="word"><span><span class="out">FILMÉE.</span></span></div>
+    </h1>
+
+    <p class="hero-sub">Nous créons des films cinématiques pour les mariages, événements et marques — conçus pour transcender l'instant et émouvoir pour des décennies.</p>
+
+    <div class="hero-btns">
+      <a href="portfolio.html" class="btn-primary">
+        Voir Nos Créations
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html" class="btn-secondary">Démarrer un Projet</a>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="metric-item">
+        <div class="metric-n">147+</div>
+        <div class="metric-l">Films Créés</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-n">6 Ans</div>
+        <div class="metric-l">D'Expérience</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-n">98%</div>
+        <div class="metric-l">Satisfaction</div>
+      </div>
+    </div>
+
+    <!-- Social links -->
+    <div class="hero-socials">
+      <span class="hs-label">Suivre</span>
+      <div class="hs-links">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-6.9a8.26 8.26 0 0 0 4.83 1.56V6.5a4.86 4.86 0 0 1-1.06-.19z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM — Fan carousel ────────────────── -->
+  <div class="hero-bottom" id="hero-right">
+    <div class="vf-reel" id="vf-reel">
+
+      <!-- Card 0 — far left (slot 0) -->
+      <div class="reel-card" data-slot="0">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/contenu-tournage.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">CONTENU</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+      <!-- Card 1 — near left (slot 1) -->
+      <div class="reel-card" data-slot="1">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/echo-band.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">CONTENU</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+      <!-- Card 2 — CENTER (slot 2) -->
+      <div class="reel-card" data-slot="2">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/mariage-premium.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">MARIAGE</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+      <!-- Card 3 — near right (slot 3) -->
+      <div class="reel-card" data-slot="3">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/echo-main.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">ÉVÉNEMENT</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+      <!-- Card 4 — far right (slot 4) -->
+      <div class="reel-card" data-slot="4">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/echo-infini.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">ÉVÉNEMENT</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+      <!-- Card 5 — hidden right (slot 5) -->
+      <div class="reel-card" data-slot="5">
+        <div class="rc-glow"></div>
+        <div class="rc-rings"><div class="rc-ring"></div><div class="rc-ring"></div><div class="rc-ring"></div></div>
+        <div class="rc-float">
+          <div class="rc-frame">
+            <img class="rc-img" src="photos/EVENTS/echo-crowd2.jpg" alt="" loading="lazy">
+            <div class="rc-overlay"></div><div class="rc-scanlines"></div><div class="rc-grade"></div><div class="rc-sweep"></div>
+          </div>
+          <div class="rc-hud">
+            <div class="rc-rec"><div class="rc-rec-dot"></div><span class="rc-rec-lbl">REC</span></div>
+            <div class="rc-timecode">00:00:00:00</div>
+            <div class="rc-meta"><div><div class="rc-cat">MARIAGE</div><div class="rc-loc">PARIS, 2026</div></div><div class="rc-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+          </div>
+          <div class="rc-bracket"></div><div class="rc-bracket-2"></div>
+        </div>
+      </div>
+
+    </div><!-- /vf-reel -->
+
+    <!-- Floating stat chips -->
+    <div class="h-chip h-chip-a">
+      <div class="chip-val">147+</div>
+      <div class="chip-lbl">Films Produits</div>
+    </div>
+    <div class="h-chip h-chip-b">
+      <div class="chip-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="chip-val">98%</div>
+      <div class="chip-lbl">Satisfaction</div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ═══════════════════════ STATEMENT ═══════════════════════ -->
+<section id="statement">
+  <div class="container">
+    <p class="stmt reveal">
+      Nous <span class="gold">créons</span> et livrons des <span class="out">histoires</span><br>
+      cinématiques qui <span class="gold">transcendent</span><br>
+      <span class="dim">l'instant.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ BAND ═══════════════════════ -->
+<section id="band">
+  <div class="container">
+    <div class="band-grid">
+      <!-- Location -->
+      <div class="band-card reveal d1">
+        <div class="loc-eyebrow">Disponible pour projets mondiaux</div>
+        <div class="loc-city">Basé à<br><span>Paris, France</span></div>
+        <a href="#contact" class="loc-btn">
+          Démarrer un Projet
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="band-card band-stats reveal d2">
+        <div>
+          <div class="rating-row">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="big-num">147+</div>
+        </div>
+        <div class="rating-sub">Films produits — mariages,<br>événements &amp; contenu de marque</div>
+      </div>
+
+      <!-- Quote -->
+      <div class="band-card band-quote reveal d3">
+        <blockquote>"Un bon film paraît évident — parce que le travail acharné est invisible. C'est le standard CLAE."</blockquote>
+        <div class="bq-row">
+          <svg class="bq-av" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#D4AF37">IM</text></svg>
+          <div>
+            <div class="bq-name">Isabelle &amp; Marc-A.</div>
+            <div class="bq-role">Client Mariage — 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MARQUEE ═══════════════════════ -->
+<div id="marquee">
+  <div class="mq-track">
+    <!-- First set -->
+    <div class="mq-item"><div class="mq-dot"></div><span>4KZ.S8</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Bazar Club</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Daphnée</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Daphnée</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Lena</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Lou &amp; Shanna</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Gianni</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Amah</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>PvtLulu</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Fedia</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Mary</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Shonna</span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="mq-item"><div class="mq-dot"></div><span>4KZ.S8</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Bazar Club</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Daphnée</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Daphnée</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Lena</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Lou &amp; Shanna</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Gianni</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Amah</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>PvtLulu</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Fedia</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Mary</span></div>
+    <div class="mq-item"><div class="mq-dot"></div><span>Shonna</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-sticky">
+        <div class="reveal">
+          <span class="eyebrow">Ce que nous faisons</span>
+          <div class="svc-big">
+            DE LA<br>
+            <span class="gold">VISION</span><br>
+            <span class="out">AU</span><br>
+            FILM
+          </div>
+          <p class="svc-desc">Du concept à la livraison finale — une vision cinématique appliquée à chaque projet que nous touchons, chaque histoire que nous racontons.</p>
+          <a href="contact.html" class="btn-primary">Obtenir un Devis
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="svc-list">
+        <a href="mariage.html" class="svc-card reveal d1">
+          <div class="svc-num">01</div>
+          <div class="svc-body">
+            <div class="svc-title">Mariage Immortalisé</div>
+            <p class="svc-copy">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard. Chaque plan intentionnel, chaque émotion réelle.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Cérémonie</span>
+              <span class="svc-tag">Réception</span>
+              <span class="svc-tag">Montage Same-Day</span>
+              <span class="svc-tag">Film Résumé</span>
+            </div>
+          </div>
+          <div class="svc-arr">→</div>
+        </a>
+
+        <a href="evenement.html" class="svc-card reveal d2">
+          <div class="svc-num">02</div>
+          <div class="svc-body">
+            <div class="svc-title">Production Événement</div>
+            <p class="svc-copy">Galas d'entreprise, célébrations, activations de marque — capturés avec la même précision cinématique. L'énergie mise en bouteille dans un film.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Corporate</span>
+              <span class="svc-tag">Gala</span>
+              <span class="svc-tag">Événement Live</span>
+              <span class="svc-tag">Multi-Caméra</span>
+            </div>
+          </div>
+          <div class="svc-arr">→</div>
+        </a>
+
+        <a href="contenu.html" class="svc-card reveal d3">
+          <div class="svc-num">03</div>
+          <div class="svc-body">
+            <div class="svc-title">Création de Contenu</div>
+            <p class="svc-copy">Films de marque, contenu social et visuels éditoriaux conçus pour stopper le scroll et dire ce que les mots ne peuvent pas. Fait pour l'algorithme, pensé pour durer.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Film de Marque</span>
+              <span class="svc-tag">Éditorial</span>
+              <span class="svc-tag">Reels</span>
+              <span class="svc-tag">Lookbook</span>
+            </div>
+          </div>
+          <div class="svc-arr">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROCESS ═══════════════════════ -->
+<section id="process">
+  <div class="container">
+    <div class="proc-header reveal">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2 class="proc-h">DE L'IDÉE<br><span class="gold">AU</span> <span class="out">FILM.</span></h2>
+      <p class="proc-sub">Quatre étapes pensées pour que vous n'ayez qu'une chose à faire le jour J — vivre le moment.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-connector"></div>
+      <div class="proc-step reveal d1">
+        <div class="proc-circle">
+          <span class="proc-num">01</span>
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="proc-step-title">Échange Initial</div>
+        <p class="proc-step-desc">On apprend à vous connaître — votre vision, votre histoire, vos attentes. Un appel de 20 minutes qui pose les bases de tout.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="proc-circle">
+          <span class="proc-num">02</span>
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="proc-step-title">Briefing & Contrat</div>
+        <p class="proc-step-desc">Devis personnalisé, contrat signé, date réservée. Vous recevez un guide de préparation pour maximiser chaque moment filmé.</p>
+      </div>
+      <div class="proc-step reveal d3">
+        <div class="proc-circle">
+          <span class="proc-num">03</span>
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div class="proc-step-title">Le Jour J</div>
+        <p class="proc-step-desc">Discrets, anticipatifs, présents partout à la fois. Deux caméras minimum. Vous vivez — on capture. Montage same-day disponible.</p>
+      </div>
+      <div class="proc-step reveal d4">
+        <div class="proc-circle">
+          <span class="proc-num">04</span>
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="proc-step-title">Livraison du Film</div>
+        <p class="proc-step-desc">Étalonnage sur-mesure, galerie privée en ligne, fichiers haute résolution. Votre film entre vos mains en quelques semaines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&h=750&q=80" alt="CLAE Agency filmmaker at work" class="about-img" loading="lazy">
+          <div class="about-badge">
+            <div class="badge-n">6+</div>
+            <div class="badge-l">Ans d'expérience</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="eyebrow">Qui sommes-nous</span>
+          <h2 class="about-h">DERRIÈRE<br><span class="gold">CHAQUE</span><br><span class="out">IMAGE.</span></h2>
+        </div>
+        <blockquote class="about-quote reveal d1">"Chaque histoire porte une émotion que seule cette personne peut ressentir. Notre travail est de la capturer avant qu'elle ne disparaisse."</blockquote>
+        <p class="about-body reveal d2">CLAE Agency est un studio créatif basé à Paris, fondé sur la conviction que la vidéo doit émouvoir — pas seulement documenter des moments. Nous opérons à l'intersection de l'émotion et du savoir-faire, avec l'œil d'un réalisateur pour chaque projet.</p>
+        <p class="about-body reveal d2">Du silence feutré d'un premier regard à l'énergie électrique d'une réception, nous voyons ce que les autres manquent — et nous nous assurons que ça dure pour toujours.</p>
+        <div class="skill-pills reveal d3">
+          <span class="skill-pill">Sony FX3</span>
+          <span class="skill-pill">Étalonnage</span>
+          <span class="skill-pill">Prises Aériennes</span>
+          <span class="skill-pill">Son Direct</span>
+          <span class="skill-pill">Multi-Caméra</span>
+          <span class="skill-pill">Montage Same-Day</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PORTFOLIO ═══════════════════════ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="port-head">
+      <div>
+        <span class="eyebrow reveal">Notre Travail</span>
+        <h2 class="port-title reveal d1">HISTOIRES<br><span class="gold">QUE NOUS</span> <span class="out">AVONS RACONTÉES.</span></h2>
+      </div>
+      <a href="portfolio.html" class="btn-secondary reveal">Voir Tous les Projets</a>
+    </div>
+
+    <div class="port-filters reveal">
+      <button class="pf active" data-filter="all">Tous</button>
+      <button class="pf" data-filter="wedding">Mariages</button>
+      <button class="pf" data-filter="event">Événements</button>
+      <button class="pf" data-filter="content">Contenu</button>
+    </div>
+
+    <div class="port-grid" id="port-grid">
+      <div class="port-item tall reveal" data-cat="event">
+        <img src="photos/3.MARS/Bazar%20Club/DSC04169.jpg" alt="Bazar Club — Soirée" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Bazar Club — Soirée</div></div>
+      </div>
+      <div class="port-item reveal d1" data-cat="content">
+        <img src="photos/3.MARS/4kz.s8/DSC03151.jpg" alt="4KZ.S8 — Studio Content" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">4KZ.S8 — Studio Content</div></div>
+      </div>
+      <div class="port-item reveal d2" data-cat="content">
+        <img src="photos/3.MARS/Lena/DSC04515.jpg" alt="Lena — Fashion Editorial" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Lena — Fashion Editorial</div></div>
+      </div>
+      <div class="port-item wide reveal d1" data-cat="content">
+        <img src="photos/4.AVRIL/Lou%20%26%20Shanna/DSC06947.jpg" alt="Lou & Shanna — Duo Session" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Lou &amp; Shanna — Duo Session</div></div>
+      </div>
+      <div class="port-item reveal d1" data-cat="content">
+        <img src="photos/3.MARS/Lou/DSC02388.jpg" alt="Lou — Lifestyle" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Lou — Lifestyle</div></div>
+      </div>
+      <div class="port-item reveal d2" data-cat="content">
+        <img src="photos/3.MARS/Daphn%C3%A9e/DSC01858.jpg" alt="Daphnée — Portrait" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Daphnée — Portrait</div></div>
+      </div>
+      <div class="port-item tall reveal d3" data-cat="content">
+        <img src="photos/4.AVRIL/Gianni/DSC05477.jpg" alt="Gianni — Lookbook" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Gianni — Lookbook</div></div>
+      </div>
+      <div class="port-item reveal d1" data-cat="content">
+        <img src="photos/4.AVRIL/Amah/DSC05017.jpg" alt="Amah — Brand Shoot" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Amah — Brand Shoot</div></div>
+      </div>
+      <div class="port-item reveal d2" data-cat="content">
+        <img src="photos/4.AVRIL/Aurelie/DSC05991.jpg" alt="Aurélie — Portrait Cinématique" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Aurélie — Portrait</div></div>
+      </div>
+      <div class="port-item wide reveal d1" data-cat="content">
+        <img src="photos/3.MARS/PvtLulu/DSC02794.jpg" alt="PvtLulu — Portrait" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Pvt.Lulu — Portrait</div></div>
+      </div>
+      <div class="port-item reveal d2" data-cat="content">
+        <img src="photos/4.AVRIL/Fedia/DSC06211.jpg" alt="Fedia — Fashion Film" class="port-img" loading="lazy">
+        <div class="port-ov"><div class="port-play"><svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div class="port-ttl">Fedia — Fashion Film</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHY ═══════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="why-top">
+      <div class="reveal">
+        <span class="eyebrow">Pourquoi nous</span>
+        <div class="why-big">LA<br><span class="gold">DIFFÉRENCE</span><br><span class="out">CLAE</span></div>
+      </div>
+      <p class="why-sub reveal d2">Six principes qui guident chaque plan capturé, chaque montage réalisé, et chaque histoire livrée.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+        <div class="why-num">01</div>
+        <div class="why-title">Œil de Réalisateur</div>
+        <p class="why-desc">Chaque angle, coupe et composition est intentionnel — conçu pour porter l'émotion, pas seulement enregistrer des événements.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="why-num">02</div>
+        <div class="why-title">Sony FX3 Cinéma</div>
+        <p class="why-desc">Caméra cinéma plein format, optiques premium, stabilisation DJI, drone aérien — chaque outil choisi pour l'excellence.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="why-num">03</div>
+        <div class="why-title">Personnalisé</div>
+        <p class="why-desc">Vous travaillez directement avec le réalisateur. Pas d'intermédiaires — une collaboration sincère et attentive.</p>
+      </div>
+      <div class="why-card reveal d1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="why-num">04</div>
+        <div class="why-title">Livraison Rapide</div>
+        <p class="why-desc">Montages highlights same-day disponibles. Films complets livrés en quelques semaines — parce que les souvenirs n'attendent pas.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6s4-2 11-2 11 2 11 2v12s-4-2-11-2-11 2-11 2V6z"/><line x1="1" y1="12" x2="23" y2="12"/></svg></div>
+        <div class="why-num">05</div>
+        <div class="why-title">Étalonnage</div>
+        <p class="why-desc">Chaque film reçoit un étalonnage sur-mesure qui sublime l'ambiance, la chaleur et la cohérence — les rushes transformés.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="why-num">06</div>
+        <div class="why-title">Partout dans le Monde</div>
+        <p class="why-desc">Basé à Paris — disponible partout. Europe, Caraïbes, Amérique du Nord. Votre destination est la nôtre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="reveal">
+        <span class="eyebrow">Questions Fréquentes</span>
+        <h2 class="faq-left-h">TOUT CE<br><span class="gold">QUE VOUS</span><br><span class="out">VOULEZ</span><br>SAVOIR.</h2>
+        <p class="faq-left-p">Vous avez des questions avant de vous lancer ? C'est normal. Voici les réponses à ce que tout le monde demande — et si la vôtre n'est pas là, on est à un message.</p>
+        <a href="contact.html" class="faq-cta-link">Poser une question
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="faq-list reveal d2">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Quels sont vos délais de livraison ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Le highlight same-day est prêt le soir même de votre événement. Le film résumé (3–5 min) est livré dans les 4 à 6 semaines suivant le tournage. Le film complet dans les 8 à 10 semaines. Tout est livré via une galerie privée en ligne sécurisée.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Quels sont vos tarifs ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Nos formules mariage démarrent à partir de 1 800 €. Les productions événement et les créations de contenu sont devisées sur-mesure selon le brief. Contactez-nous pour recevoir un devis personnalisé — sans engagement.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Vous déplacez-vous hors de Paris ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Oui, sans restriction. Nous intervenons partout en France, en Europe et à l'international — Caraïbes, Amérique du Nord, Afrique du Nord. Les frais de déplacement sont inclus dans le devis selon la destination.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Avez-vous un backup matériel en cas de panne ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Toujours. Nous travaillons avec un minimum de deux caméras Sony FX3 en simultané, plus du matériel de secours complet sur chaque projet. Aucune coupure, aucun compromis — votre film est trop précieux pour prendre des risques.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Peut-on choisir notre musique ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Absolument. Vous pouvez suggérer des pistes et on en discute ensemble lors du briefing. Nous utilisons des licences musicales professionnelles pour que votre film reste publiable sur tous les réseaux sociaux sans restriction de droits.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-txt">Comment réserver une date ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-ans"><div class="faq-ans-inner">Envoyez-nous un message via le formulaire de contact ou sur Instagram. On confirme la disponibilité sous 24h et une date n'est sécurisée qu'après signature du contrat et versement d'un acompte de 30 %. Nos créneaux pour 2026 se remplissent vite.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <h2 class="test-h reveal">ILS NOUS ONT<br><span class="gold">FAIT</span><br><span class="out">CONFIANCE.</span></h2>
+  </div>
+  <div class="track-wrap">
+    <div class="track" id="track">
+      <div class="t-card"><div class="stars"><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="t-text">"Quand nous avons regardé notre film de mariage pour la première fois, nous avons tous les deux pleuré. Des choses que nous avions oubliées. Des moments dans les moments. De la pure magie."</p><div class="t-author"><svg class="t-avatar" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4AF37">IM</text></svg><div><div class="t-name">Isabelle &amp; Marc-Antoine</div><div class="t-event">Mariage — Domaine de la Roche, 2024</div></div></div></div>
+      <div class="t-card"><div class="stars"><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="t-text">"Invisible le jour J — exactement ce que vous voulez. Et pourtant, tout a été capturé. Nos familles parlent encore du film un an après."</p><div class="t-author"><svg class="t-avatar" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4AF37">CÉ</text></svg><div><div class="t-name">Chloé &amp; Étienne</div><div class="t-event">Mariage — Paris, 2024</div></div></div></div>
+      <div class="t-card"><div class="stars"><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="t-text">"Nous avons fait appel à CLAE pour notre gala d'entreprise. Le professionnalisme, le souci du détail — ils ont valorisé notre marque en 4 minutes plus qu'aucune campagne ne l'avait fait en des années."</p><div class="t-author"><svg class="t-avatar" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4AF37">FB</text></svg><div><div class="t-name">Frédérique Beaumont</div><div class="t-event">Événement de Marque — Paris</div></div></div></div>
+      <div class="t-card"><div class="stars"><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="t-text">"Le montage same-day a été diffusé pendant notre réception et la salle est restée silencieuse. Les gens pleuraient. Pas une vidéo — une expérience que l'on revit pour toujours."</p><div class="t-author"><svg class="t-avatar" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4AF37">CB</text></svg><div><div class="t-name">Camille &amp; Baptiste</div><div class="t-event">Mariage — Bromont, 2024</div></div></div></div>
+      <div class="t-card"><div class="stars"><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="t-text">"Dès notre premier appel, j'ai su que c'était des personnes qui y tenaient vraiment. Le jour J, élégants et sereins. Le résultat ? Tout simplement à couper le souffle."</p><div class="t-author"><svg class="t-avatar" viewBox="0 0 36 36" style="background:rgba(212,175,55,.12);border-radius:50%;flex-shrink:0"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#D4AF37">NA</text></svg><div><div class="t-name">Nadège &amp; Alexis</div><div class="t-event">Mariage — Laurentides, 2023</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="reveal">
+        <span class="eyebrow">Prêt à Commencer</span>
+        <div class="cta-h">CRÉONS<br><span class="gold">QUELQUE</span><br><span class="out">CHOSE</span><br>D'INOUBLIABLE.</div>
+      </div>
+      <div class="cta-right reveal d2">
+        <div class="avail-badge"><span class="avail-dot"></span>Agenda ouvert — votre date est disponible</div>
+        <p class="cta-sub">Les créneaux se remplissent vite — contactez-nous pour démarrer la conversation. Chaque grand film commence par un seul message.</p>
+        <a href="contact.html" class="btn-primary">
+          Réserver Votre Date
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow reveal">Nous Contacter</span>
+        <h2 class="contact-h reveal d1">PARLONS DE<br><span class="gold">VOTRE</span><br>VISION.</h2>
+        <p class="contact-body reveal d2">Chaque film commence par une conversation. Parlez-nous de votre journée, de votre histoire, et de ce que vous espérez ressentir en la revoyant des années plus tard.</p>
+        <div class="c-items">
+          <div class="c-item reveal d2">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="c-label">Localisation</div><div class="c-val">Paris, France — Disponible Partout</div></div>
+          </div>
+          <div class="c-item reveal d3">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="c-label">Email</div><div class="c-val">hello@claeagency.com</div></div>
+          </div>
+          <div class="c-item reveal d3">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="c-label">Téléphone / WhatsApp</div><div class="c-val">06 26 57 41 25</div></div>
+          </div>
+          <div class="c-item reveal d4">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div><div class="c-label">Instagram</div><div class="c-val">@claeagency</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-form reveal d2">
+        <form id="cform" action="https://formspree.io/f/mredbjqd" method="POST">
+          <div class="f-row">
+            <div class="f-group"><label for="fn">Prénom</label><input type="text" id="fn" name="fn" placeholder="Marie" autocomplete="given-name"></div>
+            <div class="f-group"><label for="ln">Nom</label><input type="text" id="ln" name="ln" placeholder="Delacroix" autocomplete="family-name"></div>
+          </div>
+          <div class="f-group"><label for="em">Email</label><input type="email" id="em" name="em" placeholder="marie@example.com" autocomplete="email"></div>
+          <div class="f-row">
+            <div class="f-group"><label for="et">Type de projet</label>
+              <select id="et" name="et">
+                <option value="" disabled selected>Sélectionner</option>
+                <option value="wedding">Mariage Immortalisé</option>
+                <option value="event">Production Événement</option>
+                <option value="content">Création de Contenu</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
+            <div class="f-group"><label for="ed">Date de l'événement</label><input type="date" id="ed" name="ed"></div>
+          </div>
+          <div class="f-group"><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Parlez-nous de votre projet, votre vision, votre histoire..."></textarea></div>
+          <button type="submit" class="f-submit" id="fsubmit">Envoyer votre Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <img src="Nom_agence.png" alt="CLAE Agency" class="foot-logo">
+        <div class="foot-tag">Video. Story. Impact.</div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="foot-socials">
+        <a href="#" class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="soc"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-6.9a8.26 8.26 0 0 0 4.83 1.56V6.5a4.86 4.86 0 0 1-1.06-.19z"/></svg></a>
+        <a href="#" class="soc"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">&copy; 2026 CLAE Agency. Tous droits réservés.</div>
+      <div class="foot-legal"><a href="mentions-legales.html" class="foot-legal-link">Mentions Légales</a> <a href="cgv.html" class="foot-legal-link">CGV</a></div>
+      <div class="foot-copy">Made with intention in Paris.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── INTRO → 3 PANNEAUX ── */
+(function(){
+  const intro=document.getElementById('intro');
+  const sel=document.getElementById('select');
+
+  /* Accès direct (retour depuis une page prestation) → on saute tout */
+  if(location.search.includes('direct=1')){
+    intro.style.display='none';
+    sel.style.display='none';
+    document.body.style.overflow='';
+    document.body.classList.add('direct-nav');
+    /* Nettoyer l'URL sans recharger */
+    history.replaceState(null,'',location.pathname);
+    return;
+  }
+
+  document.body.style.overflow='hidden';
+
+  function showSelect(){
+    intro.classList.add('out');
+    setTimeout(()=>{intro.style.display='none';},750);
+    sel.classList.add('show');
+  }
+  setTimeout(showSelect,2000);
+  intro.addEventListener('click',showSelect,{once:true});
+
+  window.dismissSelect=function(){
+    sel.style.transition='opacity .6s ease';
+    sel.style.opacity='0';
+    sel.style.pointerEvents='none';
+    setTimeout(()=>{sel.style.display='none';},650);
+    document.body.style.overflow='';
+  };
+})();
+
+/* ── PARTICLES ── */
+(function(){
+  const canvas=document.getElementById('particles');
+  if(!canvas||!window.THREE)return;
+  canvas.style.cssText='position:fixed;inset:0;z-index:0;pointer-events:none';
+  const R=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false});
+  R.setPixelRatio(Math.min(devicePixelRatio,2));
+  R.setSize(innerWidth,innerHeight);
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,1000);
+  cam.position.z=5;
+  const N=180,pos=new Float32Array(N*3),spd=new Float32Array(N);
+  for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=(Math.random()-.5)*22;pos[i*3+2]=(Math.random()-.5)*12;spd[i]=Math.random()*.004+.001;}
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const mat=new THREE.PointsMaterial({size:.04,color:0xD4AF37,transparent:true,opacity:.28});
+  const pts=new THREE.Points(geo,mat);
+  scene.add(pts);
+  let t=0;
+  (function tick(){requestAnimationFrame(tick);t+=.001;const p=pts.geometry.attributes.position.array;for(let i=0;i<N;i++){p[i*3+1]+=spd[i];if(p[i*3+1]>11)p[i*3+1]=-11;}pts.geometry.attributes.position.needsUpdate=true;pts.rotation.y=t*.04;R.render(scene,cam);})();
+  window.addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();R.setSize(innerWidth,innerHeight);});
+})();
+
+/* ── NAV ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+/* ── MOBILE MENU ── */
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('active');mob.classList.toggle('open');});
+function closeMob(){ham.classList.remove('active');mob.classList.remove('open');}
+
+/* ── NAV DROPDOWN ── */
+(function(){
+  const dd=document.querySelector('.nav-dropdown');
+  const trigger=dd.querySelector('.nav-drop-trigger');
+  trigger.addEventListener('click',function(e){
+    e.preventDefault();
+    dd.classList.toggle('open');
+  });
+  document.addEventListener('click',function(e){
+    if(!dd.contains(e.target))dd.classList.remove('open');
+  });
+})();
+
+/* ── SCROLL REVEAL ── */
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ── TESTIMONIALS infinite marquee ── */
+(function(){
+  const track=document.getElementById('track');
+  if(!track)return;
+  [...track.children].forEach(c=>track.appendChild(c.cloneNode(true)));
+})();
+
+/* ── PORTFOLIO FILTER ── */
+(function(){
+  const btns=document.querySelectorAll('.pf'),items=document.querySelectorAll('#port-grid .port-item');
+  btns.forEach(btn=>btn.addEventListener('click',()=>{
+    btns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    items.forEach(item=>item.classList.toggle('hidden',f!=='all'&&item.dataset.cat!==f));
+  }));
+})();
+
+/* ── FORM (Formspree) ── */
+document.getElementById('cform').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('fsubmit'),orig=btn.textContent;
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      btn.textContent='✓ Message envoyé — On vous répond sous 24h !';
+      btn.style.background='#1a3d2b';btn.style.color='#4ade80';
+      this.reset();
+      setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},6000);
+    } else {
+      throw new Error();
+    }
+  } catch(_){
+    btn.textContent='Erreur — Réessayez ou écrivez-nous sur Instagram';
+    btn.style.background='#3d1a1a';btn.style.color='#f87171';
+    setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},5000);
+  }
+});
+
+/* ── CURSOR GLOW ── */
+(function(){
+  const glow=document.getElementById('cursor-glow');
+  if(!glow)return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,gx=mx,gy=my;
+  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  (function tick(){requestAnimationFrame(tick);gx+=(mx-gx)*.1;gy+=(my-gy)*.1;glow.style.left=gx+'px';glow.style.top=gy+'px';})();
+})();
+
+/* ── FAN CAROUSEL REEL ── */
+(function(){
+  const cards=[...document.querySelectorAll('.reel-card')];
+  if(!cards.length)return;
+
+  function advance(){
+    /* Cards at slot -1 need instant teleport to slot 5 before decrement */
+    cards.forEach(c=>{
+      if(c.dataset.slot==='-1'){
+        c.style.transition='none';
+        c.dataset.slot='5';
+        void c.offsetWidth; /* force reflow */
+      }
+    });
+    requestAnimationFrame(()=>{
+      cards.forEach(c=>{
+        c.style.transition='';
+        const s=parseInt(c.dataset.slot);
+        c.dataset.slot=String(s-1);
+      });
+    });
+  }
+
+  function retreat(){
+    cards.forEach(c=>{
+      if(c.dataset.slot==='5'){
+        c.style.transition='none';
+        c.dataset.slot='-1';
+        void c.offsetWidth;
+      }
+    });
+    requestAnimationFrame(()=>{
+      cards.forEach(c=>{
+        c.style.transition='';
+        const s=parseInt(c.dataset.slot);
+        c.dataset.slot=String(s+1);
+      });
+    });
+  }
+
+  /* Click side cards to navigate */
+  cards.forEach(card=>{
+    card.addEventListener('click',()=>{
+      const s=parseInt(card.dataset.slot);
+      if(s===2)return;
+      if(s>2||s===-1){advance();}else{retreat();}
+      clearInterval(timer);timer=setInterval(advance,4800);
+    });
+  });
+
+  /* Play buttons */
+  document.querySelectorAll('.rc-play').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.stopPropagation();
+      advance();
+      clearInterval(timer);timer=setInterval(advance,4800);
+    });
+  });
+
+  let timer=setInterval(advance,4800);
+})();
+
+/* ── LIVE TIMECODE ── */
+(function(){
+  let f=0;
+  setInterval(()=>{
+    f++;
+    const fr=f%25,s=Math.floor(f/25)%60,m=Math.floor(f/1500)%60,h=Math.floor(f/90000)%24;
+    const tc=[h,m,s,fr].map(n=>String(n).padStart(2,'0')).join(':');
+    document.querySelectorAll('.rc-timecode').forEach(el=>el.textContent=tc);
+  },40);
+})();
+
+/* ── SCROLL PROGRESS BAR ── */
+(function(){
+  const bar=document.getElementById('scroll-prog');
+  if(!bar)return;
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+
+/* ── WHATSAPP FLOAT (show after 4s) ── */
+(function(){
+  const btn=document.getElementById('wa-btn');
+  if(!btn)return;
+  setTimeout(()=>btn.classList.add('show'),4000);
+})();
+
+/* ── FAQ ACCORDION ── */
+(function(){
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q=item.querySelector('.faq-q');
+    if(!q)return;
+    q.addEventListener('click',()=>{
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>o.classList.remove('open'));
+      if(!isOpen)item.classList.add('open');
+      q.setAttribute('aria-expanded',String(!isOpen));
+    });
+  });
+})();
+
+/* ── COUNTER ANIMATION ── */
+(function(){
+  function animCount(el,target,suffix,duration){
+    let start=0,startTime=null;
+    const isFloat=target%1!==0;
+    function step(ts){
+      if(!startTime)startTime=ts;
+      const prog=Math.min((ts-startTime)/duration,1);
+      const ease=1-Math.pow(1-prog,3);
+      const val=isFloat?(start+(target-start)*ease).toFixed(1):(Math.floor(start+(target-start)*ease));
+      el.textContent=val+suffix;
+      if(prog<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const counters=[
+    {sel:'.metric-n',targets:[147,6,98],suffixes:['+','ans','%']},
+  ];
+  const metricEls=document.querySelectorAll('.metric-n');
+  const targets=[{v:147,s:'+'},{v:6,s:' Ans'},{v:98,s:'%'}];
+  if(!metricEls.length)return;
+  const io2=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      metricEls.forEach((el,i)=>{
+        if(targets[i])animCount(el,targets[i].v,targets[i].s,1800);
+      });
+      io2.disconnect();
+    });
+  },{threshold:.5});
+  if(metricEls[0])io2.observe(metricEls[0].closest('.hero-metrics')||metricEls[0]);
+
+  /* Band big-num counter */
+  const bigNum=document.querySelector('.big-num');
+  if(bigNum){
+    const io3=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting)return;
+        animCount(bigNum,147,'+',1800);
+        io3.disconnect();
+      });
+    },{threshold:.5});
+    io3.observe(bigNum);
+  }
+})();
+
+/* ── TILT ON WHY-CARDS ── */
+(function(){
+  document.querySelectorAll('.why-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`translateY(-6px) rotateX(${-y*10}deg) rotateY(${x*10}deg)`;
+      card.style.transition='transform .1s linear';
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='';
+      card.style.transition='transform .5s var(--ease)';
+    });
+  });
+})();
+
+/* ── MAGNETIC BUTTONS ── */
+(function(){
+  document.querySelectorAll('.btn-primary,.btn-secondary,.nav-pill').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)*.22;
+      const y=(e.clientY-r.top-r.height/2)*.22;
+      btn.style.transform=`translate(${x}px,${y}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+})();
+
+/* ── PROCESS STEP CONNECTOR ANIMATE ── */
+(function(){
+  const steps=document.querySelectorAll('.proc-step');
+  if(!steps.length)return;
+  const io4=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add('on');
+    });
+  },{threshold:.3});
+  steps.forEach(s=>io4.observe(s));
+})();
+
+/* ── SMOOTH ANCHORS ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
+
+/* ── PANELS SLIDESHOW + NAVIGATION SANS RETOUR ── */
+(function(){
+  const timers={};
+  document.querySelectorAll('.panel').forEach(panel=>{
+    const slides=panel.querySelectorAll('.slide');
+    const dots=panel.querySelectorAll('.pdot');
+    let current=0;
+    function goTo(idx){
+      slides[current].classList.remove('active');dots[current]&&dots[current].classList.remove('on');
+      current=(idx+slides.length)%slides.length;
+      slides[current].classList.add('active');dots[current]&&dots[current].classList.add('on');
+    }
+    /* slideshow au survol désactivé */
+    /* replace() : le retour arrière depuis mariage/evenement/contenu saute les panneaux */
+    panel.addEventListener('click',e=>{
+      e.preventDefault();
+      location.replace(panel.getAttribute('href'));
+    });
+  });
+})();
+</script>
+
+<!-- ═══════════════════════ LIGHTBOX HOMEPAGE ═══════════════════════ -->
+<div id="hp-lightbox" role="dialog" aria-modal="true">
+  <button class="lb-close" id="hp-lb-close" aria-label="Fermer">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="hp-lb-prev" aria-label="Précédent">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div class="lb-img-wrap">
+    <img id="hp-lb-img" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" id="hp-lb-next" aria-label="Suivant">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-info">
+    <div class="lb-title" id="hp-lb-title"></div>
+    <div class="lb-counter" id="hp-lb-counter"></div>
+  </div>
+</div>
+
+<script>
+/* ── LIGHTBOX HOMEPAGE ── */
+(function(){
+  const lb      = document.getElementById('hp-lightbox');
+  const lbImg   = document.getElementById('hp-lb-img');
+  const lbTitle = document.getElementById('hp-lb-title');
+  const lbCnt   = document.getElementById('hp-lb-counter');
+  const lbClose = document.getElementById('hp-lb-close');
+  const lbPrev  = document.getElementById('hp-lb-prev');
+  const lbNext  = document.getElementById('hp-lb-next');
+  let gallery = [], current = 0;
+
+  function buildGallery(){
+    gallery = [];
+    document.querySelectorAll('#port-grid .port-item:not(.hidden)').forEach(item => {
+      const img = item.querySelector('.port-img');
+      const ttl = item.querySelector('.port-ttl');
+      if(img) gallery.push({ src: img.src, title: ttl ? ttl.textContent : '', el: item });
+    });
+  }
+
+  function show(index){
+    if(!gallery.length) return;
+    current = (index + gallery.length) % gallery.length;
+    const item = gallery[current];
+    lbImg.style.opacity = '0';
+    lbImg.style.transform = 'scale(.94)';
+    lbImg.src = item.src;
+    lbImg.alt = item.title;
+    lbTitle.textContent = item.title;
+    lbCnt.textContent = (current + 1) + ' / ' + gallery.length;
+    lbImg.onload = () => { lbImg.style.opacity='1'; lbImg.style.transform='scale(1)'; };
+    if(lbImg.complete){ lbImg.style.opacity='1'; lbImg.style.transform='scale(1)'; }
+  }
+
+  function open(index){
+    buildGallery();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    show(index);
+  }
+
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 350);
+  }
+
+  document.querySelectorAll('#port-grid .port-item').forEach(item => {
+    item.addEventListener('click', () => {
+      buildGallery();
+      const idx = gallery.findIndex(g => g.el === item);
+      open(idx >= 0 ? idx : 0);
+    });
+  });
+
+  // Re-build on filter change
+  document.querySelectorAll('.pf').forEach(tab => {
+    tab.addEventListener('click', () => setTimeout(buildGallery, 50));
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+  lb.addEventListener('click', e => { if(e.target === lb) close(); });
+
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape')     close();
+    if(e.key === 'ArrowLeft')  show(current - 1);
+    if(e.key === 'ArrowRight') show(current + 1);
+  });
+})();
+</script>
+
+</body>
+</html>
