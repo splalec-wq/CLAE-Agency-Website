@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Réserver — CLAE Agency</title>
+  <link rel="icon" href="Logo-removebg-preview.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#FAF7F2;
+  --bg2:#F2EDE4;
+  --dark:#1A1209;
+  --accent:#C9A227;
+  --accent-l:#E2BE50;
+  --accent-dim:rgba(201,162,39,.15);
+  --accent-border:rgba(201,162,39,.3);
+  --text:#3A2E20;
+  --text-s:#6B5C42;
+  --card:#FFFFFF;
+  --border:rgba(26,18,9,.1);
+  --on-dark:false;
+  --D:'Syne',sans-serif;
+  --B:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+body{font-family:var(--B);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:100;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--D);font-size:1rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);text-decoration:none}
+.nav-back{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-s);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.5;fill:none}
+
+/* ── LAYOUT ── */
+.page{max-width:860px;margin:0 auto;padding:6rem 2rem 4rem}
+
+/* ── HERO ── */
+.resa-hero{text-align:center;margin-bottom:3.5rem}
+.resa-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.2rem}
+.resa-badge::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%}
+.resa-title{font-family:var(--D);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--dark);line-height:1.1;letter-spacing:-.02em;margin-bottom:.8rem}
+.resa-sub{font-size:.95rem;color:var(--text-s);max-width:480px;margin:0 auto;line-height:1.7}
+
+/* ── FORMULE RECAP ── */
+.resa-recap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:1.5rem}
+.recap-icon{width:54px;height:54px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.recap-icon svg{width:24px;height:24px;stroke:var(--accent);stroke-width:1.8;fill:none}
+.recap-label{font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-s);margin-bottom:.3rem}
+.recap-name{font-family:var(--D);font-size:1.2rem;font-weight:800;color:var(--dark)}
+.recap-change{margin-left:auto;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-s);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:6px;transition:color .2s,border-color .2s;white-space:nowrap}
+.recap-change:hover{color:var(--accent);border-color:var(--accent-border)}
+
+/* ── SECTION TITLE ── */
+.step{margin-bottom:2.5rem}
+.step-label{display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem}
+.step-num{width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:.7rem;font-weight:800;color:#fff;flex-shrink:0}
+.step-title{font-family:var(--D);font-size:1rem;font-weight:800;color:var(--dark);letter-spacing:.02em}
+
+/* ── CALENDAR ── */
+.cal-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:.5rem}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cal-month{font-family:var(--D);font-size:.95rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dark)}
+.cal-btn{width:34px;height:34px;border:1px solid var(--accent-border);background:transparent;color:var(--accent);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cal-btn:hover{background:var(--accent-dim)}
+.cal-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.5;fill:none}
+.cal-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;margin-bottom:.4rem}
+.cal-day-label{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--text-s);padding:.3rem 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem}
+.cal-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:var(--D);font-size:.78rem;font-weight:600;transition:background .15s,color .15s,transform .15s;cursor:default;position:relative}
+.cal-cell.empty{background:transparent}
+.cal-cell.past{color:var(--text-s);opacity:.3}
+.cal-cell.today{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-weight:800}
+.cal-cell.free{cursor:pointer;color:var(--text);background:transparent}
+.cal-cell.free:hover{background:var(--accent-dim);color:var(--accent);transform:scale(1.08)}
+.cal-cell.selected{background:var(--accent);color:#fff!important;font-weight:800;box-shadow:0 4px 14px rgba(201,162,39,.4);transform:scale(1.08)}
+.cal-cell.taken{background:rgba(180,60,60,.08);color:rgba(200,80,80,.5)}
+.cal-cell.taken::after{content:'';position:absolute;top:50%;left:20%;right:20%;height:1px;background:rgba(200,80,80,.35);transform:translateY(-50%)}
+.cal-legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+.cal-leg{display:flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-s)}
+.cal-leg-dot{width:8px;height:8px;border-radius:2px}
+.cal-leg-dot.free{background:var(--accent-border)}
+.cal-leg-dot.taken{background:rgba(200,80,80,.4)}
+.cal-leg-dot.selected{background:var(--accent)}
+.selected-date-display{text-align:center;margin-top:1rem;font-family:var(--D);font-size:.85rem;font-weight:700;color:var(--accent);min-height:1.4rem;transition:opacity .3s}
+
+/* ── FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.form-field{display:flex;flex-direction:column;gap:.5rem}
+.form-field.full{grid-column:1/-1}
+.form-label{font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-s)}
+.form-input,.form-textarea{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;font-family:var(--B);font-size:.92rem;color:var(--dark);transition:border-color .2s,box-shadow .2s;outline:none;width:100%}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-s);opacity:.6}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-input[readonly]{background:var(--bg2);cursor:default;color:var(--text-s)}
+
+/* ── SUBMIT ── */
+.form-submit{margin-top:2rem;text-align:center}
+.btn-submit{display:inline-flex;align-items:center;gap:.7rem;padding:1.1rem 3rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:var(--D);font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s}
+.btn-submit:hover{background:var(--accent-l);transform:translateY(-2px);box-shadow:0 8px 28px var(--accent-dim)}
+.btn-submit svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.5;fill:none}
+.form-note{margin-top:.8rem;font-size:.78rem;color:var(--text-s);line-height:1.6}
+
+/* ── SUCCESS ── */
+.success-box{display:none;text-align:center;padding:3rem 2rem;background:var(--card);border:1px solid var(--accent-border);border-radius:20px;margin-top:2rem}
+.success-icon{width:56px;height:56px;background:var(--accent-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem}
+.success-icon svg{width:24px;height:24px;stroke:var(--accent);stroke-width:2.5;fill:none}
+.success-title{font-family:var(--D);font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:.6rem}
+.success-text{font-size:.9rem;color:var(--text-s);line-height:1.7}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  nav{padding:1rem 1.2rem}
+  .page{padding:5rem 1.2rem 3rem}
+  .form-grid{grid-template-columns:1fr}
+  .resa-recap{flex-wrap:wrap}
+  .recap-change{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index-v2.html?direct=1" class="nav-logo">CLAE Agency</a>
+  <a href="javascript:history.back()" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour
+  </a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="resa-hero">
+    <div class="resa-badge">Réservation</div>
+    <h1 class="resa-title">Réservez votre<br>prestation CLAE</h1>
+    <p class="resa-sub">Choisissez votre date et remplissez le formulaire — nous vous confirmons sous 48h.</p>
+  </div>
+
+  <!-- RECAP FORMULE -->
+  <div class="resa-recap" id="recapBox">
+    <div class="recap-icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div>
+      <div class="recap-label">Formule sélectionnée</div>
+      <div class="recap-name" id="recapName">—</div>
+    </div>
+    <a href="javascript:history.back()" class="recap-change">Modifier</a>
+  </div>
+
+  <form id="resaForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="d5b6f851-08ad-4cfd-b48e-65b6cb8d5eac">
+    <input type="hidden" name="subject" id="formSubject" value="Nouvelle réservation CLAE">
+    <input type="hidden" name="formule" id="hiddenFormule" value="">
+    <input type="hidden" name="source_page" id="hiddenSource" value="">
+    <input type="hidden" name="date_evenement" id="hiddenDate" value="">
+    <input type="hidden" name="redirect" value="https://claeagency.com/reservation.html?success=1">
+    <input type="checkbox" name="botcheck" style="display:none">
+
+    <!-- ÉTAPE 1 : DATE -->
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <div class="step-title">Choisissez la date de votre événement</div>
+      </div>
+      <div class="cal-wrap">
+        <div id="cal-container"></div>
+        <div class="cal-legend">
+          <span class="cal-leg"><span class="cal-leg-dot free"></span>Disponible</span>
+          <span class="cal-leg"><span class="cal-leg-dot selected"></span>Sélectionné</span>
+          <span class="cal-leg"><span class="cal-leg-dot taken"></span>Indisponible</span>
+        </div>
+        <div class="selected-date-display" id="dateDisplay">Cliquez sur une date pour la sélectionner</div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 2 : COORDONNÉES -->
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <div class="step-title">Vos coordonnées</div>
+      </div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label" for="prenom">Prénom</label>
+          <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="nom">Nom</label>
+          <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="votre@email.com" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="tel">Téléphone</label>
+          <input class="form-input" type="tel" id="tel" name="telephone" placeholder="+33 6 00 00 00 00">
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="lieu">Lieu de l'événement</label>
+          <input class="form-input" type="text" id="lieu" name="lieu" placeholder="Salle, château, adresse…">
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="formule_visible">Formule</label>
+          <input class="form-input" type="text" id="formule_visible" name="formule_affichee" readonly>
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="message">Détails & questions</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Parlez-nous de votre projet, vos attentes, vos questions…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="form-submit">
+      <button type="submit" class="btn-submit">
+        Envoyer ma demande
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+      <p class="form-note">Réponse sous 48h · Premier échange offert, sans engagement</p>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="success-box" id="successBox">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="success-title">Demande envoyée !</div>
+    <p class="success-text">Merci pour votre message. Alec vous répondra sous 48h pour confirmer votre réservation.<br><br>
+    <a href="index-v2.html?direct=1" style="color:var(--accent);font-weight:600;text-decoration:none">← Retour à l'accueil</a></p>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+/* ─── PARAMS ─── */
+const params   = new URLSearchParams(location.search);
+const formule  = params.get('formule') || '';
+const source   = params.get('source')  || 'mariage';
+const success  = params.get('success') === '1';
+
+/* ─── COLOR THEMES ─── */
+const themes = {
+  mariage: {
+    bg:'#FAF7F2', bg2:'#F2EDE4', dark:'#1A1209',
+    accent:'#C9A227', accentL:'#E2BE50',
+    accentDim:'rgba(201,162,39,.15)', accentBorder:'rgba(201,162,39,.3)',
+    text:'#3A2E20', textS:'#6B5C42', card:'#FFFFFF', border:'rgba(26,18,9,.1)'
+  },
+  evenement: {
+    bg:'#050C1A', bg2:'#0A1628', dark:'#F0F4FF',
+    accent:'#3B82F6', accentL:'#60A5FA',
+    accentDim:'rgba(59,130,246,.12)', accentBorder:'rgba(59,130,246,.3)',
+    text:'#CBD5E1', textS:'#64748B', card:'rgba(255,255,255,.04)', border:'rgba(255,255,255,.08)'
+  },
+  contenu: {
+    bg:'#06000E', bg2:'#0D0A1A', dark:'#F3EEFF',
+    accent:'#A855F7', accentL:'#C084FC',
+    accentDim:'rgba(168,85,247,.12)', accentBorder:'rgba(168,85,247,.3)',
+    text:'#DDD6FE', textS:'#9F7AEA', card:'rgba(255,255,255,.04)', border:'rgba(255,255,255,.08)'
+  }
+};
+
+const t = themes[source] || themes.mariage;
+const r = document.documentElement.style;
+r.setProperty('--bg',      t.bg);
+r.setProperty('--bg2',     t.bg2);
+r.setProperty('--dark',    t.dark);
+r.setProperty('--accent',  t.accent);
+r.setProperty('--accent-l',t.accentL);
+r.setProperty('--accent-dim',   t.accentDim);
+r.setProperty('--accent-border',t.accentBorder);
+r.setProperty('--text',    t.text);
+r.setProperty('--text-s',  t.textS);
+r.setProperty('--card',    t.card);
+r.setProperty('--border',  t.border);
+
+/* ─── BACK LINK ─── */
+const backLinks = { mariage:'mariage.html', evenement:'evenement.html', contenu:'contenu.html' };
+document.querySelectorAll('a[href="javascript:history.back()"]').forEach(a => {
+  if(backLinks[source]) a.href = backLinks[source];
+});
+
+/* ─── FORMULE ─── */
+const nom = decodeURIComponent(formule.replace(/\+/g,' '));
+document.getElementById('recapName').textContent         = nom || 'Non spécifiée';
+document.getElementById('hiddenFormule').value           = nom;
+document.getElementById('hiddenSource').value            = source;
+document.getElementById('formule_visible').value         = nom;
+document.getElementById('formSubject').value             = `Réservation CLAE — ${nom}`;
+
+/* ─── SUCCESS ─── */
+if(success){
+  document.getElementById('resaForm').style.display = 'none';
+  document.getElementById('recapBox').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+}
+
+/* ─── CALENDAR ─── */
+const TAKEN = {};
+const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const DAYS   = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+let selDate  = null;
+const now    = new Date();
+let year     = now.getFullYear();
+let month    = now.getMonth();
+
+function renderCal(){
+  const taken    = (TAKEN[year] && TAKEN[year][month]) || [];
+  const firstDay = new Date(year, month, 1).getDay();
+  const offset   = firstDay === 0 ? 6 : firstDay - 1;
+  const days     = new Date(year, month+1, 0).getDate();
+  const today    = new Date(); today.setHours(0,0,0,0);
+
+  let html = `<div class="cal-nav">
+    <button class="cal-btn" id="cp" type="button"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <span class="cal-month">${MONTHS[month]} ${year}</span>
+    <button class="cal-btn" id="cn" type="button"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+  <div class="cal-grid-head">`;
+  DAYS.forEach(d => { html += `<div class="cal-day-label">${d}</div>`; });
+  html += `</div><div class="cal-grid">`;
+  for(let i=0;i<offset;i++) html += `<div class="cal-cell empty"></div>`;
+  for(let d=1;d<=days;d++){
+    const dt = new Date(year,month,d); dt.setHours(0,0,0,0);
+    const isTaken = taken.includes(d);
+    const isPast  = dt < today;
+    const isSel   = selDate && selDate.getTime()===dt.getTime();
+    const isTod   = dt.getTime()===today.getTime();
+    let cls = 'cal-cell';
+    if(isPast)       cls += ' past';
+    else if(isTaken) cls += ' taken';
+    else if(isSel)   cls += ' free selected';
+    else if(isTod)   cls += ' free today';
+    else             cls += ' free';
+    const data = (!isPast && !isTaken) ? `data-y="${year}" data-m="${month}" data-d="${d}"` : '';
+    html += `<div class="${cls}" ${data}>${d}</div>`;
+  }
+  html += `</div>`;
+  document.getElementById('cal-container').innerHTML = html;
+
+  document.getElementById('cp').onclick = () => { month--; if(month<0){month=11;year--;} renderCal(); };
+  document.getElementById('cn').onclick = () => { month++; if(month>11){month=0;year++;} renderCal(); };
+
+  document.querySelectorAll('.cal-cell.free').forEach(el => {
+    el.addEventListener('click', () => {
+      const y=+el.dataset.y, m=+el.dataset.m, d=+el.dataset.d;
+      selDate = new Date(y,m,d);
+      const label = selDate.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+      document.getElementById('hiddenDate').value = label;
+      document.getElementById('dateDisplay').textContent = `📅 Sélectionné : ${label}`;
+      renderCal();
+    });
+  });
+}
+renderCal();
+</script>
+</body>
+</html>

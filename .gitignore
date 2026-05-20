@@ -1,0 +1,19 @@
+.DS_Store
+*.log
+node_modules/
+.claude/
+.agents/
+business-plan-clae.html
+cartes-v2.html
+cartes-v3.html
+cartes-v4.html
+cartes-v5.html
+cartes-v6.html
+index-v2.html
+Inspi*.png
+"Inspi*.png"
+Sony\ FX3.jpg
+IMG_4628.png
+F40EF2C8-*.jpg
+Nom_agence.png
+skills-lock.json

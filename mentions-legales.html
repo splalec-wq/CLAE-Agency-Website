@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales — CLAE Agency</title>
+  <link rel="icon" href="Logo-removebg-preview.png" type="image/png">
+<meta name="description" content="Mentions légales, politique de confidentialité, CGU et CGV de CLAE Agency.">
+
+<!-- SEO -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://claeagency.com/mentions-legales.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CLAE Agency">
+<meta property="og:url" content="https://claeagency.com/mentions-legales.html">
+<meta property="og:title" content="Mentions Légales — CLAE Agency">
+<meta property="og:description" content="Mentions légales, politique de confidentialité, CGU et CGV de CLAE Agency.">
+<meta property="og:image" content="https://claeagency.com/Logo-removebg-preview.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@claeagency">
+<meta name="twitter:title" content="Mentions Légales — CLAE Agency">
+<meta name="twitter:description" content="Mentions légales, politique de confidentialité, CGU et CGV de CLAE Agency.">
+<meta name="twitter:image" content="https://claeagency.com/Logo-removebg-preview.png">
+
+<!-- Sécurité -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#080808;--bg2:#0D0D0D;--bg3:#111111;--bg4:#161616;
+  --gold:#D4AF37;--gold-l:#E8C84A;--gold-dim:rgba(212,175,55,.2);--gold-faint:rgba(212,175,55,.07);
+  --white:#F0EDE6;--w70:rgba(240,237,230,.7);--w38:rgba(240,237,230,.38);--w20:rgba(240,237,230,.2);
+  --glass:rgba(255,255,255,.028);--gb:rgba(255,255,255,.07);--gg:rgba(212,175,55,.22);
+  --D:'Syne',sans-serif;--B:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--B);overflow-x:hidden;line-height:1.5}
+
+/* ── GRAIN ── */
+#grain{position:fixed;inset:0;z-index:9997;pointer-events:none}
+#grain::before{content:'';position:absolute;inset:-200%;width:400%;height:400%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px;opacity:.024;animation:gs .12s steps(1) infinite}
+@keyframes gs{0%{transform:translate(0,0)}25%{transform:translate(-5%,-5%)}50%{transform:translate(-10%,5%)}75%{transform:translate(5%,-10%)}100%{transform:translate(5%,0)}}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:1000;padding:1.3rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,8,8,.9);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom-color:var(--gb)}
+.nav-brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
+.nav-logo{height:44px;filter:drop-shadow(0 0 6px rgba(212,175,55,.2))}
+.nav-brand-name{font-family:var(--D);font-size:1rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-family:var(--D);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-pill{padding:.5rem 1.1rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background .25s,box-shadow .25s,transform .2s}
+.nav-pill:hover{background:var(--gold-l);box-shadow:0 0 22px rgba(212,175,55,.35);transform:translateY(-1px)}
+
+/* ── NAV DROPDOWN MEGA MENU ── */
+.nav-dropdown{position:relative}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;vertical-align:middle}
+.nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s var(--ease)}
+.nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
+
+.nav-drop-menu{
+  position:absolute;top:calc(100% + .7rem);left:50%;
+  transform:translateX(-50%) translateY(-14px) scale(.96);
+  transform-origin:top center;
+  opacity:0;pointer-events:none;
+  background:rgba(7,7,7,.98);
+  backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);
+  border:1px solid rgba(212,175,55,.14);border-radius:22px;
+  padding:1.4rem;width:min(860px,92vw);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);
+  z-index:200
+}
+.nav-drop-menu::before{
+  content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:9px;height:9px;background:rgba(7,7,7,.98);
+  border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)
+}
+.nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{
+  opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)
+}
+.ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
+.ndm-card{
+  display:flex;flex-direction:column;gap:.9rem;
+  padding:1.4rem 1.3rem;border-radius:16px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(212,175,55,.07);
+  text-decoration:none;
+  transition:background .28s,border-color .28s,transform .32s var(--ease),box-shadow .32s;
+  position:relative;overflow:hidden
+}
+.ndm-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.07) 0%,transparent 55%);opacity:0;transition:opacity .28s}
+.ndm-card:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.18)}
+.ndm-card:hover::before{opacity:1}
+.ndm-icon{width:54px;height:54px;border-radius:14px;background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .28s,border-color .28s,box-shadow .28s}
+.ndm-card:hover .ndm-icon{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.5);box-shadow:0 0 22px rgba(212,175,55,.2)}
+.ndm-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.ndm-title{font-family:var(--D);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);line-height:1.1;transition:color .25s}
+.ndm-card:hover .ndm-title{color:var(--gold)}
+.ndm-desc{font-size:.8rem;color:var(--w70);line-height:1.65;flex:1;margin-top:.25rem}
+.ndm-tags{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-top:.3rem}
+.ndm-arr{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.4);margin-top:.3rem;transition:color .25s,gap .25s var(--ease)}
+.ndm-arr svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .25s var(--ease)}
+.ndm-card:hover .ndm-arr{color:var(--gold);gap:.6rem}
+.ndm-card:hover .ndm-arr svg{transform:translateX(4px)}
+.ndm-footer{border-top:1px solid rgba(212,175,55,.09);padding-top:.9rem;display:flex;justify-content:flex-end}
+.ndm-all{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.65;transition:opacity .2s,gap .25s var(--ease)}
+.ndm-all:hover{opacity:1;gap:.65rem}
+.ndm-all svg{width:11px;height:11px;stroke:var(--gold);fill:none;stroke-width:2.5;transition:transform .25s var(--ease)}
+.ndm-all:hover svg{transform:translateX(4px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(5,5,5,.97);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--D);font-size:2.5rem;font-weight:800;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .25s}
+.mobile-menu a:hover{color:var(--gold)}
+.mob-section-title{color:var(--gold)!important}
+.mob-sub-link{font-size:1.2rem!important;font-weight:600!important;color:var(--w70)!important;letter-spacing:.06em;padding-left:1rem}
+
+/* ── UTILS ── */
+.container{max-width:1100px;margin:0 auto;padding:0 2.5rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+
+/* ── HERO ── */
+.ml-hero{padding:8.5rem 0 4rem;background:var(--bg);position:relative;overflow:hidden;border-bottom:1px solid var(--gb)}
+.ml-hero-orb{position:absolute;width:600px;height:600px;top:-20%;right:-10%;background:radial-gradient(ellipse,rgba(212,175,55,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none;filter:blur(60px)}
+.ml-hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.ml-hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.ml-hero-title{font-family:var(--D);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:var(--white);margin-bottom:1.2rem}
+.ml-hero-title span{color:var(--gold)}
+.ml-hero-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.ml-hero-date{font-size:.78rem;color:var(--w38);font-family:var(--D);letter-spacing:.08em}
+.ml-hero-date strong{color:var(--w70)}
+.ml-hero-divider{width:30px;height:1px;background:var(--gg)}
+
+/* ── TOC ── */
+.ml-toc{padding:2.5rem 0;background:var(--bg2);border-bottom:1px solid var(--gb);position:sticky;top:72px;z-index:100}
+.ml-toc-inner{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.ml-toc-label{font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);flex-shrink:0;opacity:.7}
+.ml-toc-links{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.ml-toc-link{display:inline-block;padding:.32rem .8rem;border:1px solid var(--gb);border-radius:100px;font-family:var(--D);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:border-color .25s,color .25s,background .25s}
+.ml-toc-link:hover{border-color:var(--gg);color:var(--gold);background:var(--gold-faint)}
+
+/* ── CONTENT ── */
+.ml-content{padding:5rem 0 7rem}
+.ml-section{margin-bottom:3.5rem}
+.ml-section-header{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--gb)}
+.ml-section-num{font-family:var(--D);font-size:.7rem;font-weight:700;letter-spacing:.18em;color:var(--gold);opacity:.6;padding-top:.2rem;flex-shrink:0}
+.ml-section-title{font-family:var(--D);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--white);line-height:1.05}
+.ml-section-sub{font-size:.78rem;color:var(--w38);margin-top:.35rem;letter-spacing:.04em}
+
+/* Card */
+.ml-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:2rem 2.4rem;margin-bottom:1rem;transition:border-color .3s}
+.ml-card:hover{border-color:rgba(212,175,55,.12)}
+.ml-card-title{font-family:var(--D);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
+.ml-card-title::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px;flex-shrink:0}
+
+/* Data rows */
+.ml-table{width:100%;border-collapse:collapse}
+.ml-table tr{border-bottom:1px solid rgba(255,255,255,.05)}
+.ml-table tr:last-child{border-bottom:none}
+.ml-table td{padding:.65rem 0;vertical-align:top;font-size:.84rem;line-height:1.6}
+.ml-table td:first-child{width:35%;font-family:var(--D);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--w38);padding-right:1.5rem}
+.ml-table td:last-child{color:var(--w70)}
+
+/* Prose */
+.ml-prose{font-size:.87rem;color:var(--w70);line-height:1.8}
+.ml-prose p{margin-bottom:.9rem}
+.ml-prose p:last-child{margin-bottom:0}
+.ml-prose strong{color:var(--white);font-weight:600}
+.ml-prose a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,175,55,.3);transition:border-color .2s}
+.ml-prose a:hover{border-color:var(--gold)}
+.ml-prose .placeholder{color:rgba(212,175,55,.55);font-style:italic;background:rgba(212,175,55,.06);padding:.05rem .35rem;border-radius:4px;font-size:.82rem}
+
+/* Rights list */
+.ml-rights{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin-top:.5rem}
+.ml-right-item{display:flex;align-items:flex-start;gap:.7rem;padding:.9rem 1rem;background:var(--gold-faint);border:1px solid var(--gg);border-radius:12px}
+.ml-right-icon{width:28px;height:28px;border-radius:8px;background:rgba(212,175,55,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ml-right-icon svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:2}
+.ml-right-label{font-family:var(--D);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.15rem}
+.ml-right-desc{font-size:.75rem;color:var(--w38);line-height:1.5}
+
+/* Notice block */
+.ml-notice{display:flex;gap:1rem;padding:1.2rem 1.4rem;background:rgba(212,175,55,.05);border:1px solid rgba(212,175,55,.2);border-radius:12px;margin-top:1.2rem}
+.ml-notice-icon{font-size:1rem;flex-shrink:0;line-height:1.5}
+.ml-notice-text{font-size:.82rem;color:var(--w70);line-height:1.7}
+.ml-notice-text strong{color:var(--gold)}
+
+/* Separator */
+.ml-sep{height:1px;background:linear-gradient(to right,transparent,var(--gb),transparent);margin:3.5rem 0}
+
+/* ── FOOTER ── */
+footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
+.foot-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;border-bottom:1px solid var(--gb);margin-bottom:1.5rem;gap:2rem;flex-wrap:wrap}
+.foot-logo{height:28px}
+.foot-tag{font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--w38);margin-top:.35rem}
+.foot-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
+.foot-links a{font-family:var(--D);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-socials{display:flex;gap:.55rem}
+.soc{width:32px;height:32px;border-radius:50%;border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
+.soc:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.soc svg{width:12px;height:12px;fill:none;stroke:var(--w38);stroke-width:1.5;transition:stroke .25s}
+.soc:hover svg{stroke:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;align-items:center}
+.foot-copy{font-size:.7rem;color:rgba(240,237,230,.2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:1.1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .ml-toc{position:static}
+  .ml-hero-title{font-size:clamp(2.2rem,8vw,4rem)}
+  .ml-table td:first-child{width:42%}
+}
+@media(max-width:640px){
+  .container{padding:0 1.2rem}
+  .ml-card{padding:1.4rem 1.4rem}
+  .ml-table td{font-size:.8rem}
+  .ml-table td:first-child{display:block;width:100%;padding-right:0;margin-bottom:.1rem}
+  .ml-table td:last-child{display:block;padding-top:.1rem}
+  .ml-table tr{display:block;padding:.5rem 0}
+  .ml-rights{grid-template-columns:1fr 1fr}
+  .foot-top{flex-direction:column;align-items:flex-start}
+}
+
+/* WhatsApp */
+100%{transform:scale(1.9);opacity:0}}
+
+
+/* ── FOOT LEGAL LINKS ── */
+.foot-legal{display:flex;gap:1.5rem;align-items:center}
+.foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
+.foot-legal-link:hover{color:var(--gold,#D4AF37)}
+</style>
+</head>
+<body>
+
+<div id="grain"></div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mob">
+  <a href="index-v2.html?direct=1" onclick="closeMob()">Accueil</a>
+  <a href="services.html" onclick="closeMob()" class="mob-section-title">Services</a>
+  <a href="mariage.html" onclick="closeMob()" class="mob-sub-link">↳ Mariage Immortalisé</a>
+  <a href="evenement.html" onclick="closeMob()" class="mob-sub-link">↳ Production Événement</a>
+  <a href="contenu.html" onclick="closeMob()" class="mob-sub-link">↳ Création de Contenu</a>
+  <a href="about.html" onclick="closeMob()">À Propos</a>
+  <a href="portfolio.html" onclick="closeMob()">Portfolio</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index-v2.html?direct=1" class="nav-brand">
+    <img src="Logo-removebg-preview.png" alt="CLAE Agency" class="nav-logo">
+    <span class="nav-brand-name">CLAE Agency</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index-v2.html?direct=1">Accueil</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html" class="nav-drop-trigger">Services
+        <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-drop-menu">
+        <div class="ndm-cards">
+          <a href="mariage.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 14 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 13-9 13z"/></svg></div>
+            <div>
+              <div class="ndm-title">Mariage Immortalisé</div>
+              <div class="ndm-desc">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard.</div>
+              <div class="ndm-tags">Cérémonie · Réception · Montage Same-Day · Film Résumé</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="evenement.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+            <div>
+              <div class="ndm-title">Production Événement</div>
+              <div class="ndm-desc">Galas d'entreprise, activations de marque et célébrations captés avec la même précision cinématique.</div>
+              <div class="ndm-tags">Corporate · Gala · Événement Live · Multi-Caméra</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+          <a href="contenu.html" class="ndm-card">
+            <div class="ndm-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+            <div>
+              <div class="ndm-title">Création de Contenu</div>
+              <div class="ndm-desc">Films de marque, Reels et visuels éditoriaux pensés pour stopper le scroll et convertir durablement.</div>
+              <div class="ndm-tags">Film de Marque · Éditorial · Reels · Lookbook</div>
+            </div>
+            <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <div class="ndm-footer">
+          <a href="services.html" class="ndm-all">Voir tous les services
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li><a href="about.html">À Propos</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.9rem">
+    <a href="contact.html" class="nav-pill">Contactez-nous</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ml-hero">
+  <div class="ml-hero-orb"></div>
+  <div class="container">
+    <div class="ml-hero-eyebrow">Informations légales</div>
+    <h1 class="ml-hero-title">Mentions<br><span>Légales</span></h1>
+    <div class="ml-hero-meta">
+      <div class="ml-hero-date"><strong>Dernière mise à jour :</strong> Mai 2026</div>
+      <div class="ml-hero-divider"></div>
+      <div class="ml-hero-date">claeagency.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<nav class="ml-toc" aria-label="Table des matières">
+  <div class="container">
+    <div class="ml-toc-inner">
+      <span class="ml-toc-label">Sommaire</span>
+      <div class="ml-toc-links">
+        <a href="#mentions-legales" class="ml-toc-link">Mentions légales</a>
+        <a href="#confidentialite" class="ml-toc-link">Confidentialité</a>
+        <a href="#cgu" class="ml-toc-link">CGU</a>
+        <a href="#cgv" class="ml-toc-link">CGV</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="ml-content">
+  <div class="container">
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 1 — MENTIONS LÉGALES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="ml-section reveal" id="mentions-legales">
+      <div class="ml-section-header">
+        <div class="ml-section-num">01</div>
+        <div>
+          <h2 class="ml-section-title">Mentions Légales</h2>
+          <div class="ml-section-sub">Conformément à la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN)</div>
+        </div>
+      </div>
+
+      <!-- Éditeur du site -->
+      <div class="ml-card">
+        <div class="ml-card-title">Éditeur du site</div>
+        <table class="ml-table">
+          <tr>
+            <td>Dénomination</td>
+            <td><strong>CLAE Agency</strong></td>
+          </tr>
+          <tr>
+            <td>Forme juridique</td>
+            <td><span class="placeholder">[À COMPLÉTER — ex: SAS, SARL, SASU, Auto-entrepreneur]</span></td>
+          </tr>
+          <tr>
+            <td>Capital social</td>
+            <td><span class="placeholder">[À COMPLÉTER]</span> €</td>
+          </tr>
+          <tr>
+            <td>SIRET</td>
+            <td><span class="placeholder">[À COMPLÉTER — 14 chiffres]</span></td>
+          </tr>
+          <tr>
+            <td>RCS</td>
+            <td><span class="placeholder">[À COMPLÉTER — ex: RCS Paris B XXX XXX XXX]</span></td>
+          </tr>
+          <tr>
+            <td>Siège social</td>
+            <td>Paris, France</td>
+          </tr>
+          <tr>
+            <td>Téléphone</td>
+            <td><span class="placeholder">[À COMPLÉTER]</span></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><a href="mailto:hello@claeagency.com">hello@claeagency.com</a></td>
+          </tr>
+          <tr>
+            <td>Site web</td>
+            <td>claeagency.com</td>
+          </tr>
+          <tr>
+            <td>Instagram</td>
+            <td>@claeagency</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Directeur de la publication -->
+      <div class="ml-card">
+        <div class="ml-card-title">Directeur de la publication</div>
+        <div class="ml-prose">
+          <p>Le directeur de la publication est <span class="placeholder">[Prénom Nom À COMPLÉTER]</span>, en qualité de <span class="placeholder">[fonction — ex: Gérant, Président]</span> de CLAE Agency.</p>
+        </div>
+      </div>
+
+      <!-- Hébergeur -->
+      <div class="ml-card">
+        <div class="ml-card-title">Hébergeur du site</div>
+        <table class="ml-table">
+          <tr>
+            <td>Nom</td>
+            <td><span class="placeholder">[Nom de l'hébergeur — ex: OVH, Netlify, Vercel, GitHub Pages]</span></td>
+          </tr>
+          <tr>
+            <td>Adresse</td>
+            <td><span class="placeholder">[Adresse complète de l'hébergeur]</span></td>
+          </tr>
+          <tr>
+            <td>Site web</td>
+            <td><span class="placeholder">[URL de l'hébergeur]</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Propriété intellectuelle -->
+      <div class="ml-card">
+        <div class="ml-card-title">Propriété intellectuelle</div>
+        <div class="ml-prose">
+          <p>L'ensemble des contenus présents sur ce site (textes, images, vidéos, graphismes, logo, identité visuelle, structure) est la <strong>propriété exclusive de CLAE Agency</strong> et est protégé par le droit français et international de la propriété intellectuelle.</p>
+          <p>Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, de ces contenus, par quelque procédé que ce soit, sans l'autorisation préalable et expresse de CLAE Agency, est strictement interdite et constituerait une contrefaçon sanctionnable en application des articles L.335-2 et suivants du Code de la Propriété Intellectuelle.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ml-sep"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 2 — POLITIQUE DE CONFIDENTIALITÉ
+    ═══════════════════════════════════════════════════════ -->
+    <section class="ml-section reveal" id="confidentialite">
+      <div class="ml-section-header">
+        <div class="ml-section-num">02</div>
+        <div>
+          <h2 class="ml-section-title">Politique de Confidentialité</h2>
+          <div class="ml-section-sub">Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la Loi Informatique et Libertés</div>
+        </div>
+      </div>
+
+      <!-- Responsable du traitement -->
+      <div class="ml-card">
+        <div class="ml-card-title">Responsable du traitement</div>
+        <div class="ml-prose">
+          <p>Le responsable du traitement des données personnelles collectées sur ce site est <strong>CLAE Agency</strong>, joignable à l'adresse <a href="mailto:hello@claeagency.com">hello@claeagency.com</a>.</p>
+        </div>
+      </div>
+
+      <!-- Données collectées -->
+      <div class="ml-card">
+        <div class="ml-card-title">Données collectées et finalités</div>
+        <table class="ml-table">
+          <tr>
+            <td>Formulaire de contact</td>
+            <td>Nom, adresse email, type de projet, message — afin de répondre à vos demandes de contact et d'établir un devis.</td>
+          </tr>
+          <tr>
+            <td>Base légale</td>
+            <td>Intérêt légitime (répondre à une demande entrante) / consentement de l'utilisateur.</td>
+          </tr>
+          <tr>
+            <td>Cookies techniques</td>
+            <td>Cookies strictement nécessaires au bon fonctionnement du site (session, préférences). Aucun cookie de tracking ou d'analyse tiers.</td>
+          </tr>
+          <tr>
+            <td>Durée de conservation</td>
+            <td>3 ans maximum à compter du dernier contact ou de la dernière interaction.</td>
+          </tr>
+          <tr>
+            <td>Transferts hors UE</td>
+            <td>Aucun transfert de données vers des pays tiers à l'Union Européenne n'est effectué.</td>
+          </tr>
+          <tr>
+            <td>Destinataires</td>
+            <td>CLAE Agency uniquement. Aucune cession, vente ou location de vos données à des tiers.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Droits des personnes -->
+      <div class="ml-card">
+        <div class="ml-card-title">Vos droits</div>
+        <p style="font-size:.82rem;color:var(--w38);margin-bottom:1.2rem">Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants sur vos données personnelles :</p>
+        <div class="ml-rights">
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div>
+              <div class="ml-right-label">Accès</div>
+              <div class="ml-right-desc">Obtenir une copie de vos données</div>
+            </div>
+          </div>
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+            <div>
+              <div class="ml-right-label">Rectification</div>
+              <div class="ml-right-desc">Corriger des données inexactes</div>
+            </div>
+          </div>
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg></div>
+            <div>
+              <div class="ml-right-label">Effacement</div>
+              <div class="ml-right-desc">Demander la suppression</div>
+            </div>
+          </div>
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+            <div>
+              <div class="ml-right-label">Portabilité</div>
+              <div class="ml-right-desc">Recevoir vos données dans un format structuré</div>
+            </div>
+          </div>
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+            <div>
+              <div class="ml-right-label">Opposition</div>
+              <div class="ml-right-desc">S'opposer au traitement</div>
+            </div>
+          </div>
+          <div class="ml-right-item">
+            <div class="ml-right-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div>
+              <div class="ml-right-label">Limitation</div>
+              <div class="ml-right-desc">Limiter le traitement de vos données</div>
+            </div>
+          </div>
+        </div>
+        <div class="ml-notice">
+          <div class="ml-notice-icon">✉</div>
+          <div class="ml-notice-text">Pour exercer vos droits, contactez-nous par email à <strong><a href="mailto:hello@claeagency.com" style="color:var(--gold);text-decoration:none">hello@claeagency.com</a></strong>. Nous nous engageons à répondre dans un délai d'un mois à compter de la réception de votre demande.</div>
+        </div>
+      </div>
+
+      <!-- Cookies -->
+      <div class="ml-card">
+        <div class="ml-card-title">Politique de cookies</div>
+        <div class="ml-prose">
+          <p>Ce site utilise uniquement des <strong>cookies techniques strictement nécessaires</strong> à son bon fonctionnement. Aucun cookie publicitaire, analytique ou de profilage tiers (Google Analytics, Facebook Pixel, etc.) n'est déposé sur votre terminal.</p>
+          <p>Conformément aux recommandations de la CNIL, ces cookies ne nécessitent pas de consentement préalable.</p>
+        </div>
+      </div>
+
+      <!-- CNIL -->
+      <div class="ml-card">
+        <div class="ml-card-title">Réclamation auprès de la CNIL</div>
+        <div class="ml-prose">
+          <p>Si vous estimez que le traitement de vos données n'est pas conforme à la réglementation, vous avez le droit d'introduire une réclamation auprès de la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> :</p>
+          <p>3 Place de Fontenoy — TSA 80715 — 75334 PARIS CEDEX 07<br>
+          Site : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ml-sep"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 3 — CGU
+    ═══════════════════════════════════════════════════════ -->
+    <section class="ml-section reveal" id="cgu">
+      <div class="ml-section-header">
+        <div class="ml-section-num">03</div>
+        <div>
+          <h2 class="ml-section-title">Conditions Générales d'Utilisation</h2>
+          <div class="ml-section-sub">Conditions d'accès et d'utilisation du site claeagency.com</div>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Objet</div>
+        <div class="ml-prose">
+          <p>Les présentes Conditions Générales d'Utilisation (CGU) ont pour objet de définir les conditions d'accès et d'utilisation du site internet <strong>claeagency.com</strong> édité par CLAE Agency. Tout accès au site implique l'acceptation sans réserve des présentes CGU.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Accès au site</div>
+        <div class="ml-prose">
+          <p>Le site est accessible gratuitement à tout utilisateur disposant d'une connexion internet. Tous les frais supportés par l'utilisateur pour accéder au service (matériel informatique, logiciels, connexion internet, etc.) sont à sa charge.</p>
+          <p>CLAE Agency met en œuvre tous les moyens raisonnables pour assurer un accès de qualité au site, mais n'est tenu à aucune obligation d'y parvenir. Le site peut être interrompu à tout moment, notamment pour des raisons de maintenance, de mise à jour ou de cas de force majeure.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Propriété intellectuelle</div>
+        <div class="ml-prose">
+          <p>L'ensemble des éléments du site (textes, images, vidéos, sons, graphismes, logo, architecture du site, code source) est protégé par le droit de la propriété intellectuelle. Toute reproduction, représentation, modification ou adaptation, totale ou partielle, sans l'accord exprès et préalable de CLAE Agency, est interdite.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Responsabilité</div>
+        <div class="ml-prose">
+          <p>CLAE Agency ne pourra être tenu responsable des dommages directs ou indirects résultant de l'accès au site ou de son utilisation, y compris l'inaccessibilité, les pertes de données, les détériorations, les destructions ou virus pouvant affecter les équipements de l'utilisateur.</p>
+          <p>Les informations présentes sur le site sont fournies à titre indicatif et sont susceptibles d'évoluer. CLAE Agency ne garantit pas l'exhaustivité ou l'exactitude des informations diffusées sur le site.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Liens hypertextes</div>
+        <div class="ml-prose">
+          <p>Le site peut contenir des liens hypertextes vers d'autres sites internet. CLAE Agency n'exerce aucun contrôle sur ces sites tiers et décline toute responsabilité quant à leur contenu et à leurs pratiques en matière de protection des données personnelles.</p>
+          <p>Tout lien hypertexte renvoyant vers le site de CLAE Agency doit faire l'objet d'une autorisation préalable.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Droit applicable et juridiction</div>
+        <div class="ml-prose">
+          <p>Les présentes CGU sont régies par le <strong>droit français</strong>. En cas de litige relatif à leur interprétation ou à leur exécution, les parties s'engagent à rechercher une solution amiable. À défaut, les <strong>Tribunaux de Paris</strong> seront seuls compétents pour en connaître.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ml-sep"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 4 — CGV
+    ═══════════════════════════════════════════════════════ -->
+    <section class="ml-section reveal" id="cgv">
+      <div class="ml-section-header">
+        <div class="ml-section-num">04</div>
+        <div>
+          <h2 class="ml-section-title">Conditions Générales de Vente</h2>
+          <div class="ml-section-sub">Applicables aux prestations de services de production vidéo — version en vigueur au 1er mai 2026</div>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Champ d'application</div>
+        <div class="ml-prose">
+          <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations de services proposées par CLAE Agency, notamment : <strong>production vidéo de mariage</strong>, <strong>couverture d'événements</strong> et <strong>création de contenu</strong> (films de marque, Reels, contenu éditorial).</p>
+          <p>Toute commande passée auprès de CLAE Agency implique l'acceptation pleine et entière des présentes CGV.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Commandes et devis</div>
+        <div class="ml-prose">
+          <p>Toute prestation fait l'objet d'un devis personnalisé, valable <strong>30 jours</strong> à compter de sa date d'émission. La commande est réputée ferme et définitive à réception :</p>
+          <p>— du devis signé par le client (avec la mention « Bon pour accord »),<br>
+          — et du versement d'un <strong>acompte de 40%</strong> du montant total TTC.</p>
+          <p>Aucune date ne sera bloquée dans l'agenda sans réception de ces deux éléments.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Prix et TVA</div>
+        <div class="ml-prose">
+          <p>Les prix sont indiqués en euros, <strong>hors taxes (HT)</strong>. La TVA applicable sera ajoutée conformément à la réglementation en vigueur au moment de la facturation.</p>
+          <p>CLAE Agency se réserve le droit de modifier ses tarifs à tout moment ; les prix applicables sont ceux indiqués sur le devis accepté par le client.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Modalités de paiement</div>
+        <div class="ml-prose">
+          <p>Les paiements s'effectuent par <strong>virement bancaire</strong> uniquement, selon l'échéancier suivant :</p>
+          <p>— <strong>40%</strong> à la signature du devis (acompte de réservation),<br>
+          — <strong>Solde de 60%</strong> à la livraison des fichiers finaux.</p>
+          <p>Tout retard de paiement entraîne l'application de pénalités de retard au taux légal en vigueur, ainsi qu'une indemnité forfaitaire de recouvrement de 40 € (article L.441-6 du Code de commerce).</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Délais de livraison</div>
+        <div class="ml-prose">
+          <p>Les délais de livraison sont précisés dans le devis. CLAE Agency s'engage à respecter ces délais dans des conditions normales d'exécution.</p>
+          <p>CLAE Agency ne pourra être tenu responsable de tout retard résultant d'un cas de <strong>force majeure</strong> (catastrophe naturelle, pandémie, grève, défaillance technique imprévisible, etc.) ou d'un manquement du client à ses obligations (remise tardive de documents, accès au lieu, etc.).</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Droits sur les œuvres</div>
+        <div class="ml-prose">
+          <p>CLAE Agency demeure l'auteur et le titulaire des droits patrimoniaux sur toutes les œuvres produites dans le cadre de ses prestations, au sens des articles L.111-1 et suivants du Code de la Propriété Intellectuelle.</p>
+          <p>À réception du paiement intégral, CLAE Agency cède au client les droits d'<strong>exploitation personnelle</strong> des films livrés (visionnage privé, partage sur réseaux sociaux personnels, envoi à la famille et aux proches).</p>
+          <p>Toute exploitation à titre commercial (publicité, diffusion télévisuelle, monétisation, etc.) fait l'objet d'une <strong>licence spécifique négociée dans le devis</strong>.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Droit à l'image</div>
+        <div class="ml-prose">
+          <p>Le client garantit avoir obtenu, avant la prestation, toutes les autorisations nécessaires auprès des personnes filmées et/ou photographiées, conformément aux articles 9 du Code civil et 226-1 du Code pénal. CLAE Agency ne pourra être tenu responsable en cas de litige résultant d'une autorisation manquante ou insuffisante.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Portfolio et références</div>
+        <div class="ml-prose">
+          <p>CLAE Agency se réserve le droit d'utiliser les réalisations effectuées pour le compte du client à des fins de promotion (site internet, réseaux sociaux, présentations commerciales, festival de film, etc.).</p>
+          <p>Si le client souhaite que sa prestation demeure confidentielle, il devra le notifier expressément <strong>par écrit</strong> avant la signature du devis. CLAE Agency honorera cette demande sous réserve de conditions particulières mentionnées au devis.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Droit de rétractation</div>
+        <div class="ml-prose">
+          <p>Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation <strong>n'est pas applicable</strong> aux contrats de services pleinement exécutés et aux contrats de fourniture de services personnalisés dont l'exécution a commencé, avec l'accord du client, avant la fin du délai de rétractation.</p>
+          <p>Dans le cas d'une annulation par le client après signature du devis, l'acompte de 40% reste acquis à CLAE Agency à titre d'indemnisation forfaitaire.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Réclamations</div>
+        <div class="ml-prose">
+          <p>Toute réclamation relative à la livraison devra être adressée <strong>par écrit</strong> à <a href="mailto:hello@claeagency.com">hello@claeagency.com</a> dans un délai de <strong>7 jours</strong> suivant la date de livraison des fichiers. Passé ce délai, la livraison sera réputée acceptée sans réserve.</p>
+        </div>
+      </div>
+
+      <div class="ml-card">
+        <div class="ml-card-title">Droit applicable et médiation</div>
+        <div class="ml-prose">
+          <p>Les présentes CGV sont soumises au <strong>droit français</strong>. En cas de litige, les parties rechercheront une solution amiable. À défaut de règlement amiable, les <strong>Tribunaux compétents de Paris</strong> seront seuls compétents.</p>
+          <p>Conformément aux articles L.611-1 et suivants du Code de la consommation, le client peut recourir gratuitement à un médiateur de la consommation : <span class="placeholder">[Nom du médiateur À COMPLÉTER si applicable]</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom contact notice -->
+    <div class="ml-notice" style="margin-top:2rem">
+      <div class="ml-notice-icon">💬</div>
+      <div class="ml-notice-text">Des questions sur ces mentions légales ? Contactez-nous à <strong><a href="mailto:hello@claeagency.com" style="color:var(--gold);text-decoration:none">hello@claeagency.com</a></strong> — nous répondons dans les 48h ouvrées.</div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <img src="Nom_agence.png" alt="CLAE Agency" class="foot-logo">
+        <div class="foot-tag">Video. Story. Impact.</div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="foot-socials">
+        <a href="https://www.instagram.com/claeagency" target="_blank" rel="noopener noreferrer" class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">&copy; 2026 CLAE Agency. Tous droits réservés.</div>
+      <div class="foot-legal"><a href="mentions-legales.html" class="foot-legal-link">Mentions Légales</a> <a href="cgv.html" class="foot-legal-link">CGV</a></div>
+      <div class="foot-copy">Made with intention in Paris.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+}, {passive: true});
+
+// Hamburger
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('active');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+function closeMob() {
+  ham.classList.remove('active');
+  mob.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+<!-- WhatsApp -->
+
+</body>
+</html>

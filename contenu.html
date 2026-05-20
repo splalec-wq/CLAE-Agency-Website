@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Création de Contenu — CLAE Agency</title>
+  <link rel="icon" href="Logo-removebg-preview.png" type="image/png">
+
+<!-- SEO -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://claeagency.com/contenu.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CLAE Agency">
+<meta property="og:url" content="https://claeagency.com/contenu.html">
+<meta property="og:title" content="Création de Contenu Vidéo Paris — Reels & Films de Marque | CLAE Agency">
+<meta property="og:description" content="Films de marque, Reels et contenu éditorial cinématique. CLAE Agency crée du contenu qui convertit pour vos réseaux sociaux.">
+<meta property="og:image" content="https://claeagency.com/Logo-removebg-preview.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@claeagency">
+<meta name="twitter:title" content="Création de Contenu Vidéo Paris — Reels & Films de Marque | CLAE Agency">
+<meta name="twitter:description" content="Films de marque, Reels et contenu éditorial cinématique. CLAE Agency crée du contenu qui convertit pour vos réseaux sociaux.">
+<meta name="twitter:image" content="https://claeagency.com/Logo-removebg-preview.png">
+
+<!-- Sécurité -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06000E;
+  --bg2:#0D0020;
+  --bg3:#140030;
+  --bg4:#1A003C;
+  --purple:#A855F7;
+  --purple-l:#C084FC;
+  --purple-dim:rgba(168,85,247,.2);
+  --purple-faint:rgba(168,85,247,.06);
+  --mint:#00FFB3;
+  --mint-dim:rgba(0,255,179,.15);
+  --pink:#FF3B7F;
+  --pink-dim:rgba(255,59,127,.15);
+  --white:#F5EEFF;
+  --w70:rgba(245,238,255,.7);
+  --w38:rgba(245,238,255,.38);
+  --w15:rgba(245,238,255,.15);
+  --glass:rgba(255,255,255,.025);
+  --gb:rgba(255,255,255,.07);
+  --gp:rgba(168,85,247,.2);
+  --D:'Syne',sans-serif;
+  --B:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--B);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── GRAIN ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-5%,-5%)}
+  20%{transform:translate(-10%,5%)}
+  30%{transform:translate(5%,-10%)}
+  40%{transform:translate(-5%,15%)}
+  50%{transform:translate(-10%,5%)}
+  60%{transform:translate(15%,0)}
+  70%{transform:translate(0,10%)}
+  80%{transform:translate(-15%,0)}
+  90%{transform:translate(10%,5%)}
+}
+
+/* ── CURSOR GLOW ── */
+#cursor-glow{
+  position:fixed;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9998;
+  background:radial-gradient(circle, rgba(168,85,247,.12) 0%, transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:transform .1s linear;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:1.4rem 4vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:background .4s var(--ease), backdrop-filter .4s var(--ease), box-shadow .4s var(--ease);
+}
+nav.scrolled{
+  background:rgba(6,0,14,.9);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 1px 0 var(--w15);
+}
+.nav-brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
+.nav-logo{height:44px;display:block}
+.nav-brand-name{color:var(--purple-l);font-family:var(--D);font-size:1.05rem;font-weight:800;letter-spacing:.04em}
+.nav-links{
+  display:flex;
+  gap:2.5rem;
+  list-style:none;
+}
+.nav-links a{
+  font-family:var(--D);
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--w70);
+  text-decoration:none;
+  transition:color .25s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--purple-l)}
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--purple);
+  color:#fff;
+  font-family:var(--D);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:.6rem 1.4rem;
+  border-radius:100px;
+  transition:background .25s, transform .25s var(--spring), box-shadow .25s;
+}
+.nav-cta:hover{
+  background:var(--purple-l);
+  transform:translateY(-1px) scale(1.03);
+  box-shadow:0 8px 30px rgba(168,85,247,.4);
+}
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:.3rem;
+}
+.hamburger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--white);
+  border-radius:2px;
+  transition:transform .3s var(--ease), opacity .3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  display:none;
+  position:fixed;
+  inset:0;
+  top:70px;
+  background:rgba(6,0,14,.97);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  z-index:999;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2rem;
+  padding:2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-family:var(--D);
+  font-size:1.6rem;
+  font-weight:800;
+  color:var(--white);
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  transition:color .2s;
+}
+.mobile-menu a:hover{color:var(--purple-l)}
+.mobile-menu .nav-cta{font-size:1rem;padding:.9rem 2.5rem;margin-top:1rem}
+
+/* ── HERO ── */
+#hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:7rem 6vw 4rem;
+  overflow:hidden;
+}
+.hero-orb{
+  position:absolute;
+  width:900px;
+  height:900px;
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 40% 40%, rgba(168,85,247,.18) 0%, rgba(0,255,179,.06) 50%, transparent 70%);
+  filter:blur(80px);
+  pointer-events:none;
+  animation:orbPulse 8s ease-in-out infinite;
+}
+@keyframes orbPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.1)}
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
+}
+.hero-left{flex:1}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  background:var(--mint-dim);
+  border:1px solid rgba(0,255,179,.3);
+  color:var(--mint);
+  font-family:var(--D);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding:.45rem 1rem;
+  border-radius:100px;
+  margin-bottom:2rem;
+}
+.hero-badge-dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--mint);
+  animation:dotBlink 1.8s ease-in-out infinite;
+}
+@keyframes dotBlink{
+  0%,100%{opacity:1;box-shadow:0 0 6px var(--mint)}
+  50%{opacity:.3;box-shadow:none}
+}
+.hero-title{
+  font-family:var(--D);
+  font-size:clamp(4rem,8vw,9rem);
+  font-weight:800;
+  line-height:.95;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  margin-bottom:1.8rem;
+  color:var(--white);
+}
+.hero-title .outline{
+  -webkit-text-stroke:2px var(--purple);
+  color:transparent;
+  display:block;
+}
+.hero-sub{
+  font-family:var(--B);
+  font-size:clamp(1rem,1.4vw,1.2rem);
+  color:var(--w70);
+  max-width:500px;
+  line-height:1.7;
+  margin-bottom:2.5rem;
+}
+.hero-btns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-bottom:3.5rem;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:linear-gradient(135deg,var(--purple),var(--mint));
+  color:#06000E;
+  font-family:var(--D);
+  font-size:.9rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-decoration:none;
+  padding:.85rem 2rem;
+  border-radius:100px;
+  transition:transform .25s var(--spring), box-shadow .25s;
+}
+.btn-primary:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 12px 40px rgba(168,85,247,.45);
+}
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:transparent;
+  color:var(--white);
+  font-family:var(--D);
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-decoration:none;
+  padding:.85rem 2rem;
+  border-radius:100px;
+  border:1px solid var(--w38);
+  transition:border-color .25s, color .25s, transform .25s var(--spring);
+}
+.btn-outline:hover{
+  border-color:var(--purple-l);
+  color:var(--purple-l);
+  transform:translateY(-2px);
+}
+.hero-stats{
+  display:flex;
+  gap:2.5rem;
+  flex-wrap:wrap;
+}
+.hero-stat-item{}
+.hero-stat-num{
+  font-family:var(--D);
+  font-size:1.6rem;
+  font-weight:800;
+  color:var(--purple-l);
+  display:block;
+}
+.hero-stat-label{
+  font-size:.75rem;
+  color:var(--w38);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.hero-right{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:600px;
+}
+.phone-cards{
+  position:relative;
+  width:320px;
+  height:540px;
+}
+.phone-card{
+  position:absolute;
+  width:160px;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), 0 0 0 1px var(--w15);
+  transition:transform .3s var(--ease);
+}
+.phone-card img{
+  width:100%;
+  display:block;
+  aspect-ratio:9/16;
+  object-fit:cover;
+}
+.phone-card:nth-child(1){
+  left:0;top:60px;
+  transform:rotate(-6deg);
+  animation:floatCard1 6s ease-in-out infinite;
+}
+.phone-card:nth-child(2){
+  left:50%;transform:translateX(-50%) rotate(0deg);
+  top:0;z-index:3;
+  width:180px;
+  animation:floatCard2 6s ease-in-out infinite 1s;
+}
+.phone-card:nth-child(3){
+  right:0;top:80px;
+  transform:rotate(6deg);
+  animation:floatCard3 6s ease-in-out infinite 2s;
+}
+@keyframes floatCard1{
+  0%,100%{transform:rotate(-6deg) translateY(0)}
+  50%{transform:rotate(-6deg) translateY(-12px)}
+}
+@keyframes floatCard2{
+  0%,100%{transform:translateX(-50%) rotate(0deg) translateY(0)}
+  50%{transform:translateX(-50%) rotate(0deg) translateY(-16px)}
+}
+@keyframes floatCard3{
+  0%,100%{transform:rotate(6deg) translateY(0)}
+  50%{transform:rotate(6deg) translateY(-10px)}
+}
+.phone-card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(6,0,14,.7) 0%, transparent 50%);
+}
+
+/* ── MARQUEE ── */
+.marquee-section{
+  padding:1.5rem 0;
+  background:var(--bg2);
+  border-top:1px solid var(--w15);
+  border-bottom:1px solid var(--w15);
+  overflow:hidden;
+  position:relative;
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:marquee 30s linear infinite;
+}
+.marquee-item{
+  font-family:var(--D);
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--mint);
+  padding:0 2.5rem;
+  white-space:nowrap;
+  opacity:.85;
+}
+@keyframes marquee{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ── SECTIONS COMMON ── */
+section{padding:8rem 6vw}
+.section-label{
+  display:inline-block;
+  font-family:var(--D);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--purple-l);
+  margin-bottom:1.2rem;
+  opacity:.9;
+}
+.section-title{
+  font-family:var(--D);
+  font-size:clamp(2.2rem,4vw,4rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--white);
+  max-width:700px;
+}
+.section-title .accent{color:var(--purple-l)}
+.section-subtitle{
+  font-family:var(--B);
+  font-size:1rem;
+  color:var(--w70);
+  max-width:550px;
+  line-height:1.7;
+  margin-top:1.2rem;
+}
+.inner{max-width:1400px;margin:0 auto}
+
+/* ── WHAT WE CREATE ── */
+#create{background:var(--bg)}
+.create-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:5rem;
+}
+.create-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
+}
+.create-card{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  background:var(--glass);
+  border:1px solid var(--w15);
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+  transition:transform .12s ease, box-shadow .35s;
+  cursor:default;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.create-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  padding:1px;
+  background:linear-gradient(135deg, var(--purple-dim), transparent 60%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .35s;
+}
+.create-card:hover{
+  box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px var(--purple-faint);
+}
+.create-card:hover::before{opacity:1}
+/* shimmer sweep on hover */
+.create-card::after{
+  content:'';position:absolute;inset:0;border-radius:24px;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.055) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform 0s;pointer-events:none;z-index:2;
+}
+.create-card:hover::after{transform:translateX(220%);transition:transform .65s var(--ease)}
+.create-card-img{
+  width:100%;
+  height:220px;
+  border-radius:14px;
+  overflow:hidden;
+  order:-1;
+}
+.create-card-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s var(--ease);
+}
+.create-card:hover .create-card-img img{transform:scale(1.05)}
+.create-card-num{
+  font-family:var(--D);
+  font-size:3rem;
+  font-weight:800;
+  line-height:1;
+  opacity:.12;
+  position:absolute;
+  top:1.5rem;right:2rem;
+}
+.create-card-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  font-family:var(--D);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding:.3rem .8rem;
+  border-radius:100px;
+}
+.badge-purple{background:var(--purple-dim);color:var(--purple-l);border:1px solid var(--purple-dim)}
+.badge-mint{background:var(--mint-dim);color:var(--mint);border:1px solid rgba(0,255,179,.3)}
+.badge-pink{background:var(--pink-dim);color:var(--pink);border:1px solid rgba(255,59,127,.3)}
+.badge-gold{background:rgba(255,200,50,.1);color:#FFC832;border:1px solid rgba(255,200,50,.3)}
+.create-card-title{
+  font-family:var(--D);
+  font-size:1.5rem;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+.create-card-desc{
+  font-size:.9rem;
+  color:var(--w70);
+  line-height:1.65;
+}
+.create-card-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-top:.3rem;
+}
+.tag{
+  font-size:.7rem;
+  color:var(--w38);
+  border:1px solid var(--w15);
+  padding:.25rem .7rem;
+  border-radius:100px;
+  font-family:var(--D);
+  letter-spacing:.06em;
+}
+
+/* ── PROCESS ── */
+#process{
+  background:var(--bg2);
+  border-top:1px solid var(--w15);
+  border-bottom:1px solid var(--w15);
+}
+.process-header{text-align:center;margin-bottom:5rem}
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  position:relative;
+  max-width:1100px;
+  margin:0 auto;
+}
+.process-steps::before{
+  content:'';
+  position:absolute;
+  top:28px;
+  left:calc(12.5%);
+  right:calc(12.5%);
+  height:1px;
+  border-top:2px dashed var(--purple-dim);
+  z-index:0;
+}
+.process-step{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 1.5rem;
+  position:relative;
+  z-index:1;
+}
+.step-circle{
+  width:56px;height:56px;
+  border-radius:50%;
+  background:var(--bg3);
+  border:2px solid var(--purple);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--D);
+  font-size:1.1rem;
+  font-weight:800;
+  color:var(--purple-l);
+  margin-bottom:1.8rem;
+  flex-shrink:0;
+  transition:background .3s, box-shadow .3s;
+  position:relative;
+  z-index:2;
+  background:var(--bg);
+}
+.process-step:hover .step-circle{
+  background:var(--purple-dim);
+  box-shadow:0 0 30px rgba(168,85,247,.4);
+}
+.step-title{
+  font-family:var(--D);
+  font-size:1rem;
+  font-weight:800;
+  margin-bottom:.6rem;
+  letter-spacing:.02em;
+}
+.step-desc{
+  font-size:.85rem;
+  color:var(--w38);
+  line-height:1.6;
+}
+
+/* ── FOR WHO ── */
+#forwhom{background:var(--bg)}
+.forwhom-header{text-align:center;margin-bottom:4rem}
+.forwhom-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.forwhom-card{
+  position:relative;
+  padding:2.5rem;
+  border-radius:24px;
+  background:var(--glass);
+  overflow:hidden;
+  transition:transform .35s var(--ease);
+}
+.forwhom-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  padding:1px;
+  background:linear-gradient(135deg,var(--purple),var(--mint));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+.forwhom-card:hover{transform:translateY(-6px)}
+.forwhom-icon{
+  width:52px;height:52px;
+  border-radius:14px;
+  background:var(--purple-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  margin-bottom:1.5rem;
+}
+.forwhom-title{
+  font-family:var(--D);
+  font-size:1.2rem;
+  font-weight:800;
+  margin-bottom:.5rem;
+}
+.forwhom-sub{
+  font-size:.8rem;
+  color:var(--purple-l);
+  font-family:var(--D);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:.8rem;
+}
+.forwhom-desc{font-size:.9rem;color:var(--w70);line-height:1.65}
+
+/* ── RÉSULTATS ── */
+#results{
+  background:var(--bg2);
+  border-top:1px solid var(--w15);
+  border-bottom:1px solid var(--w15);
+}
+.results-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+}
+.results-text .section-title{max-width:500px}
+.results-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+}
+.result-card{
+  background:var(--glass);
+  border:1px solid var(--w15);
+  border-radius:20px;
+  padding:2rem;
+  text-align:center;
+  transition:transform .3s var(--ease), box-shadow .3s;
+}
+.result-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+.result-num{
+  font-family:var(--D);
+  font-size:2.8rem;
+  font-weight:800;
+  line-height:1;
+  display:block;
+  margin-bottom:.4rem;
+}
+.result-num.purple{color:var(--purple-l)}
+.result-num.mint{color:var(--mint)}
+.result-label{
+  font-size:.78rem;
+  color:var(--w38);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-family:var(--D);
+}
+
+/* ── PORTFOLIO ── */
+#portfolio-section{background:var(--bg)}
+.portfolio-header{text-align:center;margin-bottom:4rem}
+.masonry-grid{
+  columns:4;
+  column-gap:1rem;
+  max-width:1400px;
+  margin:0 auto;
+}
+.masonry-item{
+  break-inside:avoid;
+  margin-bottom:1rem;
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+}
+.masonry-item img{
+  display:block;
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  transition:transform .5s var(--ease);
+}
+.masonry-item:nth-child(even) img{aspect-ratio:9/12}
+.masonry-item:hover img{transform:scale(1.06)}
+.masonry-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(6,0,14,.85) 0%, transparent 50%);
+  opacity:0;
+  transition:opacity .35s;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:1.5rem;
+}
+.masonry-item:hover .masonry-overlay{opacity:1}
+.masonry-play{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--purple);
+  display:flex;align-items:center;justify-content:center;
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  transition:transform .35s var(--spring);
+  box-shadow:0 0 30px rgba(168,85,247,.6);
+}
+.masonry-item:hover .masonry-play{transform:translate(-50%,-50%) scale(1)}
+.masonry-info-title{
+  font-family:var(--D);
+  font-size:.85rem;
+  font-weight:700;
+  margin-bottom:.2rem;
+}
+.masonry-info-tag{
+  font-size:.7rem;
+  color:var(--mint);
+  font-family:var(--D);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* ── TÉMOIGNAGES ── */
+#testimonials{
+  background:var(--bg2);
+  border-top:1px solid var(--w15);
+}
+.testi-header{text-align:center;margin-bottom:4rem}
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.testi-card{
+  position:relative;
+  padding:2.5rem;
+  border-radius:24px;
+  background:var(--glass);
+  transition:transform .35s var(--ease);
+  overflow:hidden;
+}
+.testi-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  padding:1px;
+  background:linear-gradient(135deg,var(--purple),var(--mint));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:.5;
+  transition:opacity .3s;
+}
+.testi-card:hover::after{opacity:1}
+.testi-card:hover{transform:translateY(-5px)}
+.testi-quote{
+  font-size:3rem;
+  color:var(--purple);
+  line-height:.5;
+  margin-bottom:1.2rem;
+  font-family:Georgia,serif;
+}
+.testi-text{
+  font-size:.95rem;
+  color:var(--w70);
+  line-height:1.7;
+  font-style:italic;
+  margin-bottom:1.8rem;
+}
+.testi-author{display:flex;align-items:center;gap:.9rem}
+.testi-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--purple-dim);
+  border:2px solid var(--purple-dim);
+  overflow:hidden;
+  flex-shrink:0;
+}
+.testi-avatar img{width:100%;height:100%;object-fit:cover}
+.testi-name{
+  font-family:var(--D);
+  font-size:.9rem;
+  font-weight:700;
+}
+.testi-role{font-size:.78rem;color:var(--w38)}
+
+/* ── FORMULES ── */
+#pricing{background:var(--bg)}
+.pricing-header{text-align:center;margin-bottom:4rem}
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  max-width:1100px;
+  margin:0 auto;
+  align-items:start;
+}
+.pricing-card{
+  padding:2.5rem;
+  border-radius:24px;
+  background:var(--glass);
+  border:1px solid var(--w15);
+  transition:transform .35s var(--ease), box-shadow .35s;
+  position:relative;
+  overflow:hidden;
+}
+.pricing-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+.pricing-card.featured{
+  background:linear-gradient(145deg, rgba(168,85,247,.15), rgba(0,255,179,.06));
+  border-color:var(--purple);
+  transform:scale(1.04);
+}
+.pricing-card.featured:hover{
+  transform:scale(1.04) translateY(-6px);
+  box-shadow:0 40px 100px rgba(168,85,247,.3);
+}
+.featured-badge{
+  position:absolute;
+  top:0;right:2rem;
+  background:linear-gradient(135deg,var(--purple),var(--mint));
+  color:#06000E;
+  font-family:var(--D);
+  font-size:.65rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.35rem .8rem;
+  border-radius:0 0 10px 10px;
+}
+.pricing-name{
+  font-family:var(--D);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--w38);
+  margin-bottom:.8rem;
+}
+.pricing-price{
+  font-family:var(--D);
+  font-size:2.8rem;
+  font-weight:800;
+  line-height:1;
+  margin-bottom:.3rem;
+  color:var(--white);
+  white-space:nowrap;
+}
+.pricing-price .currency{font-size:1.4rem;vertical-align:top;margin-top:.3rem;display:inline-block}
+.pricing-price .period{font-size:.85rem;color:var(--w38);font-weight:400}
+.pricing-desc{
+  font-size:.85rem;
+  color:var(--w70);
+  margin-bottom:1.8rem;
+  line-height:1.6;
+}
+.pricing-divider{
+  height:1px;
+  background:var(--w15);
+  margin-bottom:1.8rem;
+}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.pricing-features li{
+  display:flex;
+  align-items:flex-start;
+  gap:.6rem;
+  font-size:.88rem;
+  color:var(--w70);
+  line-height:1.4;
+}
+.pricing-features li::before{
+  content:'✦';
+  color:var(--purple-l);
+  font-size:.7rem;
+  flex-shrink:0;
+  margin-top:.1rem;
+}
+.pricing-cta{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  padding:.85rem;
+  border-radius:100px;
+  font-family:var(--D);
+  font-size:.85rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:transform .25s var(--spring), box-shadow .25s;
+}
+.pricing-cta.outline{
+  border:1px solid var(--w38);
+  color:var(--white);
+}
+.pricing-cta.outline:hover{border-color:var(--purple-l);color:var(--purple-l)}
+.pricing-cta.gradient{
+  background:linear-gradient(135deg,var(--purple),var(--mint));
+  color:#06000E;
+}
+.pricing-cta.gradient:hover{
+  transform:scale(1.03);
+  box-shadow:0 12px 40px rgba(168,85,247,.45);
+}
+.pricing-cta.ghost{
+  border:1px solid var(--w15);
+  color:var(--w70);
+}
+.pricing-cta.ghost:hover{border-color:var(--purple-dim);color:var(--purple-l)}
+
+/* ── CTA FINAL ── */
+#final-cta{
+  padding:10rem 6vw;
+  background:linear-gradient(135deg, rgba(168,85,247,.15) 0%, rgba(0,255,179,.08) 50%, rgba(255,59,127,.06) 100%);
+  border-top:1px solid var(--w15);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+#final-cta::before{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(168,85,247,.2) 0%, transparent 70%);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  filter:blur(60px);
+  pointer-events:none;
+}
+.cta-title{
+  font-family:var(--D);
+  font-size:clamp(3rem,7vw,7.5rem);
+  font-weight:800;
+  line-height:.95;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:2.5rem;
+  position:relative;
+  z-index:1;
+}
+.cta-sub{
+  font-size:1.1rem;
+  color:var(--w70);
+  margin-bottom:3rem;
+  position:relative;
+  z-index:1;
+}
+.btn-white{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--white);
+  color:var(--bg);
+  font-family:var(--D);
+  font-size:.95rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:1rem 2.5rem;
+  border-radius:100px;
+  position:relative;
+  z-index:1;
+  transition:transform .25s var(--spring), box-shadow .25s;
+}
+.btn-white:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 16px 50px rgba(245,238,255,.25);
+}
+.cta-note{
+  margin-top:1.5rem;
+  font-size:.82rem;
+  color:var(--w38);
+  position:relative;
+  z-index:1;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--w15);
+  padding:4rem 6vw 2.5rem;
+}
+.footer-inner{
+  max-width:1400px;
+  margin:0 auto;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.5fr repeat(3,1fr);
+  gap:3rem;
+  margin-bottom:3.5rem;
+}
+.footer-brand img{height:32px;margin-bottom:1rem}
+.footer-tagline{font-size:.85rem;color:var(--w38);line-height:1.6;max-width:260px}
+.footer-col-title{
+  font-family:var(--D);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--w38);
+  margin-bottom:1.2rem;
+}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.footer-links a{
+  font-size:.88rem;
+  color:var(--w70);
+  text-decoration:none;
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--purple-l)}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:2rem;
+  border-top:1px solid var(--w15);
+  font-size:.78rem;
+  color:var(--w38);
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-made{display:flex;align-items:center;gap:.4rem}
+.footer-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--mint);
+  display:inline-block;
+  animation:dotBlink 2s ease-in-out infinite;
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal{
+  opacity:0;
+  transform:translateY(48px) scale(.97);
+  transition:opacity .75s var(--ease), transform .9s var(--spring);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-right{display:none}
+  .create-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:3rem}
+  .process-steps::before{display:none}
+  .results-inner{grid-template-columns:1fr;gap:3rem}
+  .masonry-grid{columns:2}
+  .testi-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-card.featured{transform:none}
+  .pricing-card.featured:hover{transform:translateY(-6px)}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .forwhom-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  section{padding:5rem 5vw}
+  .hero-title{font-size:clamp(3.2rem,12vw,6rem)}
+  .create-card-img{height:160px}
+  .process-steps{grid-template-columns:1fr}
+  .masonry-grid{columns:2}
+  .pricing-grid{grid-template-columns:1fr;gap:1.2rem}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .cta-title{font-size:clamp(2.5rem,10vw,4rem)}
+}
+@media(max-width:480px){
+  nav{padding:1.1rem 5vw}
+  .hero-badge{font-size:.65rem}
+  .masonry-grid{columns:1}
+  .results-grid{grid-template-columns:1fr 1fr}
+}
+/* ── MEGA MENU ── */
+.nav-dropdown{position:relative}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;vertical-align:middle}
+.nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
+.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
+.nav-drop-menu::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(7,7,7,.98);border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)}
+.nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
+.ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
+.ndm-card{display:flex;flex-direction:column;gap:.9rem;padding:1.4rem 1.3rem;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(212,175,55,.07);text-decoration:none;transition:background .28s,border-color .28s,transform .32s cubic-bezier(.16,1,.3,1),box-shadow .32s;position:relative;overflow:hidden}
+.ndm-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.07) 0%,transparent 55%);opacity:0;transition:opacity .28s}
+.ndm-card:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.18)}
+.ndm-card:hover::before{opacity:1}
+.ndm-icon{width:54px;height:54px;border-radius:14px;background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .28s,border-color .28s,box-shadow .28s}
+.ndm-card:hover .ndm-icon{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.5);box-shadow:0 0 22px rgba(212,175,55,.2)}
+.ndm-icon svg{width:22px;height:22px;stroke:#D4AF37;fill:none;stroke-width:1.6}
+.ndm-title{font-family:var(--D);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;line-height:1.1;transition:color .25s}
+.ndm-card:hover .ndm-title{color:#D4AF37}
+.ndm-desc{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.65;flex:1;margin-top:.25rem}
+.ndm-tags{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-top:.3rem}
+.ndm-arr{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.4);margin-top:.3rem;transition:color .25s,gap .25s cubic-bezier(.16,1,.3,1)}
+.ndm-arr svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.ndm-card:hover .ndm-arr{color:#D4AF37;gap:.6rem}
+.ndm-card:hover .ndm-arr svg{transform:translateX(4px)}
+.ndm-footer{border-top:1px solid rgba(212,175,55,.09);padding-top:.9rem;display:flex;justify-content:flex-end}
+.ndm-all{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AF37;text-decoration:none;opacity:.65;transition:opacity .2s,gap .25s cubic-bezier(.16,1,.3,1)}
+.ndm-all:hover{opacity:1;gap:.65rem}
+.ndm-all svg{width:11px;height:11px;stroke:#D4AF37;fill:none;stroke-width:2.5;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.ndm-all:hover svg{transform:translateX(4px)}
+
+/* WhatsApp */
+100%{transform:scale(1.9);opacity:0}}
+
+
+/* ── FOOT LEGAL LINKS ── */
+.foot-legal{display:flex;gap:1.5rem;align-items:center}
+.foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
+.foot-legal-link:hover{color:var(--gold,#D4AF37)}
+</style>
+</head>
+<body>
+
+<!-- CURSOR GLOW -->
+<div id="cursor-glow"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index-v2.html?direct=1" class="nav-brand"><img src="Logo-removebg-preview.png" alt="CLAE Agency" class="nav-logo"><span class="nav-brand-name">CLAE Agency</span></a>
+  <ul class="nav-links">
+    <li><a href="index-v2.html?direct=1">Accueil</a></li>
+    <li class="nav-dropdown">
+  <a href="services.html" class="nav-drop-trigger">Services
+    <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+  <div class="nav-drop-menu">
+    <div class="ndm-cards">
+      <a href="mariage.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 14 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 13-9 13z"/></svg></div>
+        <div>
+          <div class="ndm-title">Mariage Immortalisé</div>
+          <div class="ndm-desc">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard.</div>
+          <div class="ndm-tags">Cérémonie · Réception · Montage Same-Day · Film Résumé</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="evenement.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div>
+          <div class="ndm-title">Production Événement</div>
+          <div class="ndm-desc">Galas d'entreprise, activations de marque et célébrations captés avec la même précision cinématique.</div>
+          <div class="ndm-tags">Corporate · Gala · Événement Live · Multi-Caméra</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="contenu.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+        <div>
+          <div class="ndm-title">Création de Contenu</div>
+          <div class="ndm-desc">Films de marque, Reels et visuels éditoriaux pensés pour stopper le scroll et convertir durablement.</div>
+          <div class="ndm-tags">Film de Marque · Éditorial · Reels · Lookbook</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+    <div class="ndm-footer">
+      <a href="services.html" class="ndm-all">Voir tous les services
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</li>
+    <li><a href="about.html">À Propos</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contactez-nous</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index-v2.html?direct=1">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">À Propos</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="nav-cta">Contactez-nous</a>
+</div>
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot"></span>
+        Création de Contenu
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        STOP<br>
+        THE<br>
+        <span class="outline">SCROLL.</span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">Films de marque, reels et visuels éditoriaux conçus pour capturer l'attention et construire des marques mémorables.</p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="portfolio.html" class="btn-primary">Voir notre contenu →</a>
+        <a href="contact.html" class="btn-outline">Parler de mon projet</a>
+      </div>
+      <div class="hero-stats reveal reveal-delay-4">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num" data-count="2" data-suffix="M+">0</span>
+          <span class="hero-stat-label">Vues générées</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num" data-count="50" data-suffix="+">0</span>
+          <span class="hero-stat-label">Marques accompagnées</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num" data-count="340" data-suffix="%">0</span>
+          <span class="hero-stat-label">Engagement moyen</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="phone-cards">
+        <div class="phone-card">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=300&h=500&q=80" alt="Content 1" loading="lazy">
+          <div class="phone-card-overlay"></div>
+        </div>
+        <div class="phone-card">
+          <img src="https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?auto=format&fit=crop&w=300&h=500&q=80" alt="Content 2" loading="lazy">
+          <div class="phone-card-overlay"></div>
+        </div>
+        <div class="phone-card">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=300&h=500&q=80" alt="Content 3" loading="lazy">
+          <div class="phone-card-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     MARQUEE
+════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Brand Films</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Reels Instagram</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">TikTok Content</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Editorial Shoots</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Lookbooks</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Motion Graphics</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Product Videos</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Social Campaigns</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Brand Films</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Reels Instagram</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">TikTok Content</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Editorial Shoots</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Lookbooks</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Motion Graphics</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Product Videos</span>
+    <span class="marquee-item">•</span>
+    <span class="marquee-item">Social Campaigns</span>
+    <span class="marquee-item">•</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     CE QU'ON CRÉE
+════════════════════════════════ -->
+<section id="create">
+  <div class="inner">
+    <div class="create-header">
+      <span class="section-label reveal">Notre expertise</span>
+      <h2 class="section-title reveal reveal-delay-1">CE QU'ON<br><span class="accent">CRÉE</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2">Chaque format est pensé pour un objectif précis. Du film narratif au reel viral, on maîtrise toute la chaîne du contenu visuel.</p>
+    </div>
+    <div class="create-grid">
+
+      <!-- Card 1 -->
+      <div class="create-card reveal">
+        <div class="create-card-img">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=500&h=400&q=80" alt="Films de Marque" loading="lazy">
+        </div>
+        <span class="create-card-num">01</span>
+        <span class="create-card-badge badge-purple">● Films &amp; Narratif</span>
+        <h3 class="create-card-title">Films de Marque</h3>
+        <p class="create-card-desc">Des films narratifs de 3 à 5 minutes qui racontent l'histoire de votre marque avec une mise en scène cinématique. Émotion, identité, mémorabilité — c'est notre territoire.</p>
+        <div class="create-card-tags">
+          <span class="tag">Brand Documentary</span>
+          <span class="tag">Story Telling</span>
+          <span class="tag">Cinematic</span>
+          <span class="tag">4K RAW</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="create-card reveal reveal-delay-1">
+        <div class="create-card-img">
+          <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=500&h=400&q=80" alt="Reels Short-Form" loading="lazy">
+        </div>
+        <span class="create-card-num">02</span>
+        <span class="create-card-badge badge-mint">● Short-Form Viral</span>
+        <h3 class="create-card-title">Reels &amp; Short-Form</h3>
+        <p class="create-card-desc">Des formats 15-60 secondes ultra-punchy pensés pour stopper le scroll. Montage dynamique, hooks forts et CTAs clairs. Optimisés Instagram, TikTok, YouTube Shorts.</p>
+        <div class="create-card-tags">
+          <span class="tag">Instagram Reels</span>
+          <span class="tag">TikTok</span>
+          <span class="tag">YouTube Shorts</span>
+          <span class="tag">Hook Driven</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="create-card reveal reveal-delay-2">
+        <div class="create-card-img">
+          <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=500&h=400&q=80" alt="Éditorial Lookbook" loading="lazy">
+        </div>
+        <span class="create-card-num">03</span>
+        <span class="create-card-badge badge-pink">● Photo &amp; Éditorial</span>
+        <h3 class="create-card-title">Éditorial &amp; Lookbook</h3>
+        <p class="create-card-desc">Contenu hybride photo/vidéo au rendu éditorial haut de gamme. Pour les marques de mode, lifestyle et luxe qui veulent un univers visuel cohérent et désirable.</p>
+        <div class="create-card-tags">
+          <span class="tag">Fashion Editorial</span>
+          <span class="tag">Lookbook</span>
+          <span class="tag">Photo Direction</span>
+          <span class="tag">Ambiance</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="create-card reveal reveal-delay-3">
+        <div class="create-card-img">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&h=400&q=80" alt="Campagnes Sociales" loading="lazy">
+        </div>
+        <span class="create-card-num">04</span>
+        <span class="create-card-badge badge-gold">● Multi-Format</span>
+        <h3 class="create-card-title">Campagnes Sociales</h3>
+        <p class="create-card-desc">Des packages complets multi-formats pour alimenter vos réseaux sur la durée. Un tournage, 15 formats. Maximisez votre ROI et maintenez une présence constante et qualitative.</p>
+        <div class="create-card-tags">
+          <span class="tag">Package Mensuel</span>
+          <span class="tag">Multi-Format</span>
+          <span class="tag">Stratégie</span>
+          <span class="tag">ROI Measurable</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     COMMENT ÇA MARCHE
+════════════════════════════════ -->
+<section id="process">
+  <div class="inner">
+    <div class="process-header">
+      <span class="section-label reveal">Notre approche</span>
+      <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto">COMMENT<br><span class="accent">ÇA MARCHE</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:1.2rem auto 0;text-align:center">Un processus rodé pour aller de l'idée au contenu en moins de 2 semaines.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-circle">①</div>
+        <h3 class="step-title">Brief Créatif</h3>
+        <p class="step-desc">On plonge dans votre univers. Objectifs, audience, références visuelles et ton de marque — on pose les bases ensemble.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-circle">②</div>
+        <h3 class="step-title">Direction Artistique</h3>
+        <p class="step-desc">Moodboard, storyboard et sélection des talents. On vous présente la vision complète avant de tourner la première image.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-circle">③</div>
+        <h3 class="step-title">Production</h3>
+        <p class="step-desc">Tournage 1 à 2 jours avec équipement cinéma. Étalonnage, montage et motion design dans notre studio de post.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-circle">④</div>
+        <h3 class="step-title">Livraison &amp; Stratégie</h3>
+        <p class="step-desc">Tous les formats livrés, optimisés par plateforme. On vous conseille sur la stratégie de publication pour maximiser l'impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     POUR QUI
+════════════════════════════════ -->
+<section id="forwhom">
+  <div class="inner">
+    <div class="forwhom-header">
+      <span class="section-label reveal">Notre clientèle</span>
+      <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">FAIT POUR<br><span class="accent">QUI?</span></h2>
+    </div>
+    <div class="forwhom-grid">
+      <div class="forwhom-card reveal">
+        <div class="forwhom-icon">🏢</div>
+        <div class="forwhom-sub">Croissance &amp; Scale</div>
+        <h3 class="forwhom-title">Marques &amp; Startups</h3>
+        <p class="forwhom-desc">Vous avez un produit incroyable mais votre contenu ne convertit pas. On vous crée un univers visuel cohérent qui attire, engage et convertit votre audience cible.</p>
+      </div>
+      <div class="forwhom-card reveal reveal-delay-1">
+        <div class="forwhom-icon">🎬</div>
+        <div class="forwhom-sub">Montée en Gamme</div>
+        <h3 class="forwhom-title">Créateurs &amp; Influenceurs</h3>
+        <p class="forwhom-desc">Vous voulez passer du contenu amateur au niveau professionnel. On vous apporte la qualité cinématique, la direction artistique et les assets qui ouvrent les portes des grandes marques.</p>
+      </div>
+      <div class="forwhom-card reveal reveal-delay-2">
+        <div class="forwhom-icon">⚡</div>
+        <div class="forwhom-sub">Présence Visuelle</div>
+        <h3 class="forwhom-title">Entrepreneurs</h3>
+        <p class="forwhom-desc">Vous vendez votre expertise mais votre image en ligne ne vous rend pas justice. On construit une présence visuelle forte qui reflète la valeur réelle de ce que vous offrez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     RÉSULTATS
+════════════════════════════════ -->
+<section id="results">
+  <div class="results-inner">
+    <div class="results-text">
+      <span class="section-label reveal">Impact concret</span>
+      <h2 class="section-title reveal reveal-delay-1">LES CHIFFRES<br><span class="accent">PARLENT</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2">On ne fait pas du contenu pour le faire. Chaque film, chaque reel est pensé pour générer un retour mesurable sur votre investissement.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <span class="result-num purple" data-count="2" data-suffix="M+">0</span>
+        <span class="result-label">Vues générées</span>
+      </div>
+      <div class="result-card reveal reveal-delay-1">
+        <span class="result-num mint" data-count="340" data-suffix="%">0</span>
+        <span class="result-label">Engagement moyen</span>
+      </div>
+      <div class="result-card reveal reveal-delay-2">
+        <span class="result-num purple" data-count="50" data-suffix="+">0</span>
+        <span class="result-label">Marques accompagnées</span>
+      </div>
+      <div class="result-card reveal reveal-delay-3">
+        <span class="result-num mint" data-count-decimal="4.9" data-suffix="/5">0</span>
+        <span class="result-label">Satisfaction client</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     FORMULES
+════════════════════════════════ -->
+<section id="pricing">
+  <div class="inner">
+    <div class="pricing-header">
+      <span class="section-label reveal">Tarifs transparents</span>
+      <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">NOS<br><span class="accent">FORMULES</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:1.2rem auto 0;text-align:center">Des offres claires pour chaque étape de votre croissance.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card reveal">
+        <p class="pricing-name">Starter Pack</p>
+        <div class="pricing-price"><span class="currency">€</span>1&nbsp;200</div>
+        <p class="pricing-desc">Parfait pour démarrer avec du contenu professionnel et tester l'impact sur votre audience.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>3 Reels optimisés Instagram/TikTok</li>
+          <li>1 Film court (60-90 secondes)</li>
+          <li>Direction artistique incluse</li>
+          <li>Étalonnage cinématique</li>
+          <li>Livraison en 10 jours</li>
+          <li>1 révision incluse</li>
+        </ul>
+        <a href="reservation.html?formule=Starter+Pack&source=contenu" class="pricing-cta outline">Commencer →</a>
+      </div>
+
+      <!-- Mensuel — FEATURED -->
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <span class="featured-badge">Le plus populaire</span>
+        <p class="pricing-name">Contenu Mensuel</p>
+        <div class="pricing-price"><span class="currency">€</span>2&nbsp;800<span class="period">/mois</span></div>
+        <p class="pricing-desc">Une présence constante et qualitative sur tous vos réseaux. Le choix des marques qui scèlent.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>8 formats par mois (reels, stories, posts)</li>
+          <li>1 tournage mensuel dédié</li>
+          <li>Direction artistique mensuelle</li>
+          <li>Stratégie de publication offerte</li>
+          <li>Accès prioritaire à l'équipe</li>
+          <li>Rapport performance mensuel</li>
+          <li>Révisions illimitées</li>
+        </ul>
+        <a href="reservation.html?formule=Contenu+Mensuel&source=contenu" class="pricing-cta gradient">Je veux ce pack →</a>
+      </div>
+
+      <!-- Brand Identity -->
+      <div class="pricing-card reveal reveal-delay-2">
+        <p class="pricing-name">Brand Identity</p>
+        <div class="pricing-price" style="font-size:1.8rem;padding-top:.4rem">Sur devis</div>
+        <p class="pricing-desc">Direction artistique complète de votre identité visuelle. Pour les marques qui veulent définir un univers unique et durable.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Audit &amp; stratégie visuelle complète</li>
+          <li>Charte graphique &amp; moodboards</li>
+          <li>Brand film signature (3-5 min)</li>
+          <li>Pack social complet (20+ formats)</li>
+          <li>Guide éditorial pour votre équipe</li>
+          <li>Suivi trimestriel inclus</li>
+        </ul>
+        <a href="reservation.html?formule=Brand+Identity&source=contenu" class="pricing-cta ghost">Parlons-en →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     PORTFOLIO MASONRY
+════════════════════════════════ -->
+<section id="portfolio-section">
+  <div class="inner">
+    <div class="portfolio-header">
+      <span class="section-label reveal">Nos réalisations</span>
+      <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">LE CONTENU<br><span class="accent">QU'ON CRÉE</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:1.2rem auto 0;text-align:center">Un aperçu de notre univers visuel. Chaque image est une histoire.</p>
+    </div>
+    <div class="masonry-grid">
+
+      <div class="masonry-item reveal">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=400&h=600&q=80" alt="Content p1" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Brand Film — Atelier Lumère</p>
+          <span class="masonry-info-tag">Film de Marque</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1596526131083-e8c633964948?auto=format&fit=crop&w=400&h=700&q=80" alt="Content p2" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Campagne Reels — Nova Studio</p>
+          <span class="masonry-info-tag">Short-Form</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&h=550&q=80" alt="Content p3" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Lookbook SS25 — Veil Paris</p>
+          <span class="masonry-info-tag">Éditorial</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=400&h=650&q=80" alt="Content p4" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Social Pack — Obsidian Store</p>
+          <span class="masonry-info-tag">Campagne Sociale</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&h=600&q=80" alt="Content p5" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Mini-Doc — Fondation AORA</p>
+          <span class="masonry-info-tag">Documentaire</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&h=700&q=80" alt="Content p6" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">TikTok Series — Mako Brand</p>
+          <span class="masonry-info-tag">TikTok Content</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=400&h=580&q=80" alt="Content p7" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Product Launch — Kinetic Labs</p>
+          <span class="masonry-info-tag">Product Video</span>
+        </div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&h=640&q=80" alt="Content p8" loading="lazy">
+        <div class="masonry-overlay">
+          <div class="masonry-play">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M2 2L16 10L2 18V2Z" fill="white"/></svg>
+          </div>
+          <p class="masonry-info-title">Editorial — Blanche Mode</p>
+          <span class="masonry-info-tag">Fashion Editorial</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     TÉMOIGNAGES
+════════════════════════════════ -->
+<section id="testimonials">
+  <div class="inner">
+    <div class="testi-header">
+      <span class="section-label reveal">Ils nous font confiance</span>
+      <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">CE QU'ILS EN<br><span class="accent">DISENT</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">CLAE a littéralement transformé notre présence en ligne. En 3 semaines après la livraison de nos reels, on a multiplié nos ventes par 2.7. Ce n'est pas du contenu, c'est de la croissance.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://picsum.photos/seed/face-testi1/100/100" alt="Sophie R." loading="lazy">
+          </div>
+          <div>
+            <p class="testi-name">Sophie Renault</p>
+            <p class="testi-role">Fondatrice, Veil Paris</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Je cherchais une équipe qui comprendrait mon univers sans que j'aie à tout expliquer. CLAE l'a capturé dès le brief. Mon brand film a dépassé 800K vues en 48h. Incroyable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://picsum.photos/seed/face-testi2/100/100" alt="Marcus D." loading="lazy">
+          </div>
+          <div>
+            <p class="testi-name">Marcus Delvaux</p>
+            <p class="testi-role">Créateur de contenu, 340K abonnés</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Notre CPC a chuté de 60% et notre taux de conversion a explosé depuis qu'on utilise les contenus CLAE dans nos campagnes Meta. Le meilleur investissement marketing de l'année.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://picsum.photos/seed/face-testi3/100/100" alt="Julien M." loading="lazy">
+          </div>
+          <div>
+            <p class="testi-name">Julien Moreau</p>
+            <p class="testi-role">CMO, Kinetic Labs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     CTA FINAL
+════════════════════════════════ -->
+<section id="final-cta">
+  <h2 class="cta-title reveal">CRÉONS<br>QUELQUE CHOSE<br>D'EXTRAORDINAIRE.</h2>
+  <p class="cta-sub reveal reveal-delay-1">Votre prochain projet commence par une conversation.</p>
+  <a href="contact.html" class="btn-white reveal reveal-delay-2">Démarrer mon projet →</a>
+  <p class="cta-note reveal reveal-delay-3">Réponse sous 48h · Sans engagement · 100% confidentiel</p>
+</section>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Logo-removebg-preview.png" alt="CLAE Agency" style="height:44px">
+        <p class="footer-tagline">Agence de production vidéo cinématique. On crée du contenu qui construit des marques mémorables.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="index-v2.html?direct=1">Accueil</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">À Propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="contenu.html">Création de Contenu</a></li>
+          <li><a href="services.html">Brand Films</a></li>
+          <li><a href="services.html">Direction Artistique</a></li>
+          <li><a href="services.html">Post-Production</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li><a href="contact.html">Réserver un appel</a></li>
+          <li><a href="contact.html">Demander un devis</a></li>
+          <li><a href="mailto:hello@claeagency.com">hello@claeagency.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CLAE Agency. Tous droits réservés.</p>
+      <div class="foot-legal"><a href="mentions-legales.html" class="foot-legal-link">Mentions Légales</a> <a href="cgv.html" class="foot-legal-link">CGV</a></div>
+      <p class="footer-made">Fait avec vision <span class="footer-dot"></span> Paris</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════
+// NAV SCROLL
+// ═══════════════════════════════════
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+
+// ═══════════════════════════════════
+// HAMBURGER
+// ═══════════════════════════════════
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ═══════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ═══════════════════════════════════
+// ANIMATED COUNTERS
+// ═══════════════════════════════════
+function animateCounter(el) {
+  const isDecimal = el.hasAttribute('data-count-decimal');
+  const target = isDecimal
+    ? parseFloat(el.getAttribute('data-count-decimal'))
+    : parseInt(el.getAttribute('data-count'), 10);
+  const suffix = el.getAttribute('data-suffix') || '';
+  const duration = 1800;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = isDecimal
+      ? (eased * target).toFixed(1)
+      : Math.floor(eased * target);
+    el.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      if (!el.dataset.animated) {
+        el.dataset.animated = '1';
+        animateCounter(el);
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count], [data-count-decimal]').forEach(el => {
+  counterObserver.observe(el);
+});
+
+// ═══════════════════════════════════
+// CURSOR GLOW
+// ═══════════════════════════════════
+const cursorGlow = document.getElementById('cursor-glow');
+let glowX = window.innerWidth / 2;
+let glowY = window.innerHeight / 2;
+let currentX = glowX;
+let currentY = glowY;
+
+document.addEventListener('mousemove', (e) => {
+  glowX = e.clientX;
+  glowY = e.clientY;
+}, { passive: true });
+
+function animateGlow() {
+  const speed = 0.08;
+  currentX += (glowX - currentX) * speed;
+  currentY += (glowY - currentY) * speed;
+  cursorGlow.style.left = currentX + 'px';
+  cursorGlow.style.top = currentY + 'px';
+  requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+// ═══════════════════════════════════
+// MARQUEE (CSS handles it, JS adds duplicates for seamless loop)
+// ═══════════════════════════════════
+const marqueeTrack = document.getElementById('marqueeTrack');
+if (marqueeTrack) {
+  const clone = marqueeTrack.innerHTML;
+  marqueeTrack.innerHTML = clone + clone;
+}
+
+// ─── SCROLL PROGRESS BAR ───
+const progressBar = document.createElement('div');
+progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;width:0%;z-index:99999;background:linear-gradient(90deg,var(--purple),var(--mint));pointer-events:none;transition:width .08s linear';
+document.body.appendChild(progressBar);
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+
+// ─── MAGNETIC 3D TILT ON CREATE-CARDS ───
+document.querySelectorAll('.create-card').forEach(card => {
+  let relaxId = null;
+  card.addEventListener('mousemove', (e) => {
+    if (relaxId) { cancelAnimationFrame(relaxId); relaxId = null; }
+    const r = card.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+    const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+    card.style.transition = 'transform .1s ease, box-shadow .35s';
+    card.style.transform = `perspective(900px) rotateX(${-dy * 9}deg) rotateY(${dx * 9}deg) translateY(-6px) scale(1.02)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform .7s cubic-bezier(.34,1.56,.64,1), box-shadow .35s';
+    card.style.transform = '';
+  });
+});
+
+// ─── ELASTIC STAGGER FOR REVEAL GROUPS ───
+// already handled by IntersectionObserver above with spring transition
+
+// ─── TEXT SCRAMBLE ON SECTION EYEBROWS ───
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ•·−';
+function scramble(el) {
+  const original = el.textContent;
+  let frame = 0;
+  const totalFrames = 18;
+  const id = setInterval(() => {
+    el.textContent = original.split('').map((c, i) => {
+      if (c === ' ') return ' ';
+      if (frame / totalFrames > i / original.length) return c;
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+    if (++frame >= totalFrames) { el.textContent = original; clearInterval(id); }
+  }, 38);
+}
+const scrambleObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { scramble(e.target); scrambleObs.unobserve(e.target); }
+  });
+}, { threshold: 0.8 });
+document.querySelectorAll('.section-label').forEach(el => scrambleObs.observe(el));
+
+// ─── SCROLL-VELOCITY TILT ON IMAGES ───
+let lastY = 0, velocity = 0;
+window.addEventListener('scroll', () => {
+  velocity = window.scrollY - lastY;
+  lastY = window.scrollY;
+  const tilt = Math.max(-8, Math.min(8, velocity * 0.35));
+  document.querySelectorAll('.create-card-img img, .portfolio-img img').forEach(img => {
+    img.style.transform = `scale(1.06) translateY(${tilt * 0.5}px)`;
+    img.style.transition = 'transform .08s linear';
+  });
+}, { passive: true });
+// spring-back images when scrolling stops
+let scrollStop;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollStop);
+  scrollStop = setTimeout(() => {
+    document.querySelectorAll('.create-card-img img, .portfolio-img img').forEach(img => {
+      img.style.transform = '';
+      img.style.transition = 'transform .8s cubic-bezier(.34,1.56,.64,1)';
+    });
+  }, 120);
+}, { passive: true });
+</script>
+<!-- WhatsApp -->
+
+</body>
+</html>

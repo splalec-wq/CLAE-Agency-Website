@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — CLAE Agency · Films Cinématiques</title>
+  <link rel="icon" href="Logo-removebg-preview.png" type="image/png">
+
+<!-- SEO -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://claeagency.com/portfolio.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CLAE Agency">
+<meta property="og:url" content="https://claeagency.com/portfolio.html">
+<meta property="og:title" content="Portfolio — Films Cinématiques CLAE Agency | CLAE Agency">
+<meta property="og:description" content="Nos réalisations cinématiques. Films de mariage, événements et contenu de marque produits par CLAE Agency à Paris.">
+<meta property="og:image" content="https://claeagency.com/Logo-removebg-preview.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@claeagency">
+<meta name="twitter:title" content="Portfolio — Films Cinématiques CLAE Agency | CLAE Agency">
+<meta name="twitter:description" content="Nos réalisations cinématiques. Films de mariage, événements et contenu de marque produits par CLAE Agency à Paris.">
+<meta name="twitter:image" content="https://claeagency.com/Logo-removebg-preview.png">
+
+<!-- Sécurité -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta name="description" content="Découvrez les réalisations de CLAE Agency : films de mariage, prestations événements et contenus premium. 147+ films, Paris.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#080808;--bg2:#0D0D0D;--bg3:#111111;--bg4:#161616;
+  --gold:#D4AF37;--gold-l:#E8C84A;--gold-dim:rgba(212,175,55,.2);--gold-faint:rgba(212,175,55,.07);
+  --white:#F0EDE6;--w70:rgba(240,237,230,.7);--w38:rgba(240,237,230,.38);--w20:rgba(240,237,230,.2);
+  --glass:rgba(255,255,255,.028);--gb:rgba(255,255,255,.07);--gg:rgba(212,175,55,.22);
+  --D:'Syne',sans-serif;--B:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--B);overflow-x:hidden;line-height:1.5}
+
+/* ── GRAIN ── */
+#grain{position:fixed;inset:0;z-index:9997;pointer-events:none}
+#grain::before{content:'';position:absolute;inset:-200%;width:400%;height:400%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px;opacity:.024;animation:gs .12s steps(1) infinite}
+@keyframes gs{0%{transform:translate(0,0)}25%{transform:translate(-5%,-5%)}50%{transform:translate(-10%,5%)}75%{transform:translate(5%,-10%)}100%{transform:translate(5%,0)}}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:1000;padding:1.3rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom-color:var(--gb)}
+.nav-brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
+.nav-logo{height:44px;filter:drop-shadow(0 0 6px rgba(212,175,55,.2))}
+.nav-brand-name{font-family:var(--D);font-size:1rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-family:var(--D);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--gold)}
+.nav-pill{padding:.5rem 1.3rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,box-shadow .25s,transform .2s}
+.nav-pill:hover{background:var(--gold-l);box-shadow:0 0 22px rgba(212,175,55,.35);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(5,5,5,.97);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--D);font-size:2.5rem;font-weight:800;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .25s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--gold)}
+
+/* ── UTILS ── */
+section{position:relative;z-index:1}
+.container{max-width:1320px;margin:0 auto;padding:0 2.5rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}.d4{transition-delay:.46s}.d5{transition-delay:.58s}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO ── */
+#hero{min-height:50vh;display:flex;flex-direction:column;justify-content:flex-end;padding:7rem 0 0;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(212,175,55,.05) 0%,transparent 65%);pointer-events:none}
+#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gg),transparent)}
+
+.hero-inner{padding-bottom:2.5rem;position:relative;z-index:2}
+.hero-h1{font-family:var(--D);font-size:clamp(3.5rem,7vw,7.5rem);font-weight:800;line-height:.88;letter-spacing:-.04em;text-transform:uppercase;color:var(--white);margin-bottom:1.2rem;opacity:0;animation:fadeUp .9s var(--ease) .3s forwards}
+.hero-h1 .gold{color:var(--gold)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.hero-sub{font-size:1rem;color:var(--w38);max-width:460px;line-height:1.65;margin-bottom:2.5rem;opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+
+/* ── FILTER TABS ── */
+.filter-tabs{display:flex;gap:.45rem;flex-wrap:wrap;padding-bottom:2.8rem;opacity:0;animation:fadeUp .9s var(--ease) .7s forwards}
+.ft{padding:.48rem 1.2rem;border-radius:6px;border:1px solid var(--gb);background:transparent;color:var(--w38);font-family:var(--D);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:border-color .25s,color .25s,background .25s,box-shadow .25s}
+.ft:hover{border-color:var(--gold-dim);color:var(--white)}
+.ft.active{background:var(--gold);border-color:var(--gold);color:#080808;box-shadow:0 4px 18px rgba(212,175,55,.22)}
+
+/* ── PORTFOLIO GRID ── */
+#grid{padding:3rem 0 6rem;background:var(--bg)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:320px;gap:.8rem}
+.port-item{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;transition:opacity .45s var(--ease),transform .45s var(--ease),border-color .3s}
+.port-item::after{content:'';position:absolute;inset:0;border:1px solid transparent;border-radius:10px;transition:border-color .3s;z-index:3;pointer-events:none}
+.port-item:hover::after{border-color:var(--gold-dim)}
+.port-item.tall{grid-row:span 2}
+.port-item.wide{grid-column:span 2}
+.port-item.hidden{opacity:0;pointer-events:none;transform:scale(.95)}
+.port-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.port-item:hover .port-img{transform:scale(1.04)}
+.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.88) 0%,rgba(8,8,8,.2) 45%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity .35s var(--ease);z-index:2}
+.port-item:hover .port-ov{opacity:1}
+.port-play{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:.7rem;transform:scale(.8);transition:transform .35s var(--spring),background .25s;align-self:flex-start;flex-shrink:0}
+.port-play:hover{background:rgba(212,175,55,.15)}
+.port-play svg{width:18px;height:18px}
+.port-item:hover .port-play{transform:scale(1)}
+.port-ttl{font-family:var(--D);font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem}
+.port-cat-lbl{font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.75}
+
+/* ── STATS ROW ── */
+#stats{padding:5rem 0;background:var(--bg2);border-top:1px solid var(--gb);border-bottom:1px solid var(--gb)}
+.stats-row{display:flex;align-items:center;justify-content:center;gap:0}
+.stat-item{flex:1;max-width:280px;text-align:center;padding:1rem 2rem;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:48px;width:1px;background:var(--gb)}
+.stat-n{font-family:var(--D);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:800;color:var(--white);line-height:1;letter-spacing:-.04em}
+.stat-n span{color:var(--gold)}
+.stat-l{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w38);margin-top:.35rem}
+
+/* ── CTA SECTION ── */
+#cta{padding:8rem 0;background:var(--bg);position:relative;overflow:hidden;text-align:center}
+#cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(212,175,55,.055) 0%,transparent 65%);pointer-events:none}
+.cta-h{font-family:var(--D);font-size:clamp(2rem,4.5vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:var(--white);margin-bottom:2rem}
+.cta-h .gold{color:var(--gold)}
+.cta-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.28);color:transparent}
+.btn-primary{display:inline-flex;align-items:center;gap:.55rem;padding:.92rem 2.2rem;background:var(--gold);color:#080808;border-radius:6px;font-family:var(--D);font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,box-shadow .3s,transform .2s var(--spring)}
+.btn-primary:hover{background:var(--gold-l);box-shadow:0 8px 30px rgba(212,175,55,.3);transform:translateY(-2px) scale(1.01)}
+.btn-primary:active{transform:scale(.98)}
+.btn-arrow{font-size:1.1rem;transition:transform .25s var(--spring)}
+.btn-primary:hover .btn-arrow{transform:translateX(4px)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
+.foot-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;border-bottom:1px solid var(--gb);margin-bottom:1.5rem;gap:2rem;flex-wrap:wrap}
+.foot-logo{height:28px}
+.foot-tag{font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--w38);margin-top:.35rem}
+.foot-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
+.foot-links a{font-family:var(--D);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w38);text-decoration:none;transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-socials{display:flex;gap:.55rem}
+.soc{width:32px;height:32px;border-radius:8px;border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .25s,background .25s}
+.soc:hover{border-color:var(--gold);background:rgba(212,175,55,.08)}
+.soc svg{width:13px;height:13px;fill:var(--w38);transition:fill .25s}
+.soc:hover svg{fill:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.foot-copy{font-size:.7rem;color:rgba(240,237,230,.2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  nav{padding:1.3rem 2rem}
+  .nav-links{display:none}
+  .nav-pill{display:none}
+  .port-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:280px}
+  .port-item.tall{grid-row:span 1}
+  .port-item.wide{grid-column:span 2}
+  .stats-row{gap:0}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .hamburger{display:flex}
+  .container{padding:0 1.25rem}
+  #hero{padding:5.5rem 0 0}
+  .hero-h1{font-size:clamp(2.8rem,10vw,4rem)}
+  .port-grid{grid-template-columns:1fr;grid-auto-rows:300px}
+  .port-item.tall,.port-item.wide{grid-row:span 1;grid-column:span 1}
+  .stats-row{flex-direction:column;gap:2rem}
+  .stat-item+.stat-item::before{display:none}
+  .foot-top{flex-direction:column;align-items:flex-start}
+  #cta{padding:5rem 0}
+  .cta-h{font-size:clamp(1.8rem,7vw,2.8rem)}
+}
+/* ── MEGA MENU ── */
+.nav-dropdown{position:relative}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;vertical-align:middle}
+.nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
+.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
+.nav-drop-menu::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(7,7,7,.98);border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)}
+.nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
+.ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
+.ndm-card{display:flex;flex-direction:column;gap:.9rem;padding:1.4rem 1.3rem;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(212,175,55,.07);text-decoration:none;transition:background .28s,border-color .28s,transform .32s cubic-bezier(.16,1,.3,1),box-shadow .32s;position:relative;overflow:hidden}
+.ndm-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.07) 0%,transparent 55%);opacity:0;transition:opacity .28s}
+.ndm-card:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.18)}
+.ndm-card:hover::before{opacity:1}
+.ndm-icon{width:54px;height:54px;border-radius:14px;background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .28s,border-color .28s,box-shadow .28s}
+.ndm-card:hover .ndm-icon{background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.5);box-shadow:0 0 22px rgba(212,175,55,.2)}
+.ndm-icon svg{width:22px;height:22px;stroke:#D4AF37;fill:none;stroke-width:1.6}
+.ndm-title{font-family:var(--D);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;line-height:1.1;transition:color .25s}
+.ndm-card:hover .ndm-title{color:#D4AF37}
+.ndm-desc{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.65;flex:1;margin-top:.25rem}
+.ndm-tags{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-top:.3rem}
+.ndm-arr{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,175,55,.4);margin-top:.3rem;transition:color .25s,gap .25s cubic-bezier(.16,1,.3,1)}
+.ndm-arr svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.ndm-card:hover .ndm-arr{color:#D4AF37;gap:.6rem}
+.ndm-card:hover .ndm-arr svg{transform:translateX(4px)}
+.ndm-footer{border-top:1px solid rgba(212,175,55,.09);padding-top:.9rem;display:flex;justify-content:flex-end}
+.ndm-all{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AF37;text-decoration:none;opacity:.65;transition:opacity .2s,gap .25s cubic-bezier(.16,1,.3,1)}
+.ndm-all:hover{opacity:1;gap:.65rem}
+.ndm-all svg{width:11px;height:11px;stroke:#D4AF37;fill:none;stroke-width:2.5;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.ndm-all:hover svg{transform:translateX(4px)}
+
+/* WhatsApp */
+100%{transform:scale(1.9);opacity:0}}
+
+
+/* ── FOOT LEGAL LINKS ── */
+.foot-legal{display:flex;gap:1.5rem;align-items:center}
+.foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
+.foot-legal-link:hover{color:var(--gold,#D4AF37)}
+
+/* ── LIGHTBOX ── */
+#lightbox{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#lightbox.open{opacity:1;pointer-events:auto}
+.lb-img-wrap{position:relative;max-width:min(1100px,92vw);max-height:88vh;display:flex;align-items:center;justify-content:center}
+.lb-img-wrap img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.8);display:block;transform:scale(.94);transition:transform .4s var(--ease);opacity:0;transition:transform .4s var(--ease),opacity .4s var(--ease)}
+#lightbox.open .lb-img-wrap img{transform:scale(1);opacity:1}
+.lb-close{position:fixed;top:1.5rem;right:1.8rem;width:44px;height:44px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s;z-index:2}
+.lb-close:hover{background:rgba(255,255,255,.18);transform:scale(1.1)}
+.lb-close svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .3s;z-index:2}
+.lb-nav:hover{background:rgba(255,255,255,.18)}
+.lb-prev{left:1.5rem}
+.lb-next{right:1.5rem}
+.lb-prev:hover{transform:translateY(-50%) translateX(-3px)}
+.lb-next:hover{transform:translateY(-50%) translateX(3px)}
+.lb-nav svg{width:20px;height:20px;stroke:#fff;stroke-width:2;fill:none}
+.lb-info{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center;z-index:2}
+.lb-title{font-family:var(--D);font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
+.lb-cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.8}
+.lb-counter{font-family:var(--D);font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.3);margin-top:.4rem}
+/* zoom cursor on hover */
+.port-item{cursor:zoom-in}
+/* change play icon to zoom */
+.port-play svg.zoom-icon{display:block}
+</style>
+</head>
+<body>
+
+<div id="grain"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mob">
+  <a href="index-v2.html?direct=1"  onclick="closeMob()">Accueil</a>
+  <a href="services.html"  onclick="closeMob()">Services</a>
+  <a href="about.html"     onclick="closeMob()">À Propos</a>
+  <a href="portfolio.html" class="active" onclick="closeMob()">Portfolio</a>
+  <a href="contact.html"   onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index-v2.html?direct=1" class="nav-brand"><img src="Logo-removebg-preview.png" alt="CLAE Agency" class="nav-logo"><span class="nav-brand-name">CLAE Agency</span></a>
+  <ul class="nav-links">
+    <li><a href="index-v2.html?direct=1">Accueil</a></li>
+    <li class="nav-dropdown">
+  <a href="services.html" class="nav-drop-trigger">Services
+    <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+  <div class="nav-drop-menu">
+    <div class="ndm-cards">
+      <a href="mariage.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 14 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 13-9 13z"/></svg></div>
+        <div>
+          <div class="ndm-title">Mariage Immortalisé</div>
+          <div class="ndm-desc">Une narration cinématique qui transforme votre plus beau jour en chef-d'œuvre ressenti des décennies plus tard.</div>
+          <div class="ndm-tags">Cérémonie · Réception · Montage Same-Day · Film Résumé</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="evenement.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div>
+          <div class="ndm-title">Production Événement</div>
+          <div class="ndm-desc">Galas d'entreprise, activations de marque et célébrations captés avec la même précision cinématique.</div>
+          <div class="ndm-tags">Corporate · Gala · Événement Live · Multi-Caméra</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="contenu.html" class="ndm-card">
+        <div class="ndm-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+        <div>
+          <div class="ndm-title">Création de Contenu</div>
+          <div class="ndm-desc">Films de marque, Reels et visuels éditoriaux pensés pour stopper le scroll et convertir durablement.</div>
+          <div class="ndm-tags">Film de Marque · Éditorial · Reels · Lookbook</div>
+        </div>
+        <div class="ndm-arr">Découvrir <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+    <div class="ndm-footer">
+      <a href="services.html" class="ndm-all">Voir tous les services
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</li>
+    <li><a href="about.html">À Propos</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.9rem">
+    <a href="contact.html" class="nav-pill">Contactez-nous</a>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">NOS RÉALISATIONS</span>
+    <h1 class="hero-h1">NOS<br><span class="gold">CRÉATIONS</span></h1>
+    <p class="hero-sub">147+ films. Des histoires qui transcendent l'instant.</p>
+
+    <!-- Filter tabs inline -->
+    <div class="filter-tabs" id="filterTabs">
+      <button class="ft active" data-filter="all">Tous</button>
+      <button class="ft" data-filter="wedding">Mariages</button>
+      <button class="ft" data-filter="event">Événements</button>
+      <button class="ft" data-filter="content">Contenu</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PORTFOLIO GRID ═══════════════════════ -->
+<section id="grid">
+  <div class="container">
+    <div class="port-grid" id="portGrid">
+
+      <!-- 1 · Bazar Club — tall, event -->
+      <div class="port-item tall reveal" data-cat="event">
+        <img class="port-img" src="photos/3.MARS/Bazar%20Club/DSC04169.jpg" alt="Bazar Club" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Bazar Club</p>
+          <p class="port-cat-lbl">Événement</p>
+        </div>
+      </div>
+
+      <!-- 2 · 4KZ.S8 — content -->
+      <div class="port-item reveal d1" data-cat="content">
+        <img class="port-img" src="photos/3.MARS/4kz.s8/DSC03151.jpg" alt="4KZ.S8" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">4KZ.S8</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 3 · Lena — content -->
+      <div class="port-item reveal d2" data-cat="content">
+        <img class="port-img" src="photos/3.MARS/Lena/DSC04515.jpg" alt="Lena" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Lena</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 4 · Lou & Shanna — wide, content -->
+      <div class="port-item wide reveal" data-cat="content">
+        <img class="port-img" src="photos/4.AVRIL/Lou%20%26%20Shanna/DSC06947.jpg" alt="Lou & Shanna" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Lou &amp; Shanna</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 5 · Lou — content -->
+      <div class="port-item reveal d1" data-cat="content">
+        <img class="port-img" src="photos/3.MARS/Lou/DSC02388.jpg" alt="Lou" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Lou</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 6 · Daphnée — content -->
+      <div class="port-item reveal d2" data-cat="content">
+        <img class="port-img" src="photos/3.MARS/Daphn%C3%A9e/DSC01858.jpg" alt="Daphnée" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Daphnée</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 7 · Gianni — tall, content -->
+      <div class="port-item tall reveal d3" data-cat="content">
+        <img class="port-img" src="photos/4.AVRIL/Gianni/DSC05477.jpg" alt="Gianni" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Gianni</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 8 · Amah — content -->
+      <div class="port-item reveal" data-cat="content">
+        <img class="port-img" src="photos/4.AVRIL/Amah/DSC05017.jpg" alt="Amah" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Amah</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 9 · Océane — content -->
+      <div class="port-item reveal d1" data-cat="content">
+        <img class="port-img" src="photos/4.AVRIL/Oc%C3%A9ane/DSC05234.jpg" alt="Océane" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Océane</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 10 · PvtLulu — wide, content -->
+      <div class="port-item wide reveal" data-cat="content">
+        <img class="port-img" src="photos/3.MARS/PvtLulu/DSC02794.jpg" alt="PvtLulu" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">PvtLulu</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+      <!-- 11 · Fedia — content -->
+      <div class="port-item reveal d1" data-cat="content">
+        <img class="port-img" src="photos/4.AVRIL/Fedia/DSC06211.jpg" alt="Fedia" loading="lazy">
+        <div class="port-ov">
+          <div class="port-play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <p class="port-ttl">Fedia</p>
+          <p class="port-cat-lbl">Contenu</p>
+        </div>
+      </div>
+
+    </div><!-- /port-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════ STATS ═══════════════════════ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat-item">
+        <p class="stat-n">147<span>+</span></p>
+        <p class="stat-l">Films Réalisés</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-n">6</p>
+        <p class="stat-l">Ans d'Expérience</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-n">98<span>%</span></p>
+        <p class="stat-l">Clients Satisfaits</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <h2 class="cta-h reveal">
+      VOTRE PROJET,<br>
+      <span class="gold">NOTRE</span> PROCHAIN<br>
+      <span class="out">CHEF-D'ŒUVRE.</span>
+    </h2>
+    <div class="reveal d2">
+      <a href="contact.html" class="btn-primary">
+        Démarrer un Projet
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <img src="Nom_agence.png" alt="CLAE Agency" class="foot-logo">
+        <p class="foot-tag">Video · Story · Impact</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="index-v2.html?direct=1">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="foot-socials">
+        <!-- Instagram -->
+        <a href="#" class="soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="soc" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.76 2.76 0 0 0-1.94-1.95C18 5 12 5 12 5s-6 0-7.66.25A2.76 2.76 0 0 0 2.4 7.2 28.9 28.9 0 0 0 2 12a28.9 28.9 0 0 0 .4 4.8 2.76 2.76 0 0 0 1.94 1.95C6 19 12 19 12 19s6 0 7.66-.25a2.76 2.76 0 0 0 1.94-1.95A28.9 28.9 0 0 0 22 12a28.9 28.9 0 0 0-.4-4.8z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#080808"/></svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="soc" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-6.9a8.26 8.26 0 0 0 4.83 1.56V6.5a4.86 4.86 0 0 1-1.06-.19z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-copy">© 2026 CLAE Agency. Tous droits réservés.</p>
+      <div class="foot-legal"><a href="mentions-legales.html" class="foot-legal-link">Mentions Légales</a> <a href="cgv.html" class="foot-legal-link">CGV</a></div>
+      <p class="foot-copy">Paris, France · contact@claeagency.com</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Image précédente">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Image suivante">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-info">
+    <div class="lb-title" id="lbTitle"></div>
+    <div class="lb-cat" id="lbCat"></div>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+</div>
+
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+}, {passive: true});
+
+/* ── MOBILE MENU ── */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+function closeMob() {
+  mob.classList.remove('open');
+  ham.classList.remove('active');
+  document.body.style.overflow = '';
+}
+ham.addEventListener('click', () => {
+  const open = mob.classList.toggle('open');
+  ham.classList.toggle('active', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+/* ── SCROLL REVEALS ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('on');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── PORTFOLIO FILTER ── */
+const tabs = document.querySelectorAll('.ft');
+const items = document.querySelectorAll('.port-item');
+
+function applyFilter(filter) {
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
+  items.forEach(item => {
+    const cat = item.dataset.cat;
+    const match = filter === 'all' || cat === filter;
+    if (match) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
+});
+
+/* ── INITIAL REVEAL TRIGGER ── */
+// Trigger reveals for items already in view on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.95) {
+      el.classList.add('on');
+    }
+  });
+});
+
+/* ── LIGHTBOX ── */
+(function(){
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lbImg');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCat   = document.getElementById('lbCat');
+  const lbCnt   = document.getElementById('lbCounter');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev  = document.getElementById('lbPrev');
+  const lbNext  = document.getElementById('lbNext');
+
+  let gallery = [];  // [{src, title, cat}]
+  let current = 0;
+
+  function buildGallery() {
+    gallery = [];
+    document.querySelectorAll('.port-item:not(.hidden)').forEach(item => {
+      const img   = item.querySelector('.port-img');
+      const title = item.querySelector('.port-ttl')?.textContent || '';
+      const cat   = item.querySelector('.port-cat-lbl')?.textContent || '';
+      if (img) gallery.push({ src: img.src, title, cat, el: item });
+    });
+  }
+
+  function show(index) {
+    if (!gallery.length) return;
+    current = (index + gallery.length) % gallery.length;
+    const item = gallery[current];
+    lbImg.style.opacity = '0';
+    lbImg.style.transform = 'scale(.94)';
+    lbImg.src = item.src;
+    lbImg.alt = item.title;
+    lbTitle.textContent = item.title;
+    lbCat.textContent = item.cat;
+    lbCnt.textContent = (current + 1) + ' / ' + gallery.length;
+    lbImg.onload = () => {
+      lbImg.style.opacity = '1';
+      lbImg.style.transform = 'scale(1)';
+    };
+    // if already cached, force visible
+    if (lbImg.complete) { lbImg.style.opacity='1'; lbImg.style.transform='scale(1)'; }
+  }
+
+  function open(index) {
+    buildGallery();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    show(index);
+  }
+
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 350);
+  }
+
+  // Click on portfolio item
+  document.querySelectorAll('.port-item').forEach(item => {
+    item.addEventListener('click', () => {
+      buildGallery();
+      const idx = gallery.findIndex(g => g.el === item);
+      open(idx >= 0 ? idx : 0);
+    });
+  });
+
+  // Re-build gallery when filter changes
+  document.querySelectorAll('.ft').forEach(tab => {
+    tab.addEventListener('click', () => {
+      // small delay to let hidden class apply
+      setTimeout(buildGallery, 50);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+  lbNext.addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
+
+  // Click backdrop to close
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) close();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   show(current - 1);
+    if (e.key === 'ArrowRight')  show(current + 1);
+  });
+})();
+</script>
+<!-- WhatsApp -->
+
+</body>
+</html>

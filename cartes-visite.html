@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartes de Visite — CLAE Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:'Inter',sans-serif;padding:3rem 2rem;min-height:100vh}
+h1{font-family:'Syne',sans-serif;color:#D4AF37;font-size:1.5rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-bottom:.5rem}
+.subtitle{color:rgba(255,255,255,.4);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;text-align:center;margin-bottom:3.5rem}
+
+/* Layout */
+.section{margin-bottom:5rem}
+.section-label{font-family:'Syne',sans-serif;color:rgba(212,175,55,.5);font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;text-align:center;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;justify-content:center}
+.section-label::before,.section-label::after{content:'';flex:1;max-width:80px;height:1px;background:rgba(212,175,55,.2)}
+.cards-row{display:flex;gap:4rem;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.card-set{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+.card-set label{font-family:'Syne',sans-serif;color:rgba(255,255,255,.4);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+
+/* Card base — 85mm × 54mm at 96dpi ≈ 322px × 204px */
+.card{width:322px;height:204px;border-radius:8px;position:relative;overflow:hidden;flex-shrink:0;cursor:pointer;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(212,175,55,.3)}
+.card-back{width:322px;height:204px;border-radius:8px;position:relative;overflow:hidden;flex-shrink:0}
+
+/* ══ CARTE 1 — Noir Signature ══ */
+#c1-front{background:#080808;border:1px solid rgba(212,175,55,.15)}
+#c1-front::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 85% 50%,rgba(212,175,55,.06) 0%,transparent 65%)}
+.c1-line-top{position:absolute;top:22px;left:22px;right:22px;height:1px;background:linear-gradient(to right,#D4AF37,transparent)}
+.c1-line-bot{position:absolute;bottom:22px;left:22px;right:22px;height:1px;background:linear-gradient(to right,transparent,#D4AF37)}
+.c1-logo-wrap{position:absolute;top:30px;left:28px;display:flex;align-items:center;gap:10px}
+.c1-logo-wrap img{height:28px;filter:drop-shadow(0 0 8px rgba(212,175,55,.4))}
+.c1-agency{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#D4AF37}
+.c1-name{position:absolute;bottom:52px;left:28px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#F0EDE6;letter-spacing:.05em}
+.c1-title{position:absolute;bottom:34px;left:28px;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,175,55,.65)}
+.c1-contacts{position:absolute;bottom:52px;right:28px;text-align:right;display:flex;flex-direction:column;gap:5px}
+.c1-contact{font-size:.6rem;letter-spacing:.08em;color:rgba(240,237,230,.5)}
+
+#c1-back{background:#080808;border:1px solid rgba(212,175,55,.15)}
+#c1-back::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(212,175,55,.04) 0%,transparent 70%)}
+.c1b-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.c1b-logo img{height:52px;filter:drop-shadow(0 0 16px rgba(212,175,55,.5))}
+.c1b-tag{font-family:'Syne',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(212,175,55,.5)}
+.c1b-lines-v{position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:100%;background:linear-gradient(to bottom,transparent 0%,rgba(212,175,55,.12) 30%,rgba(212,175,55,.12) 70%,transparent 100%)}
+
+/* ══ CARTE 2 — Cinéma / Pellicule ══ */
+#c2-front{background:#05070A}
+.c2-film-strip{position:absolute;top:0;bottom:0;left:0;width:22px;background:#0D1117;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;border-right:1px solid rgba(255,255,255,.06)}
+.c2-hole{width:8px;height:6px;background:#05070A;border-radius:1px}
+.c2-content{position:absolute;top:0;right:0;bottom:0;left:22px;padding:18px 20px 18px 18px}
+.c2-eyebrow{font-family:'Syne',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-bottom:6px}
+.c2-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:.02em;margin-bottom:2px}
+.c2-role{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(212,175,55,.6);margin-bottom:14px}
+.c2-divider{width:30px;height:1px;background:linear-gradient(to right,#D4AF37,transparent);margin-bottom:12px}
+.c2-info{display:flex;flex-direction:column;gap:4px}
+.c2-info-line{font-size:.58rem;color:rgba(240,237,230,.5);letter-spacing:.05em}
+.c2-info-line span{color:rgba(212,175,55,.7);margin-right:5px}
+.c2-corner{position:absolute;bottom:14px;right:16px;font-family:'Syne',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,175,55,.25)}
+
+#c2-back{background:#05070A}
+.c2b-film-strip{position:absolute;top:0;bottom:0;right:0;width:22px;background:#0D1117;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;border-left:1px solid rgba(255,255,255,.06)}
+.c2b-center{position:absolute;top:0;left:0;right:22px;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.c2b-logo-row{display:flex;align-items:center;gap:10px}
+.c2b-logo-row img{height:38px;filter:drop-shadow(0 0 12px rgba(212,175,55,.4))}
+.c2b-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.2em;color:#D4AF37;text-transform:uppercase}
+.c2b-tag{font-family:'Syne',sans-serif;font-size:.48rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(212,175,55,.35);margin-top:2px}
+.c2b-line{width:60px;height:1px;background:rgba(212,175,55,.2);margin:4px auto}
+
+/* ══ CARTE 3 — Blanc Luxe ══ */
+#c3-front{background:#F7F4EE;border:1px solid #E8E2D5}
+#c3-front::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 30%,rgba(212,175,55,.07) 0%,transparent 65%)}
+.c3-accent{position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,#D4AF37,rgba(212,175,55,.3))}
+.c3-logo-wrap{position:absolute;top:22px;left:22px;display:flex;align-items:center;gap:9px}
+.c3-logo-wrap img{height:24px}
+.c3-agency{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#D4AF37}
+.c3-name{position:absolute;bottom:48px;left:22px;font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;color:#1a1a1a;letter-spacing:.03em}
+.c3-title{position:absolute;bottom:30px;left:22px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#888}
+.c3-contacts{position:absolute;bottom:24px;right:20px;text-align:right;display:flex;flex-direction:column;gap:4px}
+.c3-contact{font-size:.56rem;letter-spacing:.05em;color:#999}
+.c3-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:20px 20px}
+
+#c3-back{background:#F7F4EE;border:1px solid #E8E2D5}
+.c3b-accent-r{position:absolute;top:0;right:0;width:3px;height:100%;background:linear-gradient(to bottom,#D4AF37,rgba(212,175,55,.3))}
+.c3b-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);text-align:center}
+.c3b-logo img{height:48px;filter:brightness(0);opacity:.85;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto}
+.c3b-name{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;letter-spacing:.25em;color:#D4AF37;text-transform:uppercase}
+.c3b-sub{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-top:4px}
+.c3b-url{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:.55rem;letter-spacing:.12em;color:#bbb;white-space:nowrap}
+
+/* ══ CARTE 4 — Split Diagonal ══ */
+#c4-front{background:#080808;overflow:hidden}
+.c4-diagonal{position:absolute;inset:0;clip-path:polygon(0 0,62% 0,38% 100%,0 100%);background:linear-gradient(135deg,#0f0f0f,#161616);border-right:1px solid rgba(212,175,55,.12)}
+.c4-diagonal-gold{position:absolute;inset:0;clip-path:polygon(60% 0,62% 0,38% 100%,36% 100%);background:linear-gradient(to bottom,#D4AF37,rgba(212,175,55,.4))}
+.c4-left{position:absolute;top:0;left:0;bottom:0;width:55%;padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.c4-logo-row{display:flex;align-items:center;gap:8px}
+.c4-logo-row img{height:26px;filter:drop-shadow(0 0 6px rgba(212,175,55,.5))}
+.c4-agency-name{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.2em;color:#D4AF37}
+.c4-person{margin-top:auto}
+.c4-name{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:#F0EDE6;letter-spacing:.02em}
+.c4-role{font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(212,175,55,.55);margin-top:2px}
+.c4-right{position:absolute;top:0;right:0;bottom:0;width:42%;padding:18px 16px 18px 8px;display:flex;flex-direction:column;justify-content:center;gap:6px;align-items:flex-end}
+.c4-info{text-align:right}
+.c4-info-label{font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,175,55,.4);display:block}
+.c4-info-val{font-size:.58rem;color:rgba(240,237,230,.6);letter-spacing:.04em}
+
+#c4-back{background:#080808;overflow:hidden}
+.c4b-gold-band{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,transparent,#D4AF37,transparent)}
+.c4b-gold-band-b{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(to right,transparent,#D4AF37,transparent)}
+.c4b-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.c4b-center img{height:46px;filter:drop-shadow(0 0 20px rgba(212,175,55,.5))}
+.c4b-name{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:.28em;color:#fff;text-transform:uppercase}
+.c4b-gold{color:#D4AF37}
+.c4b-dots{display:flex;gap:6px;align-items:center}
+.c4b-dot{width:3px;height:3px;border-radius:50%;background:rgba(212,175,55,.4)}
+.c4b-dot.active{background:#D4AF37;width:5px;height:5px}
+
+/* ══ CARTE 5 — Editorial / Grain ══ */
+#c5-front{background:#0C0A06}
+#c5-front::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:120px;opacity:.035;pointer-events:none}
+.c5-border-frame{position:absolute;top:10px;left:10px;right:10px;bottom:10px;border:1px solid rgba(212,175,55,.14);border-radius:4px}
+.c5-corner{position:absolute;width:14px;height:14px;border-color:#D4AF37;border-style:solid;opacity:.7}
+.c5-corner.tl{top:10px;left:10px;border-width:1px 0 0 1px}
+.c5-corner.tr{top:10px;right:10px;border-width:1px 1px 0 0}
+.c5-corner.bl{bottom:10px;left:10px;border-width:0 0 1px 1px}
+.c5-corner.br{bottom:10px;right:10px;border-width:0 1px 1px 0}
+.c5-logo-row{position:absolute;top:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.c5-logo-row img{height:20px;filter:drop-shadow(0 0 5px rgba(212,175,55,.4))}
+.c5-agency{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#D4AF37}
+.c5-center-rule{position:absolute;top:50%;left:20px;right:20px;height:1px;background:linear-gradient(to right,transparent,rgba(212,175,55,.2),rgba(212,175,55,.2),transparent)}
+.c5-name{position:absolute;top:50%;left:50%;transform:translate(-50%,-140%);font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#F0EDE6;letter-spacing:.04em;white-space:nowrap;text-align:center}
+.c5-role{position:absolute;top:50%;left:50%;transform:translate(-50%,60%);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,175,55,.6);white-space:nowrap;text-align:center}
+.c5-bottom{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:20px;align-items:center;white-space:nowrap}
+.c5-bot-item{font-size:.54rem;color:rgba(240,237,230,.45);letter-spacing:.06em;text-align:center}
+.c5-sep{width:1px;height:12px;background:rgba(212,175,55,.25)}
+
+#c5-back{background:#0C0A06}
+#c5-back::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:120px;opacity:.035}
+.c5b-all{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.c5b-logo{height:52px;filter:drop-shadow(0 0 18px rgba(212,175,55,.45))}
+.c5b-rule{width:40px;height:1px;background:rgba(212,175,55,.3)}
+.c5b-tag{font-family:'Syne',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(212,175,55,.4)}
+.c5b-corner{position:absolute;width:14px;height:14px;border-color:#D4AF37;border-style:solid;opacity:.5}
+.c5b-corner.tl{top:10px;left:10px;border-width:1px 0 0 1px}
+.c5b-corner.tr{top:10px;right:10px;border-width:1px 1px 0 0}
+.c5b-corner.bl{bottom:10px;left:10px;border-width:0 0 1px 1px}
+.c5b-corner.br{bottom:10px;right:10px;border-width:0 1px 1px 0}
+
+/* Print hint */
+.print-note{text-align:center;margin-top:4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+
+<h1>Cartes de Visite</h1>
+<p class="subtitle">CLAE Agency · 5 concepts · Recto / Verso</p>
+
+<!-- ══ CARTE 1 ══ -->
+<div class="section">
+  <div class="section-label">Concept 01 — Noir Signature</div>
+  <div class="cards-row">
+    <div class="card-set">
+      <div class="card" id="c1-front">
+        <div class="c1-line-top"></div>
+        <div class="c1-line-bot"></div>
+        <div class="c1-logo-wrap">
+          <img src="Logo-removebg-preview.png" alt="CLAE">
+          <span class="c1-agency">CLAE Agency</span>
+        </div>
+        <div class="c1-name">Prénom Nom</div>
+        <div class="c1-title">Photographe & Vidéaste</div>
+        <div class="c1-contacts">
+          <span class="c1-contact">hello@claeagency.com</span>
+          <span class="c1-contact">@claeagency</span>
+          <span class="c1-contact">Montréal & Destination</span>
+        </div>
+      </div>
+      <label>Recto</label>
+    </div>
+    <div class="card-set">
+      <div class="card-back" id="c1-back">
+        <div class="c1b-lines-v"></div>
+        <div class="c1b-logo">
+          <img src="Logo-removebg-preview.png" alt="CLAE">
+          <div class="c1b-tag">Video · Photo · Story</div>
+        </div>
+      </div>
+      <label>Verso</label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARTE 2 ══ -->
+<div class="section">
+  <div class="section-label">Concept 02 — Cinéma / Pellicule</div>
+  <div class="cards-row">
+    <div class="card-set">
+      <div class="card" id="c2-front">
+        <div class="c2-film-strip">
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+        </div>
+        <div class="c2-content">
+          <div class="c2-eyebrow">CLAE Agency</div>
+          <div class="c2-name">Prénom Nom</div>
+          <div class="c2-role">Photographe & Vidéaste</div>
+          <div class="c2-divider"></div>
+          <div class="c2-info">
+            <div class="c2-info-line"><span>@</span>claeagency</div>
+            <div class="c2-info-line"><span>✉</span>hello@claeagency.com</div>
+            <div class="c2-info-line"><span>📍</span>Montréal & Destination</div>
+          </div>
+        </div>
+        <div class="c2-corner">CLAE · 2026</div>
+      </div>
+      <label>Recto</label>
+    </div>
+    <div class="card-set">
+      <div class="card-back" id="c2-back">
+        <div class="c2b-film-strip">
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+          <div class="c2-hole"></div><div class="c2-hole"></div><div class="c2-hole"></div>
+        </div>
+        <div class="c2b-center">
+          <div class="c2b-logo-row">
+            <img src="Logo-removebg-preview.png" alt="">
+            <div class="c2b-name">CLAE</div>
+          </div>
+          <div class="c2b-line"></div>
+          <div class="c2b-tag">Photo · Film · Direction Artistique</div>
+        </div>
+      </div>
+      <label>Verso</label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARTE 3 ══ -->
+<div class="section">
+  <div class="section-label">Concept 03 — Blanc Luxe</div>
+  <div class="cards-row">
+    <div class="card-set">
+      <div class="card" id="c3-front">
+        <div class="c3-grid-lines"></div>
+        <div class="c3-accent"></div>
+        <div class="c3-logo-wrap">
+          <img src="Logo-removebg-preview.png" alt="CLAE">
+          <span class="c3-agency">CLAE Agency</span>
+        </div>
+        <div class="c3-name">Prénom Nom</div>
+        <div class="c3-title">Photographe & Vidéaste · Cinématique</div>
+        <div class="c3-contacts">
+          <span class="c3-contact">hello@claeagency.com</span>
+          <span class="c3-contact">@claeagency</span>
+          <span class="c3-contact">Montréal & Destination</span>
+        </div>
+      </div>
+      <label>Recto</label>
+    </div>
+    <div class="card-set">
+      <div class="card-back" id="c3-back">
+        <div class="c3b-accent-r"></div>
+        <div class="c3-grid-lines"></div>
+        <div class="c3b-logo">
+          <img src="Logo-removebg-preview.png" alt="CLAE">
+          <div class="c3b-name">CLAE Agency</div>
+          <div class="c3b-sub">Photo · Vidéo · Mariage · Événement</div>
+        </div>
+        <div class="c3b-url">claeagency.com</div>
+      </div>
+      <label>Verso</label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARTE 4 ══ -->
+<div class="section">
+  <div class="section-label">Concept 04 — Split Diagonal</div>
+  <div class="cards-row">
+    <div class="card-set">
+      <div class="card" id="c4-front">
+        <div class="c4-diagonal"></div>
+        <div class="c4-diagonal-gold"></div>
+        <div class="c4-left">
+          <div class="c4-logo-row">
+            <img src="Logo-removebg-preview.png" alt="">
+            <span class="c4-agency-name">CLAE</span>
+          </div>
+          <div class="c4-person">
+            <div class="c4-name">Prénom Nom</div>
+            <div class="c4-role">Photographe & Vidéaste</div>
+          </div>
+        </div>
+        <div class="c4-right">
+          <div class="c4-info">
+            <span class="c4-info-label">Email</span>
+            <span class="c4-info-val">hello@claeagency.com</span>
+          </div>
+          <div class="c4-info">
+            <span class="c4-info-label">Instagram</span>
+            <span class="c4-info-val">@claeagency</span>
+          </div>
+          <div class="c4-info">
+            <span class="c4-info-label">Zone</span>
+            <span class="c4-info-val">Montréal & Dest.</span>
+          </div>
+        </div>
+      </div>
+      <label>Recto</label>
+    </div>
+    <div class="card-set">
+      <div class="card-back" id="c4-back">
+        <div class="c4b-gold-band"></div>
+        <div class="c4b-gold-band-b"></div>
+        <div class="c4b-center">
+          <img src="Logo-removebg-preview.png" alt="">
+          <div class="c4b-name">CL<span class="c4b-gold">AE</span></div>
+          <div class="c4b-dots">
+            <div class="c4b-dot"></div>
+            <div class="c4b-dot active"></div>
+            <div class="c4b-dot"></div>
+          </div>
+        </div>
+      </div>
+      <label>Verso</label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARTE 5 ══ -->
+<div class="section">
+  <div class="section-label">Concept 05 — Éditorial / Cadre</div>
+  <div class="cards-row">
+    <div class="card-set">
+      <div class="card" id="c5-front">
+        <div class="c5-border-frame"></div>
+        <div class="c5-corner tl"></div><div class="c5-corner tr"></div>
+        <div class="c5-corner bl"></div><div class="c5-corner br"></div>
+        <div class="c5-logo-row">
+          <img src="Logo-removebg-preview.png" alt="">
+          <span class="c5-agency">CLAE Agency</span>
+        </div>
+        <div class="c5-name">Prénom Nom</div>
+        <div class="c5-center-rule"></div>
+        <div class="c5-role">Photographe · Vidéaste · Direction Artistique</div>
+        <div class="c5-bottom">
+          <div class="c5-bot-item">hello@claeagency.com</div>
+          <div class="c5-sep"></div>
+          <div class="c5-bot-item">@claeagency</div>
+          <div class="c5-sep"></div>
+          <div class="c5-bot-item">Montréal</div>
+        </div>
+      </div>
+      <label>Recto</label>
+    </div>
+    <div class="card-set">
+      <div class="card-back" id="c5-back">
+        <div class="c5b-corner tl"></div><div class="c5b-corner tr"></div>
+        <div class="c5b-corner bl"></div><div class="c5b-corner br"></div>
+        <div class="c5b-all">
+          <img src="Logo-removebg-preview.png" class="c5b-logo" alt="">
+          <div class="c5b-rule"></div>
+          <div class="c5b-tag">Capturer · Raconter · Émouvoir</div>
+        </div>
+      </div>
+      <label>Verso</label>
+    </div>
+  </div>
+</div>
+
+<div class="print-note">Format standard 85 × 54 mm · Survolez les cartes pour un effet de relief · Remplacez "Prénom Nom" par votre nom</div>
+
+</body>
+</html>
