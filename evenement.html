@@ -283,6 +283,20 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
   .portfolio-item:nth-child(1){grid-row:span 1}
   .portfolio-item:nth-child(4){grid-column:span 1}
   .process-timeline{padding-left:2rem}
+
+  /* Urgency bar — décaler sous le nav fixe */
+  .urgency-bar{margin-top:62px;padding:.5rem 1rem;flex-wrap:wrap;gap:.4rem}
+  .urgency-text{font-size:.62rem;letter-spacing:.1em;text-align:center}
+
+  /* Hero — réduire le padding et le titre */
+  #hero{padding:0 1.2rem!important;overflow-x:hidden}
+  .hero-left{padding-top:2.5rem!important;padding-bottom:2rem!important;width:100%;max-width:100%;overflow:hidden}
+  .hero-h1{font-size:clamp(1.5rem,6.5vw,2.4rem)!important;letter-spacing:-.02em;line-height:.95;word-break:break-word;overflow-wrap:break-word;max-width:100%}
+  .hero-sub{font-size:.88rem;max-width:100%!important;overflow-wrap:break-word}
+  .hero-btns{flex-direction:column;gap:.75rem}
+  .hero-btns .btn-primary,.hero-btns .btn-outline{width:100%;text-align:center;justify-content:center;box-sizing:border-box}
+  .hero-stats{flex-wrap:wrap;gap:1.2rem 2rem}
+  .stat-num{font-size:clamp(2rem,7vw,3rem)!important}
 }
 
 @media(max-width:480px){

@@ -249,19 +249,50 @@
 
     /* MOBILE */
     @media(max-width:768px){
-      html,body{overflow:auto}
+      html,body{overflow:auto;height:auto}
       body{cursor:auto}
-      #cur{display:none}
-      .panels{position:relative;grid-template-columns:1fr;
-        grid-template-rows:33.33vh 33.33vh 33.33vh;height:100vh}
+
+      /* Rendre la page scrollable */
+      #select{position:relative;min-height:100dvh}
+
+      /* Header fixe avec fond semi-transparent */
+      .sel-header{
+        position:fixed;top:0;left:0;right:0;z-index:100;
+        padding:.85rem 1.2rem;
+        background:rgba(3,3,3,.93);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
+        border-bottom:1px solid rgba(212,175,55,.1)
+      }
+      .sel-logo img{height:26px}
+      .sel-logo-name{font-size:.7rem;letter-spacing:.15em}
+      .sel-nav-link{font-size:.72rem;letter-spacing:.1em}
+
+      /* Panneaux en colonne scrollable */
+      .panels{
+        position:relative;
+        display:flex;flex-direction:column;
+        height:auto;padding-top:56px
+      }
+      .panel{height:60vh;min-height:290px}
+
       .slide{filter:brightness(.78) saturate(1)}
-      .panel-desc{max-height:80px!important;opacity:1!important}
+      .panel-desc{max-height:120px!important;opacity:1!important;font-size:.82rem}
       .panel-tags,.panel-cta{opacity:1!important;transform:none!important}
-      .panel-title{transform:none!important}
+      .panel-title{transform:none!important;font-size:clamp(1.4rem,7vw,2rem)}
+      .panel-num{margin-bottom:.5rem;font-size:.55rem}
       .panel-center{display:none}
-      .sel-header{padding:1.2rem 1.5rem}
-      .panel-inner{padding:1.5rem 1.8rem}
-      .sel-bottom{padding:1rem 1.5rem}
+      .panel-inner{padding:1.5rem 1.5rem 2rem}
+
+      /* Barre de bas de page en flux normal */
+      .sel-bottom{
+        position:relative;bottom:auto;
+        padding:1.2rem 1.5rem;
+        border-top:1px solid rgba(212,175,55,.08)
+      }
+
+      /* Masquer les points HUD */
+      .hud-dot{display:none}
     }
   </style>
 </head>

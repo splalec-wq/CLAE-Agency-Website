@@ -316,11 +316,24 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}
   .hamburger{display:flex}
+
+  /* Urgency bar — décaler sous le nav fixe */
+  .urgency-bar{margin-top:62px;padding:.45rem 1rem;flex-wrap:wrap;gap:.35rem}
+  .urgency-text{font-size:.62rem;letter-spacing:.08em;text-align:center;line-height:1.4}
+
+  /* Hero — image en premier sur mobile */
   #hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:7rem 1.5rem 3rem}
-  .hero-right{height:55vw;min-height:260px}
-  .hero-img-wrap::after{background:linear-gradient(to bottom,var(--bg) 0%,transparent 25%,transparent 65%,rgba(26,18,9,.4) 100%)}
+  .hero-right{order:-1;height:48vw;min-height:190px;position:relative}
+  .hero-left{order:1;padding:2rem 1.5rem 2.5rem}
+  .hero-img-wrap::after{background:linear-gradient(to bottom,transparent 40%,rgba(26,18,9,.5) 100%)}
   .hero-badge{bottom:1rem;right:1rem}
+
+  /* Titre hero — taille adaptée */
+  .hero-h1{font-size:clamp(2rem,8vw,3.2rem);margin-bottom:1rem}
+  .hero-sub{font-size:.9rem;margin-bottom:1.8rem}
+  .hero-btns{flex-direction:column;gap:.75rem}
+  .hero-btns .btn-primary,.hero-btns .btn-secondary{width:100%;text-align:center;justify-content:center}
+  .hero-metrics{gap:1.5rem;padding-top:1.5rem}
   .partners-grid{grid-template-columns:1fr}
   .temoignages-grid{grid-template-columns:1fr}
   .formules-grid{grid-template-columns:1fr;gap:1.5rem}
@@ -335,7 +348,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   .creation-img img{position:absolute}
 }
 @media(max-width:480px){
-  .hero-h1{font-size:2.8rem}
+  .hero-h1{font-size:clamp(1.8rem,8vw,2.6rem)}
   .hero-metrics{gap:1.5rem}
   .masonry{grid-template-columns:1fr;grid-template-rows:auto}
   .formule-card.featured{margin-top:1.5rem}
