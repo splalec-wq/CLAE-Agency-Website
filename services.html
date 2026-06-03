@@ -35,7 +35,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
@@ -231,7 +231,7 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
 .nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
 .nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
-.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
+.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
 .nav-drop-menu::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(7,7,7,.98);border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)}
 .nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
 .ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
@@ -264,7 +264,10 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
 .foot-legal{display:flex;gap:1.5rem;align-items:center}
 .foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
 .foot-legal-link:hover{color:var(--gold,#D4AF37)}
+
+@media(max-width:768px){#grain{display:none}}
 </style>
+  <link rel="preload" href="Logo-removebg-preview.png" as="image">
 </head>
 <body>
 
@@ -370,7 +373,7 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
       </div>
       <div class="svc-visual reveal d2">
         <div class="svc-img-card">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Prestation mariage cinématique" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fm=webp&fit=crop&w=800&q=80" alt="Prestation mariage cinématique" loading="lazy" decoding="async">
           <div class="svc-img-badge">
             <div class="svc-img-badge-dot"></div>
             <span class="svc-img-badge-txt">MARIAGE · PARIS</span>
@@ -401,7 +404,7 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
       </div>
       <div class="svc-visual reveal d2">
         <div class="svc-img-card">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Prestation événement premium" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fm=webp&fit=crop&w=800&q=80" alt="Prestation événement premium" loading="lazy" decoding="async">
           <div class="svc-img-badge">
             <div class="svc-img-badge-dot"></div>
             <span class="svc-img-badge-txt">ÉVÉNEMENT · GALA</span>
@@ -432,7 +435,7 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
       </div>
       <div class="svc-visual reveal d2">
         <div class="svc-img-card">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Création de contenu de marque" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fm=webp&fit=crop&w=800&q=80" alt="Création de contenu de marque" loading="lazy" decoding="async">
           <div class="svc-img-badge">
             <div class="svc-img-badge-dot"></div>
             <span class="svc-img-badge-txt">CONTENU · MARQUE</span>

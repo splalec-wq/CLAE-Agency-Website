@@ -35,7 +35,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -311,7 +311,7 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
 .nav-chevron{width:9px;height:9px;stroke:currentColor;stroke-width:2.5;fill:none;flex-shrink:0;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .nav-dropdown:hover .nav-chevron,.nav-dropdown.open .nav-chevron{transform:rotate(180deg)}
 .nav-dropdown::after{content:'';position:absolute;top:100%;left:-60px;right:-60px;height:.9rem;z-index:199}
-.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
+.nav-drop-menu{position:absolute;top:calc(100% + .7rem);left:50%;transform:translateX(-50%) translateY(-14px) scale(.96);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(7,7,7,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.14);border-radius:22px;padding:1.4rem;width:min(860px,92vw);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.04);z-index:200}
 .nav-drop-menu::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(7,7,7,.98);border-top:1px solid rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.14)}
 .nav-dropdown:hover .nav-drop-menu,.nav-dropdown.open .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
 .ndm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
@@ -354,7 +354,12 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
 .foot-legal{display:flex;gap:1.5rem;align-items:center}
 .foot-legal-link{color:var(--w38,rgba(240,237,230,.38));text-decoration:none;font-size:.72rem;font-family:var(--D,'Syne',sans-serif);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
 .foot-legal-link:hover{color:var(--gold,#D4AF37)}
+
+@media(max-width:768px){#grain{display:none}}
 </style>
+  <link rel="preload" href="Logo-removebg-preview.png" as="image">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 </head>
 
 <body>
@@ -478,7 +483,7 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
     </div>
     <div class="types-grid">
       <div class="type-card reveal d1">
-        <img src="photos/EVENTS/gala-corporate.jpg" alt="Galas d'entreprise" loading="lazy">
+        <img src="photos/EVENTS/gala-corporate.jpg" alt="Galas d'entreprise" loading="lazy" decoding="async">
         <div class="type-card-overlay"></div>
         <div class="type-card-body">
           <div class="type-card-tag">Corporate</div>
@@ -487,7 +492,7 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
         </div>
       </div>
       <div class="type-card reveal d2">
-        <img src="photos/EVENTS/eglise-1.jpg" alt="Conférences & Lancements" loading="lazy">
+        <img src="photos/EVENTS/eglise-1.jpg" alt="Conférences & Lancements" loading="lazy" decoding="async">
         <div class="type-card-overlay"></div>
         <div class="type-card-body">
           <div class="type-card-tag">Institutionnel</div>
@@ -496,7 +501,7 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
         </div>
       </div>
       <div class="type-card reveal d3">
-        <img src="photos/EVENTS/brand-activation.jpg" alt="Activations de Marque" loading="lazy">
+        <img src="photos/EVENTS/brand-activation.jpg" alt="Activations de Marque" loading="lazy" decoding="async">
         <div class="type-card-overlay"></div>
         <div class="type-card-body">
           <div class="type-card-tag">Brand Activation</div>
@@ -505,7 +510,7 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
         </div>
       </div>
       <div class="type-card reveal d4">
-        <img src="photos/EVENTS/echo-3.jpg" alt="Événements Live & Concerts" loading="lazy">
+        <img src="photos/EVENTS/echo-3.jpg" alt="Événements Live & Concerts" loading="lazy" decoding="async">
         <div class="type-card-overlay"></div>
         <div class="type-card-body">
           <div class="type-card-tag">Live</div>
@@ -670,32 +675,32 @@ footer{background:var(--bg);padding:4rem 0 2.5rem;border-top:1px solid var(--gb)
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-item reveal d1">
-        <img src="photos/EVENTS/echo-1.jpg" alt="Événement ECHO" loading="lazy">
+        <img src="photos/EVENTS/echo-1.jpg" alt="Événement ECHO" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Événement ECHO</h4><span>Live Concert</span></div>
       </div>
       <div class="portfolio-item reveal d2">
-        <img src="photos/EVENTS/eglise-1.jpg" alt="Conférence" loading="lazy">
+        <img src="photos/EVENTS/eglise-1.jpg" alt="Conférence" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Conférence Prestige</h4><span>Conférence</span></div>
       </div>
       <div class="portfolio-item reveal d3">
-        <img src="photos/EVENTS/studio56-1.jpg" alt="Soirée Studio 56" loading="lazy">
+        <img src="photos/EVENTS/studio56-1.jpg" alt="Soirée Studio 56" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Soirée Studio 56</h4><span>Gala Corporate</span></div>
       </div>
       <div class="portfolio-item reveal d4">
-        <img src="photos/EVENTS/echo-3.jpg" alt="Festival live" loading="lazy">
+        <img src="photos/EVENTS/echo-3.jpg" alt="Festival live" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Festival Électronique</h4><span>Live Concert</span></div>
       </div>
       <div class="portfolio-item reveal d5">
-        <img src="photos/EVENTS/echo-4.jpg" alt="Moment artistique" loading="lazy">
+        <img src="photos/EVENTS/echo-4.jpg" alt="Moment artistique" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Moment Artistique</h4><span>Brand Activation</span></div>
       </div>
       <div class="portfolio-item reveal d6">
-        <img src="photos/EVENTS/studio56-2.jpg" alt="Soirée exclusive" loading="lazy">
+        <img src="photos/EVENTS/studio56-2.jpg" alt="Soirée exclusive" loading="lazy" decoding="async">
         <div class="portfolio-overlay"></div>
         <div class="portfolio-info"><h4>Soirée Exclusive</h4><span>Corporate Event</span></div>
       </div>

@@ -469,7 +469,7 @@ class P {
     ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
     ctx.fillStyle=`rgba(212,175,55,${this.o*f})`; ctx.fill(); }
 }
-const pts = Array.from({length:90},()=>new P(true));
+const pts = Array.from({length:30},()=>new P(true));
 (function loop(){ ctx.clearRect(0,0,W,H);
   for(let i=0;i<pts.length;i++){ pts[i]=pts[i].step(); pts[i].draw(); }
   requestAnimationFrame(loop); })();
