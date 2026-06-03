@@ -215,7 +215,7 @@ section{position:relative;z-index:1}
 /* ── FORMULES ── */
 #formules{padding:8rem 0;background:var(--bg)}
 .formules-header{text-align:center;margin-bottom:4.5rem}
-.formules-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;align-items:stretch;max-width:1080px;margin-left:-2rem;margin-right:auto}
+.formules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch;max-width:1100px;margin:0 auto}
 .formule-card{background:var(--white);border:1px solid var(--gb);border-radius:24px;padding:2.5rem 2rem;position:relative;transition:box-shadow .4s,transform .4s var(--ease);display:flex;flex-direction:column}
 .formule-card:hover{transform:translateY(-4px);box-shadow:0 24px 64px rgba(26,18,9,.1)}
 .formule-card.featured{background:linear-gradient(145deg,#FDF6E7,#F8EDD0);border-color:var(--gg);box-shadow:0 12px 50px rgba(201,162,39,.18)}
@@ -449,10 +449,11 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   "areaServed": "Paris, France",
   "url": "https://claeagency.com/mariage.html",
   "offers": [
-    {"@type": "Offer", "name": "Formule Essentielle", "price": "1500", "priceCurrency": "EUR"},
-    {"@type": "Offer", "name": "Formule Signature", "price": "2500", "priceCurrency": "EUR"},
-    {"@type": "Offer", "name": "Formule Prestige", "price": "4200", "priceCurrency": "EUR"},
-    {"@type": "Offer", "name": "Formule Cinéma", "price": "6600", "priceCurrency": "EUR"}
+    {"@type": "Offer", "name": "Création de contenu", "price": "500", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Formule Photo", "price": "1500", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Formule Essentielle", "price": "2500", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Formule Signature", "price": "4200", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Formule Cinématique", "price": "6600", "priceCurrency": "EUR"}
   ]
 }
 </script>
@@ -695,8 +696,26 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
     </div>
     <div class="formules-grid">
 
-      <!-- Photo seule -->
+      <!-- Création de contenu -->
       <div class="formule-card reveal d1">
+        <div class="formule-name">Création de contenu</div>
+        <div class="formule-price"><sup>€</sup>500</div>
+        <div class="formule-subtitle">L'essentiel pour vos réseaux sociaux</div>
+        <ul class="formule-list">
+          <li>10 heures de présence</li>
+          <li>1 vidéaste dédié</li>
+          <li>Film court réseaux sociaux (60–90 sec)</li>
+          <li>Moments forts de la journée</li>
+          <li>Montage &amp; étalonnage inclus</li>
+          <li>Livraison en 1 semaine</li>
+          <li>Format optimisé Instagram / TikTok</li>
+          <li class="inactive">Film cinématique complet</li>
+        </ul>
+        <a href="reservation.html?formule=Contenu&source=mariage" class="formule-cta">Choisir Contenu</a>
+      </div>
+
+      <!-- Photo seule -->
+      <div class="formule-card reveal d2">
         <div class="formule-name">Photo</div>
         <div class="formule-price"><sup>€</sup>1 500</div>
         <div class="formule-subtitle">L'image fixe, à jamais</div>
@@ -714,7 +733,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       </div>
 
       <!-- Essentiel -->
-      <div class="formule-card reveal d2">
+      <div class="formule-card reveal d3">
         <div class="formule-name">Essentiel</div>
         <div class="formule-price"><sup>€</sup>2 500</div>
         <div class="formule-subtitle">Pour les couples qui cherchent l'essentiel</div>
@@ -732,7 +751,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       </div>
 
       <!-- Signature (featured) -->
-      <div class="formule-card featured reveal d3">
+      <div class="formule-card featured reveal d4">
         <div class="formule-badge">Populaire</div>
         <div class="formule-name">Signature ★</div>
         <div class="formule-price"><sup>€</sup>4 200</div>
@@ -751,7 +770,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       </div>
 
       <!-- Cinématique -->
-      <div class="formule-card reveal d4">
+      <div class="formule-card reveal d5">
         <div class="formule-name">Cinématique</div>
         <div class="formule-price"><sup>€</sup>6 600</div>
         <div class="formule-subtitle">L'expérience ultime, sans compromis</div>
@@ -769,7 +788,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       </div>
 
       <!-- Sur Mesure -->
-      <div class="formule-card sur-devis reveal d5">
+      <div class="formule-card sur-devis reveal d6">
         <div class="formule-name">Sur Mesure</div>
         <div class="formule-price-devis">Sur devis</div>
         <div class="formule-subtitle">Votre vision, notre réalisation</div>
