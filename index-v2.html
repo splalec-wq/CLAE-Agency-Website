@@ -603,7 +603,30 @@ footer{background:var(--bg3);border-top:1px solid var(--gb);padding:3rem 0 2rem}
   nav{padding:1rem 1.5rem}
   .hamburger{display:flex}
   .hero-top{padding:0 1.2rem 1.2rem}
-  .hero-h1{font-size:clamp(2.2rem,9vw,3.5rem)}
+  .hero-h1{font-size:clamp(2rem,9vw,3.2rem)}
+  .hero-sub{font-size:.85rem;padding:0 .5rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:.65rem}
+  .hero-btns .btn-primary,.hero-btns .btn-secondary{width:min(300px,85vw);justify-content:center}
+  .hero-metrics{flex-wrap:nowrap;gap:0;padding-top:.75rem}
+  .metric-item{padding:0 .85rem}
+  .metric-n{font-size:1.2rem}
+
+  /* ── Carrousel hero mobile ── */
+  #hero{height:auto;min-height:100dvh;padding-top:4.8rem;padding-bottom:2rem;gap:.8rem}
+  .h-orb-1,.h-orb-2,.h-orb-3{display:none} /* GPU savings */
+  .hero-bottom{flex:none;height:330px}
+  .vf-reel{overflow:hidden;perspective:600px}
+
+  /* Centre card : taille correcte sur mobile */
+  .reel-card[data-slot="2"]{
+    width:min(240px,64vw)!important;
+    height:min(320px,46vh)!important;
+    transform:translateX(0) translateZ(0) rotateY(0deg)!important
+  }
+  /* Cartes latérales : cachées sur mobile (déjà hors-écran mais encore rendues) */
+  .reel-card[data-slot="0"],.reel-card[data-slot="4"],
+  .reel-card[data-slot="5"],.reel-card[data-slot="-1"]{display:none!important}
+
   .band-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .port-grid{grid-template-columns:1fr;grid-auto-rows:280px}
