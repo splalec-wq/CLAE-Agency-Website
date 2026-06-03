@@ -115,6 +115,36 @@ nav{position:fixed;inset:0 0 auto;z-index:100;padding:1.2rem 3rem;display:flex;a
 .success-title{font-family:var(--D);font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:.6rem}
 .success-text{font-size:.9rem;color:var(--text-s);line-height:1.7}
 
+/* ── FORMULA PICKER ── */
+.formula-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.2rem}
+@media(max-width:640px){.formula-picker{grid-template-columns:1fr 1fr}}
+.fp-card{border:1.5px solid var(--border);border-radius:12px;padding:1rem 1rem .9rem;cursor:pointer;transition:border-color .2s,background .2s;position:relative;display:flex;flex-direction:column;gap:.2rem}
+.fp-card:hover{border-color:var(--accent);background:var(--accent-dim)}
+.fp-card input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+.fp-card.selected{border-color:var(--accent);background:var(--accent-dim)}
+.fp-card .fp-name{font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-s)}
+.fp-card .fp-price{font-family:var(--D);font-size:1.3rem;font-weight:800;color:var(--dark);line-height:1}
+.fp-card .fp-desc{font-size:.74rem;color:var(--text-s);line-height:1.4;margin-top:.3rem}
+.fp-card.selected .fp-name,.fp-card.selected .fp-price{color:var(--accent)}
+.fp-check{position:absolute;top:.7rem;right:.7rem;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.fp-card.selected .fp-check{background:var(--accent);border-color:var(--accent)}
+.fp-check::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .2s}
+.fp-card.selected .fp-check::after{opacity:1}
+
+/* ── STYLE PILLS ── */
+.style-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.3rem}
+.style-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .95rem;border:1.5px solid var(--border);border-radius:100px;font-family:var(--D);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,background .2s,color .2s;user-select:none;color:var(--text-s)}
+.style-pill:hover{border-color:var(--accent);color:var(--accent)}
+.style-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.style-pill input[type="checkbox"]{display:none}
+
+/* ── COLOR SWATCHES ── */
+.color-swatches{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+.swatch{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .2s;flex-shrink:0}
+.swatch:hover{transform:scale(1.15)}
+.swatch.active{border-color:var(--dark);transform:scale(1.15)}
+.color-hint{font-size:.75rem;color:var(--text-s);margin-top:.5rem}
+
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
   nav{padding:1rem 1.2rem}
@@ -122,6 +152,7 @@ nav{position:fixed;inset:0 0 auto;z-index:100;padding:1.2rem 3rem;display:flex;a
   .form-grid{grid-template-columns:1fr}
   .resa-recap{flex-wrap:wrap}
   .recap-change{margin-left:0}
+  .formula-picker{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -182,10 +213,149 @@ nav{position:fixed;inset:0 0 auto;z-index:100;padding:1.2rem 3rem;display:flex;a
       </div>
     </div>
 
-    <!-- ÉTAPE 2 : COORDONNÉES -->
-    <div class="step">
+    <!-- ÉTAPE 2 : VOTRE MARIAGE -->
+    <div class="step" id="stepMariage">
       <div class="step-label">
         <div class="step-num">2</div>
+        <div class="step-title">Votre mariage</div>
+      </div>
+
+      <!-- Sélection formule (si non pré-sélectionnée) -->
+      <div id="formulePicker" style="display:none;margin-bottom:2rem">
+        <div class="form-label" style="margin-bottom:.9rem">Choisissez votre formule</div>
+        <input type="hidden" name="formule" id="hiddenFormulePicker" value="">
+        <div class="formula-picker">
+          <label class="fp-card" data-formule="Création de contenu" data-price="700">
+            <input type="radio" name="formule_choix" value="Création de contenu">
+            <div class="fp-check"></div>
+            <span class="fp-name">Contenu</span>
+            <span class="fp-price">€700</span>
+            <span class="fp-desc">10h · Film court réseaux</span>
+          </label>
+          <label class="fp-card" data-formule="Photo" data-price="1500">
+            <input type="radio" name="formule_choix" value="Photo">
+            <div class="fp-check"></div>
+            <span class="fp-name">Photo</span>
+            <span class="fp-price">€1 500</span>
+            <span class="fp-desc">Journée complète · 300+ photos</span>
+          </label>
+          <label class="fp-card" data-formule="Essentiel" data-price="2500">
+            <input type="radio" name="formule_choix" value="Essentiel">
+            <div class="fp-check"></div>
+            <span class="fp-name">Essentiel</span>
+            <span class="fp-price">€2 500</span>
+            <span class="fp-desc">Film 15 min · 6 heures</span>
+          </label>
+          <label class="fp-card" data-formule="Signature" data-price="4200">
+            <input type="radio" name="formule_choix" value="Signature">
+            <div class="fp-check"></div>
+            <span class="fp-name">Signature ★</span>
+            <span class="fp-price">€4 200</span>
+            <span class="fp-desc">Film 25 min · Journée · Same-Day</span>
+          </label>
+          <label class="fp-card" data-formule="Cinématique" data-price="6600">
+            <input type="radio" name="formule_choix" value="Cinématique">
+            <div class="fp-check"></div>
+            <span class="fp-name">Cinématique</span>
+            <span class="fp-price">€6 600</span>
+            <span class="fp-desc">Film 30+ min · 2 jours · Coffret</span>
+          </label>
+          <label class="fp-card" data-formule="Sur Mesure" data-price="">
+            <input type="radio" name="formule_choix" value="Sur Mesure">
+            <div class="fp-check"></div>
+            <span class="fp-name">Sur Mesure</span>
+            <span class="fp-price" style="font-size:1rem">Sur devis</span>
+            <span class="fp-desc">Entièrement personnalisé</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label" for="lieu_ceremonie">Lieu de la cérémonie</label>
+          <input class="form-input" type="text" id="lieu_ceremonie" name="lieu_ceremonie" placeholder="Église, mairie, plein air…">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="lieu_reception">Lieu de la réception</label>
+          <input class="form-input" type="text" id="lieu_reception" name="lieu_reception" placeholder="Château, domaine, restaurant…">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="nb_invites">Nombre d'invités</label>
+          <select class="form-input" id="nb_invites" name="nb_invites">
+            <option value="">— Sélectionner —</option>
+            <option>Moins de 30</option>
+            <option>30 – 60</option>
+            <option>60 – 100</option>
+            <option>100 – 150</option>
+            <option>150 – 200</option>
+            <option>Plus de 200</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="heure_ceremonie">Heure de la cérémonie</label>
+          <input class="form-input" type="time" id="heure_ceremonie" name="heure_ceremonie">
+        </div>
+
+        <!-- Style & ambiance -->
+        <div class="form-field full">
+          <label class="form-label">Style &amp; ambiance souhaitée</label>
+          <div class="style-pills">
+            <label class="style-pill"><input type="checkbox" name="style" value="Classique"> Classique</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Bohème"> Bohème</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Champêtre"> Champêtre</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Moderne"> Moderne</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Luxe"> Luxe</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Élégant"> Élégant</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Poétique"> Poétique</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Intime"> Intime</label>
+            <label class="style-pill"><input type="checkbox" name="style" value="Éclectique"> Éclectique</label>
+          </div>
+        </div>
+
+        <!-- Palette couleurs -->
+        <div class="form-field full">
+          <label class="form-label" for="couleurs">Code couleur &amp; palette</label>
+          <input class="form-input" type="text" id="couleurs" name="couleurs" placeholder="Ex : blanc ivoire, nude, vert sauge, touches dorées…">
+          <div class="color-swatches" id="swatches">
+            <div class="swatch" style="background:#F5F0E8" data-color="Blanc ivoire" title="Blanc ivoire"></div>
+            <div class="swatch" style="background:#E8D5C4" data-color="Nude" title="Nude"></div>
+            <div class="swatch" style="background:#B5C4B1" data-color="Vert sauge" title="Vert sauge"></div>
+            <div class="swatch" style="background:#D4AF37" data-color="Or" title="Or"></div>
+            <div class="swatch" style="background:#C9A0DC" data-color="Lavande" title="Lavande"></div>
+            <div class="swatch" style="background:#F4C2C2" data-color="Rose poudré" title="Rose poudré"></div>
+            <div class="swatch" style="background:#1A1209" data-color="Noir" title="Noir"></div>
+            <div class="swatch" style="background:#8B7355" data-color="Terracotta" title="Terracotta"></div>
+            <div class="swatch" style="background:#B8C8D8" data-color="Bleu ciel" title="Bleu ciel"></div>
+            <div class="swatch" style="background:#E8E8E8" data-color="Gris perle" title="Gris perle"></div>
+          </div>
+          <p class="color-hint">Cliquez pour ajouter à votre palette · ou décrivez librement</p>
+        </div>
+
+        <!-- Inspirations -->
+        <div class="form-field full">
+          <label class="form-label" for="inspirations">Vos envies &amp; inspirations</label>
+          <textarea class="form-textarea" id="inspirations" name="inspirations" placeholder="Décrivez l'ambiance souhaitée, les moments importants à capturer, des références Pinterest ou Instagram, des détails particuliers…" style="min-height:140px"></textarea>
+        </div>
+
+        <!-- Budget optionnel -->
+        <div class="form-field full">
+          <label class="form-label" for="budget">Budget approximatif <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.72rem">(optionnel)</span></label>
+          <select class="form-input" id="budget" name="budget">
+            <option value="">— Non précisé —</option>
+            <option>Moins de 1 000 €</option>
+            <option>1 000 – 2 500 €</option>
+            <option>2 500 – 5 000 €</option>
+            <option>5 000 – 8 000 €</option>
+            <option>Plus de 8 000 €</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 3 : COORDONNÉES -->
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">3</div>
         <div class="step-title">Vos coordonnées</div>
       </div>
       <div class="form-grid">
@@ -300,6 +470,58 @@ document.getElementById('hiddenSource').value            = source;
 document.getElementById('formule_visible').value         = nom;
 document.getElementById('formSubject').value             = `Réservation CLAE — ${nom}`;
 
+// Afficher le picker si aucune formule pré-sélectionnée
+if(!nom){
+  const picker = document.getElementById('formulePicker');
+  if(picker) picker.style.display = 'block';
+}
+document.querySelectorAll('.fp-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.fp-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    const f = card.dataset.formule;
+    document.getElementById('hiddenFormulePicker').value = f;
+    document.getElementById('hiddenFormule').value       = f;
+    document.getElementById('recapName').textContent     = f;
+    document.getElementById('formule_visible').value     = f;
+    document.getElementById('formSubject').value         = `Réservation CLAE — ${f}`;
+  });
+});
+
+// La date est déjà gérée dans le bloc CALENDAR ci-dessous
+
+/* ─── STYLE PILLS ─── */
+const styleValues = [];
+document.querySelectorAll('.style-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    pill.classList.toggle('active');
+    const val = pill.querySelector('input').value;
+    const idx = styleValues.indexOf(val);
+    if(idx > -1) styleValues.splice(idx,1); else styleValues.push(val);
+    // Mettre à jour un champ caché
+    let hidden = document.getElementById('hiddenStyles');
+    if(!hidden){ hidden = document.createElement('input'); hidden.type='hidden'; hidden.name='style_ambiance'; hidden.id='hiddenStyles'; document.getElementById('resaForm').appendChild(hidden); }
+    hidden.value = styleValues.join(', ');
+  });
+});
+
+/* ─── COLOR SWATCHES ─── */
+const selectedColors = [];
+document.querySelectorAll('.swatch').forEach(sw => {
+  sw.addEventListener('click', () => {
+    sw.classList.toggle('active');
+    const col = sw.dataset.color;
+    const idx = selectedColors.indexOf(col);
+    if(idx > -1) selectedColors.splice(idx,1); else selectedColors.push(col);
+    const input = document.getElementById('couleurs');
+    // Ajouter/retirer du champ texte
+    const current = input.value.split(',').map(s=>s.trim()).filter(Boolean);
+    const cidx = current.indexOf(col);
+    if(cidx > -1) current.splice(cidx,1); else current.push(col);
+    input.value = current.join(', ');
+  });
+});
+
 /* ─── SUCCESS ─── */
 if(success){
   document.getElementById('resaForm').style.display = 'none';
@@ -311,10 +533,14 @@ if(success){
 const TAKEN = {};
 const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 const DAYS   = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-let selDate  = null;
 const now    = new Date();
 let year     = now.getFullYear();
 let month    = now.getMonth();
+
+// Pré-sélection depuis URL
+let selDate = null;
+const _dp = params.get('date');
+if(_dp){ const[y,m,d]=_dp.split('-').map(Number); selDate=new Date(y,m-1,d); year=y; month=m-1; }
 
 function renderCal(){
   const taken    = (TAKEN[year] && TAKEN[year][month]) || [];
@@ -359,10 +585,17 @@ function renderCal(){
       selDate = new Date(y,m,d);
       const label = selDate.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
       document.getElementById('hiddenDate').value = label;
-      document.getElementById('dateDisplay').textContent = `📅 Sélectionné : ${label}`;
+      document.getElementById('dateDisplay').textContent = `📅 Date choisie : ${label}`;
       renderCal();
     });
   });
+
+  // Afficher la date pré-sélectionnée
+  if(selDate){
+    const label = selDate.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    document.getElementById('hiddenDate').value = label;
+    document.getElementById('dateDisplay').textContent = `📅 Date choisie : ${label}`;
+  }
 }
 renderCal();
 </script>

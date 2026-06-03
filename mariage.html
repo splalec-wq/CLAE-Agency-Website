@@ -1291,11 +1291,13 @@ if(heroImgWrap){
       const isPast  = date < today && !isToday;
       const isTaken = taken.includes(d);
       let cls = 'cal-cell';
+      const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       if (isPast) cls += ' past';
       else if (isToday) cls += ' today';
       else if (isTaken) cls += ' taken';
       else cls += ' available';
-      html += `<div class="${cls}">${d}</div>`;
+      const clickable = !isPast && !isTaken;
+      html += `<div class="${cls}"${clickable ? ` data-date="${dateStr}" style="cursor:pointer"` : ''}>${d}</div>`;
     }
     html += `</div>`;
     container.innerHTML = html;
@@ -1305,6 +1307,12 @@ if(heroImgWrap){
     });
     document.getElementById('cal-next').addEventListener('click', () => {
       month++; if (month > 11) { month = 0; year++; } render();
+    });
+
+    container.querySelectorAll('.cal-cell[data-date]').forEach(cell => {
+      cell.addEventListener('click', () => {
+        window.location.href = `reservation.html?source=mariage&date=${cell.dataset.date}`;
+      });
     });
   }
   render();
