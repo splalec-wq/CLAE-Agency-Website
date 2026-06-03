@@ -214,82 +214,38 @@ section{position:relative;z-index:1}
 
 /* ── FORMULES ── */
 #formules{padding:8rem 0;background:var(--bg)}
-.formules-header{text-align:center;margin-bottom:3.5rem}
-
-/* Nav arrows */
-.formules-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem}
-.formules-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gb);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s,background .25s,transform .2s;flex-shrink:0}
-.formules-arrow:hover{border-color:var(--gold);background:var(--gold);transform:scale(1.06)}
-.formules-arrow:hover svg{stroke:var(--white)}
-.formules-arrow svg{stroke:var(--t38);stroke-width:2;fill:none;transition:stroke .25s}
-.formules-dots{display:flex;gap:.5rem;align-items:center}
-.formules-dot{width:6px;height:6px;border-radius:50%;background:var(--gb);border:1.5px solid var(--t15);transition:background .3s,transform .3s}
-.formules-dot.active{background:var(--gold);transform:scale(1.4)}
-
-/* Scroll wrapper — outer clips, inner scrolls */
-.formules-scroll-outer{
-  position:relative;
-  overflow:hidden; /* clips the fades */
-}
-/* Left fade */
-.formules-scroll-outer::before{
-  content:'';position:absolute;top:0;left:0;bottom:0;width:60px;
-  background:linear-gradient(to right,var(--bg),transparent);
-  pointer-events:none;z-index:2;
-  opacity:0;transition:opacity .3s;
-}
-/* Right fade */
-.formules-scroll-outer::after{
-  content:'';position:absolute;top:0;right:0;bottom:0;width:100px;
-  background:linear-gradient(to left,var(--bg),transparent);
-  pointer-events:none;z-index:2;
-}
-.formules-scroll-outer.can-scroll-left::before{opacity:1}
-
-.formules-scroll-wrap{
-  overflow-x:auto;
-  overflow-y:visible;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  padding:1.5rem 2.5rem 2.5rem;
-  cursor:grab;
-  scroll-behavior:smooth;
-}
-.formules-scroll-wrap::-webkit-scrollbar{display:none}
-.formules-scroll-wrap.grabbing{cursor:grabbing;user-select:none;scroll-behavior:auto}
-
+.formules-header{text-align:center;margin-bottom:4rem}
 .formules-grid{
-  display:flex;
-  flex-wrap:nowrap;
-  gap:1.4rem;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1rem;
   align-items:stretch;
-  width:max-content;
+  width:100%;
 }
 .formule-card{
   background:var(--white);
   border:1px solid var(--gb);
-  border-radius:24px;
-  padding:2.5rem 2rem;
+  border-radius:18px;
+  padding:1.8rem 1.4rem;
   position:relative;
   transition:box-shadow .4s,transform .4s var(--ease);
   display:flex;
   flex-direction:column;
-  width:300px;
-  flex-shrink:0;
+  min-width:0;
 }
 .formule-card:hover{transform:translateY(-4px);box-shadow:0 24px 64px rgba(26,18,9,.1)}
 .formule-card.featured{background:linear-gradient(145deg,#FDF6E7,#F8EDD0);border-color:var(--gg);box-shadow:0 12px 50px rgba(201,162,39,.18)}
 .formule-card.featured:hover{transform:translateY(-6px);box-shadow:0 28px 72px rgba(201,162,39,.25)}
-.formule-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;white-space:nowrap}
-.formule-name{font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--t38);margin-bottom:.6rem}
+.formule-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);font-family:var(--D);font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .85rem;border-radius:100px;white-space:nowrap}
+.formule-name{font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--t38);margin-bottom:.5rem}
 .formule-card.featured .formule-name{color:var(--warm)}
-.formule-price{font-family:var(--D);font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
-.formule-price sup{font-size:.9rem;vertical-align:top;margin-top:.35rem;display:inline-block}
-.formule-subtitle{font-size:.82rem;color:var(--t38);margin-bottom:2rem;font-style:italic;line-height:1.5}
-.formule-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem;flex:1}
-.formule-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--t70);line-height:1.5}
-.formule-list li::before{content:'✓';font-family:var(--D);font-size:.72rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
-.formule-cta{display:block;text-align:center;padding:.9rem 1rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s}
+.formule-price{font-family:var(--D);font-size:clamp(1.5rem,2.2vw,2.2rem);font-weight:800;color:var(--dark);line-height:1;margin-bottom:.2rem;white-space:nowrap}
+.formule-price sup{font-size:.8rem;vertical-align:top;margin-top:.3rem;display:inline-block}
+.formule-subtitle{font-size:.75rem;color:var(--t38);margin-bottom:1.4rem;font-style:italic;line-height:1.4}
+.formule-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem;flex:1}
+.formule-list li{display:flex;align-items:flex-start;gap:.55rem;font-size:.82rem;color:var(--t70);line-height:1.45}
+.formule-list li::before{content:'✓';font-family:var(--D);font-size:.65rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
+.formule-cta{display:block;text-align:center;padding:.8rem .6rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s;white-space:nowrap}
 .formule-cta:hover{border-color:var(--gold);color:var(--gold)}
 .formule-card.featured .formule-cta{background:var(--gold);border-color:var(--gold);color:var(--white)}
 .formule-card.featured .formule-cta:hover{background:var(--gold-l);border-color:var(--gold-l)}
@@ -373,6 +329,10 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   .masonry{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,200px)}
   .masonry-item:nth-child(1){grid-column:auto;grid-row:auto}
   .masonry-item:nth-child(5){grid-column:auto;grid-row:auto}
+  /* Tablette : 3 colonnes */
+  .formules-grid{grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .formule-card{padding:2rem 1.6rem}
+  .formule-list li{font-size:.88rem}
 }
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}
@@ -403,6 +363,12 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   .container{padding:0 1.25rem}
   #statement{padding:4.5rem 0}
   #creations,#galerie,#partenaires,#temoignages,#formules{padding:5rem 0}
+  /* Mobile : 1 colonne, cartes pleine largeur */
+  .formules-grid{grid-template-columns:1fr;gap:1.4rem}
+  .formule-card{padding:2rem 1.8rem;border-radius:20px}
+  .formule-price{font-size:2.2rem}
+  .formule-list li{font-size:.92rem}
+  .formule-card.featured{margin-top:1rem}
   .creation-card{grid-template-columns:1fr}
   .creation-img{min-height:180px;position:relative;height:180px}
   .creation-img img{position:absolute}
@@ -751,19 +717,6 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       <p style="font-size:.95rem;color:var(--t70);max-width:440px;line-height:1.75;margin:.8rem auto 0">Des formules transparentes pour chaque budget. Personnalisation possible sur demande.</p>
     </div>
 
-    <!-- Navigation arrows + dots -->
-    <div class="formules-nav">
-      <button class="formules-arrow" id="fPrev" aria-label="Précédent">
-        <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="formules-dots" id="fDots"></div>
-      <button class="formules-arrow" id="fNext" aria-label="Suivant">
-        <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
-    </div>
-
-    <div class="formules-scroll-outer" id="formulesOuter">
-    <div class="formules-scroll-wrap" id="formulesScroll">
     <div class="formules-grid">
 
       <!-- Création de contenu -->
@@ -866,8 +819,6 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
         <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="formule-cta">Discuter de votre projet</a>
       </div>
 
-    </div>
-    </div>
     </div>
   </div>
 </section>
@@ -1303,84 +1254,6 @@ function toggleFaq(btn) {
 </script>
 <!-- WhatsApp -->
 
-<!-- Formules scroll : drag, arrows, dots, peek -->
-<script>
-(function(){
-  var wrap  = document.getElementById('formulesScroll');
-  var outer = document.getElementById('formulesOuter');
-  var prev  = document.getElementById('fPrev');
-  var next  = document.getElementById('fNext');
-  var dotsC = document.getElementById('fDots');
-  if(!wrap) return;
-
-  var cards = wrap.querySelectorAll('.formule-card');
-  var total = cards.length;
-  var CARD_W = 300 + 22; // card width + gap
-
-  /* ── Dots ── */
-  var dots = [];
-  for(var i=0;i<total;i++){
-    var d = document.createElement('button');
-    d.className = 'formules-dot';
-    d.setAttribute('aria-label','Formule '+(i+1));
-    d.dataset.i = i;
-    d.addEventListener('click', function(){ scrollToCard(+this.dataset.i); });
-    dotsC.appendChild(d);
-    dots.push(d);
-  }
-
-  function getActive(){
-    return Math.round(wrap.scrollLeft / CARD_W);
-  }
-  function updateDots(){
-    var a = getActive();
-    dots.forEach(function(d,i){ d.classList.toggle('active', i===a); });
-    if(outer) outer.classList.toggle('can-scroll-left', wrap.scrollLeft > 10);
-  }
-  function scrollToCard(i){
-    wrap.style.scrollBehavior = 'smooth';
-    wrap.scrollLeft = i * CARD_W;
-  }
-
-  prev.addEventListener('click', function(){ scrollToCard(Math.max(0, getActive()-1)); });
-  next.addEventListener('click', function(){ scrollToCard(Math.min(total-1, getActive()+1)); });
-  wrap.addEventListener('scroll', updateDots, {passive:true});
-  updateDots();
-
-  /* ── Drag-to-scroll ── */
-  var isDown=false, startX, scrollLeft;
-  wrap.addEventListener('mousedown', function(e){
-    isDown=true; wrap.classList.add('grabbing');
-    startX=e.pageX-wrap.offsetLeft; scrollLeft=wrap.scrollLeft;
-    wrap.style.scrollBehavior='auto';
-  });
-  wrap.addEventListener('mouseleave', function(){ isDown=false; wrap.classList.remove('grabbing'); });
-  wrap.addEventListener('mouseup',    function(){ isDown=false; wrap.classList.remove('grabbing'); });
-  wrap.addEventListener('mousemove',  function(e){
-    if(!isDown) return; e.preventDefault();
-    wrap.scrollLeft = scrollLeft - (e.pageX - wrap.offsetLeft - startX) * 1.2;
-  });
-
-  /* ── Peek animation : scroll légèrement à droite puis revient ── */
-  function peek(){
-    wrap.style.scrollBehavior = 'smooth';
-    wrap.scrollLeft = CARD_W * 0.35;
-    setTimeout(function(){ wrap.scrollLeft = 0; }, 700);
-  }
-  // Lance le peek 1.2s après que la section est visible
-  if('IntersectionObserver' in window){
-    var peeked = false;
-    var io = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting && !peeked){
-        peeked = true;
-        setTimeout(peek, 1200);
-        io.disconnect();
-      }
-    }, {threshold:0.4});
-    io.observe(wrap);
-  }
-})();
-</script>
 
 <!-- CTA Mobile Sticky -->
 <a href="contact.html?from=mariage" class="mobile-cta-sticky" id="mobileCta">
