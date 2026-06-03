@@ -137,8 +137,8 @@
     .sel-logo img{height:36px;filter:drop-shadow(0 0 6px rgba(212,175,55,.3))}
     .sel-logo-name{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
       letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-    .sel-nav-link{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:600;
-      letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.4);
+    .sel-nav-link{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;
+      letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.6);
       text-decoration:none;transition:color .3s}
     .sel-nav-link:hover{color:var(--gold)}
 
@@ -453,8 +453,8 @@ function showSelect() {
   select.classList.add('show');
 }
 
-/* Auto-dismiss après 3.4s */
-setTimeout(showSelect, 3400);
+/* Auto-dismiss après 1.5s */
+setTimeout(showSelect, 1500);
 /* Clic pour passer */
 intro.addEventListener('click', showSelect, { once:true });
 
