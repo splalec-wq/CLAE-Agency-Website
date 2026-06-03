@@ -297,36 +297,84 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
 .urgency-text strong{color:var(--gold)}
 
 /* ── CALENDAR ── */
+/* ── CALENDAR MODERN ── */
 #disponibilites{padding:6rem 0;background:var(--bg2)}
-.cal-wrap{max-width:720px;margin:0 auto;padding:0 2rem}
-.cal-header{text-align:center;margin-bottom:3rem}
+.cal-wrap{max-width:760px;margin:0 auto;padding:0 2rem}
+.cal-header{text-align:center;margin-bottom:2.5rem}
 .cal-eyebrow{font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-.cal-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--text);margin-bottom:.6rem}
+.cal-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--dark);margin-bottom:.6rem}
 .cal-sub{font-size:.85rem;color:var(--t55);line-height:1.6}
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
-.cal-month{font-family:var(--D);font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
-.cal-btn{width:36px;height:36px;border:1px solid rgba(212,175,55,.25);background:transparent;color:var(--gold);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s}
-.cal-btn:hover{background:rgba(212,175,55,.1);border-color:var(--gold)}
-.cal-btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
-.cal-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;margin-bottom:.4rem}
-.cal-day-label{font-family:var(--D);font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--t38);padding:.3rem 0}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem}
-.cal-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;font-family:var(--D);font-size:.78rem;font-weight:600;cursor:default;transition:background .2s}
+
+/* Carte principale sombre */
+.cal-card{
+  background:var(--dark);
+  border-radius:24px;
+  padding:2.5rem;
+  box-shadow:0 24px 80px rgba(26,18,9,.18),0 4px 16px rgba(26,18,9,.1);
+}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+.cal-month{font-family:var(--D);font-size:1.15rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#F0EDE6}
+.cal-btn{width:40px;height:40px;border:1px solid rgba(240,237,230,.12);background:rgba(240,237,230,.06);color:rgba(240,237,230,.7);border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+.cal-btn:hover{background:rgba(212,175,55,.15);border-color:rgba(212,175,55,.4);color:#D4AF37}
+.cal-btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.5;fill:none}
+
+/* Séparateur */
+.cal-divider{height:1px;background:rgba(240,237,230,.08);margin-bottom:1.2rem}
+
+.cal-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;margin-bottom:.6rem}
+.cal-day-label{font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:rgba(240,237,230,.35);padding:.4rem 0}
+
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem}
+.cal-cell{
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  font-family:var(--D);
+  font-size:.92rem;
+  font-weight:700;
+  cursor:default;
+  transition:background .2s,transform .15s;
+}
 .cal-cell.empty{background:transparent}
-.cal-cell.past{color:rgba(255,255,255,.15);background:rgba(255,255,255,.02)}
-.cal-cell.today{background:rgba(212,175,55,.15);color:var(--gold);border:1px solid rgba(212,175,55,.4)}
-.cal-cell.taken{background:rgba(180,60,60,.12);color:rgba(220,100,100,.6);position:relative}
-.cal-cell.taken::after{content:'';position:absolute;top:50%;left:20%;right:20%;height:1px;background:rgba(220,100,100,.4);transform:translateY(-50%)}
-.cal-cell.available{background:rgba(212,175,55,.07);color:rgba(212,175,55,.7)}
-.cal-cell.available:hover{background:rgba(212,175,55,.15);color:var(--gold)}
-.cal-legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1.2rem}
-.cal-leg{display:flex;align-items:center;gap:.45rem;font-family:var(--D);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t55)}
-.cal-leg-dot{width:8px;height:8px;border-radius:2px}
+.cal-cell.past{color:rgba(240,237,230,.18);background:transparent}
+.cal-cell.today{
+  background:linear-gradient(135deg,#D4AF37,#E8C84A);
+  color:#1A1209;
+  box-shadow:0 4px 16px rgba(212,175,55,.4);
+  transform:scale(1.08);
+}
+.cal-cell.taken{
+  background:rgba(220,80,80,.12);
+  color:rgba(220,100,100,.5);
+  text-decoration:line-through;
+  text-decoration-color:rgba(220,100,100,.4);
+}
+.cal-cell.available{
+  background:rgba(240,237,230,.07);
+  color:rgba(240,237,230,.75);
+  border:1px solid rgba(240,237,230,.08);
+}
+.cal-cell.available:hover{
+  background:rgba(212,175,55,.15);
+  border-color:rgba(212,175,55,.3);
+  color:#D4AF37;
+  transform:scale(1.05);
+  cursor:pointer;
+}
+
+/* Légende */
+.cal-legend{display:flex;gap:2rem;justify-content:center;margin-top:1.8rem}
+.cal-leg{display:flex;align-items:center;gap:.6rem;font-family:var(--D);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,237,230,.45)}
+.cal-leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 .cal-leg-dot.taken{background:rgba(220,100,100,.5)}
-.cal-leg-dot.available{background:rgba(212,175,55,.5)}
-.cal-cta{text-align:center;margin-top:2rem}
-.cal-cta-link{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 2rem;background:var(--gold);color:#080808;border-radius:8px;font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s,box-shadow .25s}
-.cal-cta-link:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,175,55,.35)}
+.cal-leg-dot.available{background:rgba(240,237,230,.2);border:1px solid rgba(240,237,230,.15)}
+.cal-leg-dot.today-dot{background:linear-gradient(135deg,#D4AF37,#E8C84A)}
+
+.cal-cta{text-align:center;margin-top:2.5rem}
+.cal-cta-link{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2.4rem;background:var(--gold);color:#1A1209;border-radius:10px;font-family:var(--D);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s,box-shadow .25s;box-shadow:0 4px 20px rgba(212,175,55,.3)}
+.cal-cta-link:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.45)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
@@ -838,18 +886,21 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
 </section>
 
 <!-- ═══ CALENDRIER DISPONIBILITÉS ═══ -->
-<section id="disponibilites-inline" style="padding:5rem 0;background:var(--bg)">
+<section id="disponibilites-inline" style="padding:6rem 0;background:var(--bg2)">
   <div class="container">
-    <div class="cal-wrap" style="max-width:720px;margin:0 auto">
-      <div class="cal-header reveal" style="text-align:center;margin-bottom:2.5rem">
+    <div class="cal-wrap">
+      <div class="cal-header reveal">
         <div class="cal-eyebrow">Calendrier</div>
         <h2 class="cal-title">Vérifiez nos disponibilités</h2>
         <p class="cal-sub">Les dates marquées sont déjà réservées. Contactez-nous pour confirmer la vôtre.</p>
       </div>
-      <div id="cal-container" class="reveal d2"></div>
-      <div class="cal-legend">
-        <span class="cal-leg"><span class="cal-leg-dot taken"></span>Date prise</span>
-        <span class="cal-leg"><span class="cal-leg-dot available"></span>Disponible</span>
+      <div class="cal-card reveal d2">
+        <div id="cal-container"></div>
+        <div class="cal-legend">
+          <span class="cal-leg"><span class="cal-leg-dot today-dot"></span>Aujourd'hui</span>
+          <span class="cal-leg"><span class="cal-leg-dot available"></span>Disponible</span>
+          <span class="cal-leg"><span class="cal-leg-dot taken"></span>Date prise</span>
+        </div>
       </div>
       <div class="cal-cta reveal d3">
         <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="cal-cta-link">Réserver ma date
@@ -1229,6 +1280,7 @@ if(heroImgWrap){
       <span class="cal-month">${MONTHS_FR[month]} ${year}</span>
       <button class="cal-btn" id="cal-next"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
+    <div class="cal-divider"></div>
     <div class="cal-grid-head">`;
     DAYS_FR.forEach(d => { html += `<div class="cal-day-label">${d}</div>`; });
     html += `</div><div class="cal-grid">`;
