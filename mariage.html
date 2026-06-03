@@ -213,29 +213,50 @@ section{position:relative;z-index:1}
 .author-loc{font-size:.7rem;color:var(--t38);letter-spacing:.04em}
 
 /* ── FORMULES ── */
-#formules{padding:8rem 0;background:var(--bg);overflow:hidden}
-.formules-header{text-align:center;margin-bottom:4.5rem}
+#formules{padding:8rem 0;background:var(--bg)}
+.formules-header{text-align:center;margin-bottom:3.5rem}
 
-/* Scroll wrapper */
-.formules-scroll-wrap{
+/* Nav arrows */
+.formules-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem}
+.formules-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gb);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s,background .25s,transform .2s;flex-shrink:0}
+.formules-arrow:hover{border-color:var(--gold);background:var(--gold);transform:scale(1.06)}
+.formules-arrow:hover svg{stroke:var(--white)}
+.formules-arrow svg{stroke:var(--t38);stroke-width:2;fill:none;transition:stroke .25s}
+.formules-dots{display:flex;gap:.5rem;align-items:center}
+.formules-dot{width:6px;height:6px;border-radius:50%;background:var(--gb);border:1.5px solid var(--t15);transition:background .3s,transform .3s}
+.formules-dot.active{background:var(--gold);transform:scale(1.4)}
+
+/* Scroll wrapper — outer clips, inner scrolls */
+.formules-scroll-outer{
   position:relative;
+  overflow:hidden; /* clips the fades */
+}
+/* Left fade */
+.formules-scroll-outer::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:60px;
+  background:linear-gradient(to right,var(--bg),transparent);
+  pointer-events:none;z-index:2;
+  opacity:0;transition:opacity .3s;
+}
+/* Right fade */
+.formules-scroll-outer::after{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:100px;
+  background:linear-gradient(to left,var(--bg),transparent);
+  pointer-events:none;z-index:2;
+}
+.formules-scroll-outer.can-scroll-left::before{opacity:1}
+
+.formules-scroll-wrap{
   overflow-x:auto;
   overflow-y:visible;
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   padding:1.5rem 2.5rem 2.5rem;
   cursor:grab;
+  scroll-behavior:smooth;
 }
 .formules-scroll-wrap::-webkit-scrollbar{display:none}
-.formules-scroll-wrap.grabbing{cursor:grabbing;user-select:none}
-/* Fade hint on right edge */
-.formules-scroll-wrap::after{
-  content:'';
-  position:absolute;
-  top:0;right:0;bottom:0;width:80px;
-  background:linear-gradient(to right,transparent,var(--bg));
-  pointer-events:none;
-}
+.formules-scroll-wrap.grabbing{cursor:grabbing;user-select:none;scroll-behavior:auto}
 
 .formules-grid{
   display:flex;
@@ -729,6 +750,19 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       <h2 class="section-title" style="margin-top:.5rem">NOS <span class="gold">FORMULES</span></h2>
       <p style="font-size:.95rem;color:var(--t70);max-width:440px;line-height:1.75;margin:.8rem auto 0">Des formules transparentes pour chaque budget. Personnalisation possible sur demande.</p>
     </div>
+
+    <!-- Navigation arrows + dots -->
+    <div class="formules-nav">
+      <button class="formules-arrow" id="fPrev" aria-label="Précédent">
+        <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="formules-dots" id="fDots"></div>
+      <button class="formules-arrow" id="fNext" aria-label="Suivant">
+        <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
+
+    <div class="formules-scroll-outer" id="formulesOuter">
     <div class="formules-scroll-wrap" id="formulesScroll">
     <div class="formules-grid">
 
@@ -832,6 +866,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
         <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="formule-cta">Discuter de votre projet</a>
       </div>
 
+    </div>
     </div>
     </div>
   </div>
@@ -1268,25 +1303,82 @@ function toggleFaq(btn) {
 </script>
 <!-- WhatsApp -->
 
-<!-- Drag-to-scroll formules -->
+<!-- Formules scroll : drag, arrows, dots, peek -->
 <script>
 (function(){
-  var wrap = document.getElementById('formulesScroll');
+  var wrap  = document.getElementById('formulesScroll');
+  var outer = document.getElementById('formulesOuter');
+  var prev  = document.getElementById('fPrev');
+  var next  = document.getElementById('fNext');
+  var dotsC = document.getElementById('fDots');
   if(!wrap) return;
-  var isDown = false, startX, scrollLeft;
+
+  var cards = wrap.querySelectorAll('.formule-card');
+  var total = cards.length;
+  var CARD_W = 300 + 22; // card width + gap
+
+  /* ── Dots ── */
+  var dots = [];
+  for(var i=0;i<total;i++){
+    var d = document.createElement('button');
+    d.className = 'formules-dot';
+    d.setAttribute('aria-label','Formule '+(i+1));
+    d.dataset.i = i;
+    d.addEventListener('click', function(){ scrollToCard(+this.dataset.i); });
+    dotsC.appendChild(d);
+    dots.push(d);
+  }
+
+  function getActive(){
+    return Math.round(wrap.scrollLeft / CARD_W);
+  }
+  function updateDots(){
+    var a = getActive();
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===a); });
+    if(outer) outer.classList.toggle('can-scroll-left', wrap.scrollLeft > 10);
+  }
+  function scrollToCard(i){
+    wrap.style.scrollBehavior = 'smooth';
+    wrap.scrollLeft = i * CARD_W;
+  }
+
+  prev.addEventListener('click', function(){ scrollToCard(Math.max(0, getActive()-1)); });
+  next.addEventListener('click', function(){ scrollToCard(Math.min(total-1, getActive()+1)); });
+  wrap.addEventListener('scroll', updateDots, {passive:true});
+  updateDots();
+
+  /* ── Drag-to-scroll ── */
+  var isDown=false, startX, scrollLeft;
   wrap.addEventListener('mousedown', function(e){
-    isDown = true; wrap.classList.add('grabbing');
-    startX = e.pageX - wrap.offsetLeft;
-    scrollLeft = wrap.scrollLeft;
+    isDown=true; wrap.classList.add('grabbing');
+    startX=e.pageX-wrap.offsetLeft; scrollLeft=wrap.scrollLeft;
+    wrap.style.scrollBehavior='auto';
   });
-  wrap.addEventListener('mouseleave', function(){ isDown = false; wrap.classList.remove('grabbing'); });
-  wrap.addEventListener('mouseup',    function(){ isDown = false; wrap.classList.remove('grabbing'); });
+  wrap.addEventListener('mouseleave', function(){ isDown=false; wrap.classList.remove('grabbing'); });
+  wrap.addEventListener('mouseup',    function(){ isDown=false; wrap.classList.remove('grabbing'); });
   wrap.addEventListener('mousemove',  function(e){
-    if(!isDown) return;
-    e.preventDefault();
-    var x = e.pageX - wrap.offsetLeft;
-    wrap.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    if(!isDown) return; e.preventDefault();
+    wrap.scrollLeft = scrollLeft - (e.pageX - wrap.offsetLeft - startX) * 1.2;
   });
+
+  /* ── Peek animation : scroll légèrement à droite puis revient ── */
+  function peek(){
+    wrap.style.scrollBehavior = 'smooth';
+    wrap.scrollLeft = CARD_W * 0.35;
+    setTimeout(function(){ wrap.scrollLeft = 0; }, 700);
+  }
+  // Lance le peek 1.2s après que la section est visible
+  if('IntersectionObserver' in window){
+    var peeked = false;
+    var io = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !peeked){
+        peeked = true;
+        setTimeout(peek, 1200);
+        io.disconnect();
+      }
+    }, {threshold:0.4});
+    io.observe(wrap);
+  }
 })();
 </script>
 
