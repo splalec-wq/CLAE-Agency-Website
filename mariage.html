@@ -215,23 +215,23 @@ section{position:relative;z-index:1}
 /* ── FORMULES ── */
 #formules{padding:8rem 0;background:var(--bg)}
 .formules-header{text-align:center;margin-bottom:4.5rem}
-.formules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch;max-width:1100px;margin:0 auto}
-.formule-card{background:var(--white);border:1px solid var(--gb);border-radius:24px;padding:2.5rem 2rem;position:relative;transition:box-shadow .4s,transform .4s var(--ease);display:flex;flex-direction:column}
+.formules-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;align-items:stretch;max-width:1320px;margin:0 auto}
+.formule-card{background:var(--white);border:1px solid var(--gb);border-radius:20px;padding:2rem 1.3rem;position:relative;transition:box-shadow .4s,transform .4s var(--ease);display:flex;flex-direction:column}
 .formule-card:hover{transform:translateY(-4px);box-shadow:0 24px 64px rgba(26,18,9,.1)}
 .formule-card.featured{background:linear-gradient(145deg,#FDF6E7,#F8EDD0);border-color:var(--gg);box-shadow:0 12px 50px rgba(201,162,39,.18)}
 .formule-card.featured:hover{transform:translateY(-6px);box-shadow:0 28px 72px rgba(201,162,39,.25)}
 .formule-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;white-space:nowrap}
-.formule-name{font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--t38);margin-bottom:.6rem}
+.formule-name{font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--t38);margin-bottom:.5rem}
 .formule-card.featured .formule-name{color:var(--warm)}
-.formule-price{font-family:var(--D);font-size:clamp(1.6rem,2.2vw,2.4rem);font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
-.formule-price sup{font-size:.9rem;vertical-align:top;margin-top:.35rem;display:inline-block}
-.formule-subtitle{font-size:.78rem;color:var(--t38);margin-bottom:2rem;font-style:italic}
-.formule-list{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem;flex:1}
-.formule-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.85rem;color:var(--t70);line-height:1.5}
-.formule-list li::before{content:'✓';font-family:var(--D);font-size:.7rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
+.formule-price{font-family:var(--D);font-size:clamp(1.3rem,1.6vw,2rem);font-weight:800;color:var(--dark);line-height:1;margin-bottom:.2rem;white-space:nowrap}
+.formule-price sup{font-size:.8rem;vertical-align:top;margin-top:.3rem;display:inline-block}
+.formule-subtitle{font-size:.72rem;color:var(--t38);margin-bottom:1.4rem;font-style:italic;line-height:1.4}
+.formule-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;flex:1}
+.formule-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:var(--t70);line-height:1.45}
+.formule-list li::before{content:'✓';font-family:var(--D);font-size:.65rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
 .formule-list li.inactive::before{content:'–';color:var(--t15)}
 .formule-list li.inactive{color:var(--t38)}
-.formule-cta{display:block;text-align:center;padding:.88rem 1rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s}
+.formule-cta{display:block;text-align:center;padding:.75rem .8rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s}
 .formule-cta:hover{border-color:var(--gold);color:var(--gold)}
 .formule-card.featured .formule-cta{background:var(--gold);border-color:var(--gold);color:var(--white)}
 .formule-card.featured .formule-cta:hover{background:var(--gold-l);border-color:var(--gold-l)}
@@ -449,7 +449,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   "areaServed": "Paris, France",
   "url": "https://claeagency.com/mariage.html",
   "offers": [
-    {"@type": "Offer", "name": "Création de contenu", "price": "500", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Création de contenu", "price": "700", "priceCurrency": "EUR"},
     {"@type": "Offer", "name": "Formule Photo", "price": "1500", "priceCurrency": "EUR"},
     {"@type": "Offer", "name": "Formule Essentielle", "price": "2500", "priceCurrency": "EUR"},
     {"@type": "Offer", "name": "Formule Signature", "price": "4200", "priceCurrency": "EUR"},
@@ -699,7 +699,7 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       <!-- Création de contenu -->
       <div class="formule-card reveal d1">
         <div class="formule-name">Création de contenu</div>
-        <div class="formule-price"><sup>€</sup>500</div>
+        <div class="formule-price"><sup>€</sup>700</div>
         <div class="formule-subtitle">L'essentiel pour vos réseaux sociaux</div>
         <ul class="formule-list">
           <li>10 heures de présence</li>
