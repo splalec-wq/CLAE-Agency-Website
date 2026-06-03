@@ -213,29 +213,68 @@ section{position:relative;z-index:1}
 .author-loc{font-size:.7rem;color:var(--t38);letter-spacing:.04em}
 
 /* ── FORMULES ── */
-#formules{padding:8rem 0;background:var(--bg)}
+#formules{padding:8rem 0;background:var(--bg);overflow:hidden}
 .formules-header{text-align:center;margin-bottom:4.5rem}
-.formules-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem;align-items:stretch;width:100%;max-width:1440px;margin:0 auto}
-.formule-card{background:var(--white);border:1px solid var(--gb);border-radius:20px;padding:2rem 1.6rem;position:relative;transition:box-shadow .4s,transform .4s var(--ease);display:flex;flex-direction:column}
+
+/* Scroll wrapper */
+.formules-scroll-wrap{
+  position:relative;
+  overflow-x:auto;
+  overflow-y:visible;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:1.5rem 2.5rem 2.5rem;
+  cursor:grab;
+}
+.formules-scroll-wrap::-webkit-scrollbar{display:none}
+.formules-scroll-wrap.grabbing{cursor:grabbing;user-select:none}
+/* Fade hint on right edge */
+.formules-scroll-wrap::after{
+  content:'';
+  position:absolute;
+  top:0;right:0;bottom:0;width:80px;
+  background:linear-gradient(to right,transparent,var(--bg));
+  pointer-events:none;
+}
+
+.formules-grid{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:1.4rem;
+  align-items:stretch;
+  width:max-content;
+}
+.formule-card{
+  background:var(--white);
+  border:1px solid var(--gb);
+  border-radius:24px;
+  padding:2.5rem 2rem;
+  position:relative;
+  transition:box-shadow .4s,transform .4s var(--ease);
+  display:flex;
+  flex-direction:column;
+  width:300px;
+  flex-shrink:0;
+}
 .formule-card:hover{transform:translateY(-4px);box-shadow:0 24px 64px rgba(26,18,9,.1)}
 .formule-card.featured{background:linear-gradient(145deg,#FDF6E7,#F8EDD0);border-color:var(--gg);box-shadow:0 12px 50px rgba(201,162,39,.18)}
 .formule-card.featured:hover{transform:translateY(-6px);box-shadow:0 28px 72px rgba(201,162,39,.25)}
 .formule-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);font-family:var(--D);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;white-space:nowrap}
-.formule-name{font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--t38);margin-bottom:.55rem}
+.formule-name{font-family:var(--D);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--t38);margin-bottom:.6rem}
 .formule-card.featured .formule-name{color:var(--warm)}
-.formule-price{font-family:var(--D);font-size:clamp(1.5rem,1.8vw,2.2rem);font-weight:800;color:var(--dark);line-height:1;margin-bottom:.2rem;white-space:nowrap}
-.formule-price sup{font-size:.85rem;vertical-align:top;margin-top:.3rem;display:inline-block}
-.formule-subtitle{font-size:.75rem;color:var(--t38);margin-bottom:1.5rem;font-style:italic;line-height:1.4}
-.formule-list{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.6rem;flex:1}
-.formule-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--t70);line-height:1.4}
-.formule-list li::before{content:'✓';font-family:var(--D);font-size:.68rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
-.formule-cta{display:block;text-align:center;padding:.8rem 1rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s}
+.formule-price{font-family:var(--D);font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
+.formule-price sup{font-size:.9rem;vertical-align:top;margin-top:.35rem;display:inline-block}
+.formule-subtitle{font-size:.82rem;color:var(--t38);margin-bottom:2rem;font-style:italic;line-height:1.5}
+.formule-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem;flex:1}
+.formule-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--t70);line-height:1.5}
+.formule-list li::before{content:'✓';font-family:var(--D);font-size:.72rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:.1rem}
+.formule-cta{display:block;text-align:center;padding:.9rem 1rem;border:1.5px solid var(--gb);border-radius:8px;font-family:var(--D);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--t70);transition:border-color .25s,color .25s,background .25s}
 .formule-cta:hover{border-color:var(--gold);color:var(--gold)}
 .formule-card.featured .formule-cta{background:var(--gold);border-color:var(--gold);color:var(--white)}
 .formule-card.featured .formule-cta:hover{background:var(--gold-l);border-color:var(--gold-l)}
 
 /* ── FORMULE SUR DEVIS ── */
-.formule-price-devis{font-family:var(--D);font-size:clamp(1.6rem,2.2vw,2.4rem);font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
+.formule-price-devis{font-family:var(--D);font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
 
 /* ── CTA FINAL ── */
 #cta-final{padding:9rem 0;background:var(--gold);position:relative;overflow:hidden;text-align:center}
@@ -310,7 +349,6 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   .nav-pill{display:none}
   .creations-grid{grid-template-columns:1fr}
   .temoignages-grid{grid-template-columns:1fr 1fr}
-  .formules-grid{grid-template-columns:repeat(3,1fr);gap:1.2rem}
   .masonry{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,200px)}
   .masonry-item:nth-child(1){grid-column:auto;grid-row:auto}
   .masonry-item:nth-child(5){grid-column:auto;grid-row:auto}
@@ -338,7 +376,6 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
   .hero-metrics{gap:1.5rem;padding-top:1.5rem}
   .partners-grid{grid-template-columns:1fr}
   .temoignages-grid{grid-template-columns:1fr}
-  .formules-grid{grid-template-columns:1fr;gap:1.5rem}
   .masonry{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,180px)}
   .masonry-item:nth-child(1){grid-column:auto;grid-row:auto}
   .masonry-item:nth-child(5){grid-column:auto;grid-row:auto}
@@ -692,22 +729,24 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
       <h2 class="section-title" style="margin-top:.5rem">NOS <span class="gold">FORMULES</span></h2>
       <p style="font-size:.95rem;color:var(--t70);max-width:440px;line-height:1.75;margin:.8rem auto 0">Des formules transparentes pour chaque budget. Personnalisation possible sur demande.</p>
     </div>
+    <div class="formules-scroll-wrap" id="formulesScroll">
     <div class="formules-grid">
 
       <!-- Création de contenu -->
       <div class="formule-card reveal d1">
         <div class="formule-name">Création de contenu</div>
         <div class="formule-price"><sup>€</sup>700</div>
-        <div class="formule-subtitle">Pour vos réseaux sociaux</div>
+        <div class="formule-subtitle">L'essentiel pour vos réseaux sociaux</div>
         <ul class="formule-list">
-          <li>10h de présence</li>
+          <li>10 heures de présence</li>
           <li>1 vidéaste dédié</li>
           <li>Film court 60–90 sec</li>
-          <li>Format Insta / TikTok</li>
-          <li>Montage &amp; étalonnage</li>
+          <li>Moments forts de la journée</li>
+          <li>Montage &amp; étalonnage inclus</li>
+          <li>Format Instagram / TikTok</li>
           <li>Livraison en 1 semaine</li>
         </ul>
-        <a href="reservation.html?formule=Contenu&source=mariage" class="formule-cta">Choisir</a>
+        <a href="reservation.html?formule=Contenu&source=mariage" class="formule-cta">Choisir Contenu</a>
       </div>
 
       <!-- Photo seule -->
@@ -716,30 +755,30 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
         <div class="formule-price"><sup>€</sup>1 500</div>
         <div class="formule-subtitle">L'image fixe, à jamais</div>
         <ul class="formule-list">
-          <li>1 photographe pro</li>
-          <li>Journée complète</li>
+          <li>1 photographe professionnel</li>
+          <li>Couverture journée complète</li>
           <li>300+ photos éditées</li>
           <li>Galerie privée en ligne</li>
           <li>Fichiers haute résolution</li>
           <li>Livraison en 3 semaines</li>
         </ul>
-        <a href="reservation.html?formule=Photo&source=mariage" class="formule-cta">Choisir</a>
+        <a href="reservation.html?formule=Photo&source=mariage" class="formule-cta">Choisir Photo</a>
       </div>
 
       <!-- Essentiel -->
       <div class="formule-card reveal d3">
         <div class="formule-name">Essentiel</div>
         <div class="formule-price"><sup>€</sup>2 500</div>
-        <div class="formule-subtitle">L'essentiel bien fait</div>
+        <div class="formule-subtitle">Pour les couples qui cherchent l'essentiel</div>
         <ul class="formule-list">
           <li>Film cinématique 15 min</li>
           <li>1 vidéographe</li>
           <li>Couverture 6 heures</li>
-          <li>Getting-ready inclus</li>
-          <li>Galerie privée</li>
+          <li>Séquences getting-ready</li>
+          <li>Galerie privée en ligne</li>
           <li>Livraison en 4 semaines</li>
         </ul>
-        <a href="reservation.html?formule=Essentiel&source=mariage" class="formule-cta">Choisir</a>
+        <a href="reservation.html?formule=Essentiel&source=mariage" class="formule-cta">Choisir Essentiel</a>
       </div>
 
       <!-- Signature (featured) -->
@@ -751,28 +790,30 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
         <ul class="formule-list">
           <li>Film cinématique 25 min</li>
           <li>2 vidéographes</li>
-          <li>Journée complète</li>
+          <li>Couverture journée complète</li>
           <li>Montage Same-Day inclus</li>
-          <li>Film réseaux sociaux</li>
-          <li>Galerie + clé USB 4K</li>
+          <li>Film résumé réseaux sociaux</li>
+          <li>Livraison en 3 semaines</li>
+          <li>Galerie privée + clé USB 4K</li>
         </ul>
-        <a href="reservation.html?formule=Signature&source=mariage" class="formule-cta">Choisir</a>
+        <a href="reservation.html?formule=Signature&source=mariage" class="formule-cta">Choisir Signature</a>
       </div>
 
       <!-- Cinématique -->
       <div class="formule-card reveal d5">
         <div class="formule-name">Cinématique</div>
         <div class="formule-price"><sup>€</sup>6 600</div>
-        <div class="formule-subtitle">L'expérience ultime</div>
+        <div class="formule-subtitle">L'expérience ultime, sans compromis</div>
         <ul class="formule-list">
           <li>Film cinématique 30+ min</li>
-          <li>2 vidéastes + photographe</li>
-          <li>Couverture 2 jours (J-1)</li>
+          <li>2 vidéastes + 1 photographe</li>
+          <li>Couverture 2 jours (J-1 inclus)</li>
           <li>Montage Same-Day inclus</li>
           <li>3 films réseaux sociaux</li>
-          <li>Coffret + projection privée</li>
+          <li>Livraison prioritaire en 2 semaines</li>
+          <li>Coffret premium + projection privée</li>
         </ul>
-        <a href="reservation.html?formule=Cin%C3%A9matique&source=mariage" class="formule-cta">Choisir</a>
+        <a href="reservation.html?formule=Cin%C3%A9matique&source=mariage" class="formule-cta">Choisir Cinématique</a>
       </div>
 
       <!-- Sur Mesure -->
@@ -781,16 +822,17 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
         <div class="formule-price-devis">Sur devis</div>
         <div class="formule-subtitle">Votre vision, notre réalisation</div>
         <ul class="formule-list">
-          <li>Durée sur mesure</li>
-          <li>Mariage destination</li>
-          <li>Équipe adaptée au projet</li>
+          <li>Durée &amp; couverture sur mesure</li>
+          <li>Mariage destination (France &amp; international)</li>
+          <li>Équipe adaptée à votre projet</li>
           <li>Options à la carte</li>
           <li>Personnalisation totale</li>
-          <li>Échange offert</li>
+          <li>Premier échange offert, sans engagement</li>
         </ul>
-        <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="formule-cta">Nous contacter</a>
+        <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="formule-cta">Discuter de votre projet</a>
       </div>
 
+    </div>
     </div>
   </div>
 </section>
@@ -1225,6 +1267,28 @@ function toggleFaq(btn) {
 }
 </script>
 <!-- WhatsApp -->
+
+<!-- Drag-to-scroll formules -->
+<script>
+(function(){
+  var wrap = document.getElementById('formulesScroll');
+  if(!wrap) return;
+  var isDown = false, startX, scrollLeft;
+  wrap.addEventListener('mousedown', function(e){
+    isDown = true; wrap.classList.add('grabbing');
+    startX = e.pageX - wrap.offsetLeft;
+    scrollLeft = wrap.scrollLeft;
+  });
+  wrap.addEventListener('mouseleave', function(){ isDown = false; wrap.classList.remove('grabbing'); });
+  wrap.addEventListener('mouseup',    function(){ isDown = false; wrap.classList.remove('grabbing'); });
+  wrap.addEventListener('mousemove',  function(e){
+    if(!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - wrap.offsetLeft;
+    wrap.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+})();
+</script>
 
 <!-- CTA Mobile Sticky -->
 <a href="contact.html?from=mariage" class="mobile-cta-sticky" id="mobileCta">
