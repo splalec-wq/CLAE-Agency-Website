@@ -642,6 +642,47 @@ body.direct-nav .scroll-cue{animation-delay:0s!important;animation-duration:.4s!
 }
 
 @media(max-width:768px){#grain{display:none}}
+
+/* ── PERFORMANCE — GPU acceleration ── */
+.slide{will-change:opacity,transform;backface-visibility:hidden}
+.reel-card{backface-visibility:hidden}
+.reveal{will-change:opacity,transform}
+.reveal.on{will-change:auto}
+nav{transform:translateZ(0)}
+#particles{image-rendering:pixelated}
+
+/* ── FAQ SECTION ── */
+#faq{padding:8rem 0;background:var(--bg2);position:relative;z-index:1}
+#faq::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold-dim) 50%,transparent 100%)}
+.faq-header{text-align:center;margin-bottom:4rem}
+.faq-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.faq-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease infinite;flex-shrink:0}
+.faq-h{font-family:var(--D);font-size:clamp(2rem,4vw,3.8rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1;margin-bottom:.6rem}
+.faq-h .gold{color:var(--gold)}
+.faq-h .out{-webkit-text-stroke:1.5px rgba(240,237,230,.25);color:transparent}
+.faq-sub{font-size:.9rem;color:var(--w38);max-width:460px;margin:0 auto;line-height:1.7}
+.faq-grid{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid rgba(240,237,230,.07);overflow:hidden}
+.faq-item:first-child{border-top:1px solid rgba(240,237,230,.07)}
+.faq-q{width:100%;background:none;border:none;padding:1.6rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;text-align:left;font-family:var(--D);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:-.01em;transition:color .25s}
+.faq-q:hover{color:var(--gold)}
+.faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .4s var(--ease)}
+.faq-icon svg{width:12px;height:12px;stroke:var(--gold);stroke-width:2.5;fill:none;transition:transform .4s var(--ease)}
+.faq-item.open .faq-icon{background:rgba(212,175,55,.12);border-color:var(--gold);transform:scale(1.05)}
+.faq-item.open .faq-icon svg{transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1),opacity .35s ease}
+.faq-body p{padding:.2rem 0 1.8rem;font-size:.9rem;line-height:1.8;color:var(--w70);max-width:680px}
+.faq-body a{color:var(--gold);text-decoration:none}
+.faq-body a:hover{text-decoration:underline}
+.faq-item.open .faq-body{max-height:400px}
+.faq-cta{text-align:center;margin-top:3.5rem}
+.faq-cta-link{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--D);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none;border:1px solid rgba(240,237,230,.15);padding:.9rem 2rem;border-radius:8px;transition:border-color .25s,color .25s,background .25s,box-shadow .25s}
+.faq-cta-link:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-faint);box-shadow:0 0 24px rgba(212,175,55,.12)}
+@media(max-width:768px){
+  #faq{padding:5rem 0}
+  .faq-q{font-size:.9rem;padding:1.3rem 0}
+  .faq-h{font-size:2rem}
+}
 </style>
 
 <!-- Schema.org Structured Data -->
@@ -1304,6 +1345,84 @@ body.direct-nav .scroll-cue{animation-delay:0s!important;animation-duration:.4s!
     </div>
   </div>
 </section>
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="faq-eyebrow">Questions fréquentes</div>
+      <h2 class="faq-h">VOS <span class="gold">QUESTIONS,</span><br><span class="out">NOS RÉPONSES</span></h2>
+      <p class="faq-sub">Tout ce que vous devez savoir avant de démarrer votre projet avec CLAE Agency.</p>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quand faut-il réserver CLAE Agency ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Pour un mariage, nous recommandons de réserver <strong>6 à 12 mois à l'avance</strong>, car les dates se remplissent vite, surtout en haute saison (mai–octobre). Pour un événement ou du contenu de marque, 4 à 8 semaines suffisent en général. N'hésitez pas à nous contacter même si votre date est proche — nous faisons notre possible.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Intervenez-vous en dehors de Paris ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Oui, nous intervenons dans toute la France et à l'international. Des frais de déplacement peuvent s'appliquer selon la localisation. Chaque demande hors Paris est étudiée individuellement — contactez-nous pour un devis personnalisé.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Combien de temps pour recevoir mon film ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Le délai varie selon la formule choisie. Le film résumé réseaux sociaux est livré sous <strong>48–72h</strong>. Le film complet (court ou long format) est livré entre <strong>2 et 4 semaines</strong> selon le montage. La formule Cinématique inclut une livraison prioritaire en 2 semaines. Tous les fichiers sont accessibles via une galerie privée en ligne.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Proposez-vous des formules sur mesure ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Absolument. La formule <strong>Sur Mesure</strong> est conçue pour les projets qui dépassent nos forfaits standards : mariages multi-jours, grandes productions d'entreprise, campagnes de marque complexes. Nous construisons votre offre sur mesure après un premier échange. <a href="contact.html">Prenez contact →</a></p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Comment se passe le premier contact ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Après votre demande via le formulaire, nous vous répondons sous <strong>48h</strong> pour organiser un appel découverte gratuit de 20 minutes. C'est l'occasion de parler de votre projet, de vos envies et de vérifier que le courant passe — parce que la confiance fait partie du film.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quelles sont les modalités de paiement ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Un acompte de <strong>50 % à la commande</strong> confirme votre réservation et bloque votre date. Le solde est dû à la livraison des fichiers finaux. Nous acceptons les virements bancaires. Pour les entreprises, les règlements à 30 jours sont possibles sur devis signé.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Puis-je utiliser mon film sur les réseaux sociaux ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Oui, toutes nos formules incluent les <strong>droits d'utilisation personnelle et commerciale</strong> pour diffuser vos films sur Instagram, TikTok, YouTube et tout autre canal digital. Nous fournissons également des formats adaptés à chaque plateforme (9:16, 1:1, 16:9).</p></div>
+      </div>
+
+    </div>
+
+    <div class="faq-cta reveal">
+      <a href="contact.html" class="faq-cta-link">
+        Une autre question ? Contactez-nous
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer>
   <div class="container">
@@ -1616,20 +1735,59 @@ document.getElementById('cform').addEventListener('submit',async function(e){
 /* ── SMOOTH ANCHORS ── */
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
 
-/* ── PANELS SLIDESHOW + NAVIGATION SANS RETOUR ── */
+/* ── FAQ ACCORDION ── */
 (function(){
-  const timers={};
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const btn=item.querySelector('.faq-q');
+    const body=item.querySelector('.faq-body');
+    if(!btn||!body)return;
+    btn.addEventListener('click',()=>{
+      const isOpen=item.classList.contains('open');
+      /* Close all */
+      document.querySelectorAll('.faq-item.open').forEach(el=>{
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      /* Toggle clicked */
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+
+/* ── PANELS SLIDESHOW + NAVIGATION ── */
+(function(){
   document.querySelectorAll('.panel').forEach(panel=>{
     const slides=panel.querySelectorAll('.slide');
     const dots=panel.querySelectorAll('.pdot');
+    if(!slides.length)return;
     let current=0;
+
     function goTo(idx){
-      slides[current].classList.remove('active');dots[current]&&dots[current].classList.remove('on');
+      slides[current].classList.remove('active');
+      if(dots[current])dots[current].classList.remove('on');
       current=(idx+slides.length)%slides.length;
-      slides[current].classList.add('active');dots[current]&&dots[current].classList.add('on');
+      slides[current].classList.add('active');
+      if(dots[current])dots[current].classList.add('on');
     }
-    /* slideshow au survol désactivé */
-    /* replace() : le retour arrière depuis mariage/evenement/contenu saute les panneaux */
+
+    /* Auto-advance every 3.2s — stagger start per panel index */
+    const panelIdx=Array.from(document.querySelectorAll('.panel')).indexOf(panel);
+    let timer=null;
+    function startTimer(){
+      clearInterval(timer);
+      timer=setInterval(()=>goTo(current+1),3200);
+    }
+
+    setTimeout(startTimer, panelIdx*900);
+
+    /* Pause on hover, resume on leave */
+    panel.addEventListener('mouseenter',()=>clearInterval(timer));
+    panel.addEventListener('mouseleave',startTimer);
+
+    /* Click → navigate */
     panel.addEventListener('click',e=>{
       e.preventDefault();
       location.replace(panel.getAttribute('href'));
