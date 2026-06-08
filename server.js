@@ -1,13 +1,40 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
+const compression = require('compression');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ── Gzip compression (big perf win) ─────────────────────
+app.use(compression());
+
+// ── Static files with aggressive cache headers ───────────
+app.use(express.static(path.join(__dirname), {
+  maxAge: '7d',          // browsers cache assets 7 days
+  etag: true,
+  lastModified: true,
+  setHeaders(res, filePath) {
+    // HTML: no cache (always fresh)
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    }
+    // Images / fonts: 30 days
+    else if (/\.(jpg|jpeg|png|webp|svg|woff2|woff|ttf)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000, immutable');
+    }
+    // JS / CSS: 7 days
+    else if (/\.(js|css)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=604800');
+    }
+    // Security headers
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  }
+}));
+
 // ── Parsers ──────────────────────────────────────────────
-app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -89,10 +116,7 @@ function buildEmailHtml(data) {
 app.post('/send', async (req, res) => {
   const data = req.body;
 
-  // Honeypot anti-bot
-  if (data.botcheck) {
-    return res.json({ success: false });
-  }
+  if (data.botcheck) return res.json({ success: false });
 
   const subject = data.subject || 'Nouvelle demande — CLAE Agency';
   const replyTo = data.em || data.email || undefined;
