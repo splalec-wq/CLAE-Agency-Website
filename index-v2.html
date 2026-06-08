@@ -1409,7 +1409,39 @@ nav{transform:translateZ(0)}
           Puis-je utiliser mon film sur les réseaux sociaux ?
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </button>
-        <div class="faq-body"><p>Oui, toutes nos formules incluent les <strong>droits d'utilisation personnelle et commerciale</strong> pour diffuser vos films sur Instagram, TikTok, YouTube et tout autre canal digital. Nous fournissons également des formats adaptés à chaque plateforme (9:16, 1:1, 16:9).</p></div>
+        <div class="faq-body"><p>Oui, toutes nos formules incluent les <strong>droits d'utilisation personnelle et commerciale</strong> pour diffuser vos films sur Instagram, TikTok, YouTube et tout autre canal digital. Nous fournissons également des formats adaptés à chaque plateforme (9:16, 1:1, 16:9) pour maximiser votre visibilité.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quelle est la différence entre le film résumé et le film complet ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Le <strong>film résumé</strong> (2–4 min) est conçu pour les réseaux sociaux — rythmé, émotionnel, pensé pour captiver en quelques secondes. Le <strong>film complet</strong> (15–30+ min selon la formule) est le récit intégral de votre journée, chronologique, avec tous les moments forts : préparatifs, cérémonie, discours, danse, soirée. Les deux se complètent parfaitement.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Travaillez-vous avec un photographe ou seulement en vidéo ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>CLAE Agency est spécialisé en <strong>production vidéo cinématique</strong>. La formule <strong>Signature</strong> inclut un duo 1 vidéaste + 1 photographe pour couvrir votre journée sous tous les angles. Pour les autres formules, nous pouvons vous recommander des photographes partenaires avec qui nous collaborons régulièrement et dont le style se marie avec le nôtre.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Puis-je voir des exemples de films réalisés ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>Bien sûr ! Vous pouvez consulter notre <a href="portfolio.html">portfolio</a> et notre <a href="galerie.html">galerie</a> directement sur le site. Vous pouvez également nous suivre sur <a href="https://www.instagram.com/clae_agency" target="_blank">@clae_agency</a> pour voir nos dernières créations et les coulisses de nos tournages. Lors de notre appel découverte, nous partageons volontiers des films complets confidentiels correspondant à votre type de projet.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Que se passe-t-il en cas de mauvais temps ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-body"><p>La météo fait partie du récit. Nous sommes équipés pour tourner dans toutes les conditions — pluie, contre-jour, nuit — et avons l'habitude de transformer les imprévus en moments de cinéma. Certains de nos films les plus beaux ont été tournés sous la pluie. Si votre événement est reporté pour des raisons exceptionnelles, nous étudions ensemble les possibilités de transfert de date selon nos disponibilités.</p></div>
       </div>
 
     </div>
@@ -1538,27 +1570,28 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 
 
-/* ── FORM (Formspree) ── */
-document.getElementById('cform').addEventListener('submit',async function(e){
-  e.preventDefault();
-  const btn=document.getElementById('fsubmit'),orig=btn.textContent;
-  btn.textContent='Envoi en cours…';btn.disabled=true;
-  try{
-    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
-    if(res.ok){
-      btn.textContent='✓ Message envoyé — On vous répond sous 24h !';
-      btn.style.background='#1a3d2b';btn.style.color='#4ade80';
-      this.reset();
-      setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},6000);
-    } else {
-      throw new Error();
+/* ── FORM (guard — cform only exists on contact.html) ── */
+const _cform=document.getElementById('cform');
+if(_cform){
+  _cform.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('fsubmit'),orig=btn.textContent;
+    btn.textContent='Envoi en cours…';btn.disabled=true;
+    try{
+      const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+      if(res.ok){
+        btn.textContent='✓ Message envoyé — On vous répond sous 24h !';
+        btn.style.background='#1a3d2b';btn.style.color='#4ade80';
+        this.reset();
+        setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},6000);
+      } else { throw new Error(); }
+    } catch(_){
+      btn.textContent='Erreur — Réessayez ou écrivez-nous sur Instagram';
+      btn.style.background='#3d1a1a';btn.style.color='#f87171';
+      setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},5000);
     }
-  } catch(_){
-    btn.textContent='Erreur — Réessayez ou écrivez-nous sur Instagram';
-    btn.style.background='#3d1a1a';btn.style.color='#f87171';
-    setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.color='';btn.disabled=false;},5000);
-  }
-});
+  });
+}
 
 /* ── CURSOR GLOW ── */
 (function(){
