@@ -416,6 +416,7 @@ nav{position:fixed;inset:0 0 auto;z-index:100;padding:1.2rem 3rem;display:flex;a
 /* ─── PARAMS ─── */
 const params   = new URLSearchParams(location.search);
 const formule  = params.get('formule') || '';
+const drone    = params.get('drone') === '1';
 const source   = params.get('source')  || 'mariage';
 const success  = params.get('success') === '1';
 
@@ -463,27 +464,49 @@ document.querySelectorAll('a[href="javascript:history.back()"]').forEach(a => {
 
 /* ─── FORMULE ─── */
 const nom = decodeURIComponent(formule.replace(/\+/g,' '));
-document.getElementById('recapName').textContent         = nom || 'Non spécifiée';
-document.getElementById('hiddenFormule').value           = nom;
-document.getElementById('hiddenSource').value            = source;
-document.getElementById('formule_visible').value         = nom;
-document.getElementById('formSubject').value             = `Réservation CLAE — ${nom}`;
+document.getElementById('hiddenSource').value = source;
 
-// Afficher le picker si aucune formule pré-sélectionnée
-if(!nom){
+if(drone) {
+  // Option drone : afficher le picker filtré + notice, combiner à la sélection
   const picker = document.getElementById('formulePicker');
-  if(picker) picker.style.display = 'block';
+  if(picker) {
+    const notice = document.createElement('div');
+    notice.style.cssText = 'display:flex;align-items:center;gap:.75rem;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:10px;padding:.85rem 1.1rem;margin-bottom:1.4rem;font-size:.82rem;color:var(--text);line-height:1.5';
+    notice.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg><span><strong>Option drone sélectionnée</strong> — Choisissez votre formule de base ci-dessous. Le drone sera ajouté en supplément.</span>';
+    picker.insertBefore(notice, picker.firstChild);
+    // Masquer les formules non compatibles avec le drone
+    ['Création de contenu','Photo'].forEach(f => {
+      const card = picker.querySelector(`[data-formule="${f}"]`);
+      if(card) card.style.display = 'none';
+    });
+    picker.style.display = 'block';
+  }
+  document.getElementById('recapName').textContent = 'Option Drone';
+  document.getElementById('hiddenFormule').value   = 'Option Drone';
+  document.getElementById('formule_visible').value = 'Option Drone';
+  document.getElementById('formSubject').value     = 'Réservation CLAE — Option Drone';
+} else {
+  document.getElementById('recapName').textContent = nom || 'Non spécifiée';
+  document.getElementById('hiddenFormule').value   = nom;
+  document.getElementById('formule_visible').value = nom;
+  document.getElementById('formSubject').value     = `Réservation CLAE — ${nom}`;
+  if(!nom){
+    const picker = document.getElementById('formulePicker');
+    if(picker) picker.style.display = 'block';
+  }
 }
+
 document.querySelectorAll('.fp-card').forEach(card => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.fp-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     const f = card.dataset.formule;
-    document.getElementById('hiddenFormulePicker').value = f;
-    document.getElementById('hiddenFormule').value       = f;
-    document.getElementById('recapName').textContent     = f;
-    document.getElementById('formule_visible').value     = f;
-    document.getElementById('formSubject').value         = `Réservation CLAE — ${f}`;
+    const label = drone ? `${f} + Option Drone` : f;
+    document.getElementById('hiddenFormulePicker').value = label;
+    document.getElementById('hiddenFormule').value       = label;
+    document.getElementById('recapName').textContent     = label;
+    document.getElementById('formule_visible').value     = label;
+    document.getElementById('formSubject').value         = `Réservation CLAE — ${label}`;
   });
 });
 
