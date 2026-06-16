@@ -151,9 +151,15 @@ section{position:relative;z-index:1}
 .badge-info span{font-size:.63rem;color:var(--t38);letter-spacing:.04em}
 
 /* ── STATEMENT ── */
-#statement{padding:7rem 0;background:var(--white);text-align:center;overflow:hidden}
-.statement-line{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.9rem,4vw,4.2rem);font-weight:300;font-style:italic;line-height:1.4;letter-spacing:.01em;text-transform:none;color:var(--dark);max-width:900px;margin:0 auto}
+#statement{padding:7rem 0;background:var(--white);text-align:center;position:relative;overflow:hidden}
+.statement-line{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.9rem,4vw,4.2rem);font-weight:300;font-style:italic;line-height:1.4;letter-spacing:.01em;text-transform:none;color:var(--dark);max-width:900px;margin:0 auto;position:relative;z-index:1}
 .statement-line .out{-webkit-text-stroke:2px var(--gold);color:transparent}
+.floral-branch{position:absolute;top:50%;transform:translateY(-52%);opacity:.28;pointer-events:none;z-index:0;width:160px;height:auto}
+.floral-branch.left{left:3%}
+.floral-branch.right{right:3%;transform:translateY(-52%) scaleX(-1)}
+.floral-divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem auto 0;opacity:.45;position:relative;z-index:1}
+@media(max-width:900px){.floral-branch{width:90px;opacity:.15}}
+@media(max-width:600px){.floral-branch{display:none}}
 
 /* ── CE QUE NOUS CRÉONS ── */
 #creations{padding:8rem 0;background:var(--bg)}
@@ -668,11 +674,63 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
 
 <!-- ═══ STATEMENT ═══ -->
 <section id="statement">
+  <!-- Branches botaniques positionnées dans la section -->
+  <svg class="floral-branch left" width="200" height="340" viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M110 330 C108 280 104 230 98 180 C92 130 80 80 68 20" stroke="#8B7340" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M102 270 C85 258 68 255 50 260" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M98 230 C82 215 66 210 48 215" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M95 190 C110 172 118 155 114 135" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M92 155 C75 142 60 137 44 142" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M86 118 C100 100 106 82 100 62" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M82 82 C66 70 52 66 38 72" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <ellipse cx="46" cy="258" rx="13" ry="6" transform="rotate(-18 46 258)" fill="#8B7340" opacity=".45"/>
+    <ellipse cx="44" cy="213" rx="13" ry="6" transform="rotate(-14 44 213)" fill="#8B7340" opacity=".45"/>
+    <ellipse cx="40" cy="140" rx="12" ry="5" transform="rotate(-22 40 140)" fill="#8B7340" opacity=".4"/>
+    <ellipse cx="36" cy="70" rx="11" ry="5" transform="rotate(-18 36 70)" fill="#8B7340" opacity=".4"/>
+    <ellipse cx="116" cy="133" rx="11" ry="5" transform="rotate(28 116 133)" fill="#8B7340" opacity=".38"/>
+    <ellipse cx="102" cy="60" rx="10" ry="4" transform="rotate(22 102 60)" fill="#8B7340" opacity=".38"/>
+    <circle cx="68" cy="22" r="5" fill="#8B7340" opacity=".55"/>
+    <circle cx="68" cy="22" r="9" fill="none" stroke="#8B7340" stroke-width=".9" opacity=".35"/>
+    <circle cx="60" cy="10" r="2" fill="#8B7340" opacity=".4"/>
+    <circle cx="76" cy="10" r="2" fill="#8B7340" opacity=".4"/>
+    <circle cx="50" cy="260" r="3" fill="#8B7340" opacity=".5"/>
+    <circle cx="48" cy="215" r="3" fill="#8B7340" opacity=".5"/>
+    <circle cx="44" cy="142" r="3" fill="#8B7340" opacity=".45"/>
+    <circle cx="38" cy="72" r="3" fill="#8B7340" opacity=".45"/>
+  </svg>
+  <svg class="floral-branch right" width="200" height="340" viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M110 330 C108 280 104 230 98 180 C92 130 80 80 68 20" stroke="#8B7340" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M102 270 C85 258 68 255 50 260" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M98 230 C82 215 66 210 48 215" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M95 190 C110 172 118 155 114 135" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M92 155 C75 142 60 137 44 142" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M86 118 C100 100 106 82 100 62" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M82 82 C66 70 52 66 38 72" stroke="#8B7340" stroke-width="1.1" stroke-linecap="round"/>
+    <ellipse cx="46" cy="258" rx="13" ry="6" transform="rotate(-18 46 258)" fill="#8B7340" opacity=".45"/>
+    <ellipse cx="44" cy="213" rx="13" ry="6" transform="rotate(-14 44 213)" fill="#8B7340" opacity=".45"/>
+    <ellipse cx="40" cy="140" rx="12" ry="5" transform="rotate(-22 40 140)" fill="#8B7340" opacity=".4"/>
+    <ellipse cx="36" cy="70" rx="11" ry="5" transform="rotate(-18 36 70)" fill="#8B7340" opacity=".4"/>
+    <ellipse cx="116" cy="133" rx="11" ry="5" transform="rotate(28 116 133)" fill="#8B7340" opacity=".38"/>
+    <ellipse cx="102" cy="60" rx="10" ry="4" transform="rotate(22 102 60)" fill="#8B7340" opacity=".38"/>
+    <circle cx="68" cy="22" r="5" fill="#8B7340" opacity=".55"/>
+    <circle cx="68" cy="22" r="9" fill="none" stroke="#8B7340" stroke-width=".9" opacity=".35"/>
+    <circle cx="60" cy="10" r="2" fill="#8B7340" opacity=".4"/>
+    <circle cx="76" cy="10" r="2" fill="#8B7340" opacity=".4"/>
+    <circle cx="50" cy="260" r="3" fill="#8B7340" opacity=".5"/>
+    <circle cx="48" cy="215" r="3" fill="#8B7340" opacity=".5"/>
+    <circle cx="44" cy="142" r="3" fill="#8B7340" opacity=".45"/>
+    <circle cx="38" cy="72" r="3" fill="#8B7340" opacity=".45"/>
+  </svg>
   <div class="container">
     <p class="statement-line reveal">
       « Un mariage ne dure qu'un jour.<br>
       Vos photos et votre film, eux, durent une <span class="out">vie.</span> »
     </p>
+    <div class="floral-divider">
+      <svg width="70" height="14" viewBox="0 0 70 14"><path d="M0 7 Q17 1 35 7 Q52 13 70 7" stroke="#8B7340" stroke-width="1" fill="none"/></svg>
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="#8B7340"/><circle cx="5" cy="5" r="5" fill="none" stroke="#8B7340" stroke-width=".8"/></svg>
+      <svg width="70" height="14" viewBox="0 0 70 14"><path d="M0 7 Q17 13 35 7 Q52 1 70 7" stroke="#8B7340" stroke-width="1" fill="none"/></svg>
+    </div>
   </div>
 </section>
 
