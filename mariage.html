@@ -267,6 +267,17 @@ section{position:relative;z-index:1}
 /* ── FORMULE SUR DEVIS ── */
 .formule-price-devis{font-family:var(--D);font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:.25rem;white-space:nowrap}
 
+/* ── OPTION DRONE ── */
+.formule-drone{display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:.9rem;padding-top:.85rem;border-top:1px dashed var(--gb);font-family:var(--D);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warm);opacity:.72}
+.formule-drone svg{flex-shrink:0}
+.drone-option-bar{margin:2rem 0 0;padding:1.4rem 2rem;background:var(--bg2);border:1px solid var(--gb);border-radius:14px;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+.drone-option-bar svg{flex-shrink:0;opacity:.75}
+.drone-option-bar-body{flex:1;min-width:180px}
+.drone-option-bar-title{font-family:var(--D);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dark);margin-bottom:.3rem}
+.drone-option-bar-desc{font-size:.82rem;color:var(--t70);line-height:1.55}
+.drone-option-bar-cta{font-family:var(--D);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1.5px solid var(--gold);border-radius:8px;padding:.55rem 1.2rem;white-space:nowrap;transition:background .22s,color .22s}
+.drone-option-bar-cta:hover{background:var(--gold);color:var(--white)}
+
 /* ── CTA FINAL ── */
 #cta-final{padding:9rem 0;background:var(--gold);position:relative;overflow:hidden;text-align:center}
 #cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(255,255,255,.12) 0%,transparent 65%);pointer-events:none;animation:ctaGlow 5s ease-in-out infinite}
@@ -887,6 +898,10 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
           <li>Livraison en 4 semaines</li>
         </ul>
         <a href="reservation.html?formule=Essentiel&source=mariage" class="formule-cta">Choisir Essentiel</a>
+        <p class="formule-drone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+          Option drone disponible
+        </p>
       </div>
 
       <!-- Signature (featured) -->
@@ -905,6 +920,10 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
           <li>Clé USB 4K</li>
         </ul>
         <a href="reservation.html?formule=Signature&source=mariage" class="formule-cta">Choisir Signature</a>
+        <p class="formule-drone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+          Option drone disponible
+        </p>
       </div>
 
       <!-- Cinématique -->
@@ -922,6 +941,10 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
           <li>Coffret premium</li>
         </ul>
         <a href="reservation.html?formule=Cin%C3%A9matique&source=mariage" class="formule-cta">Choisir Cinématique</a>
+        <p class="formule-drone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+          Option drone disponible
+        </p>
       </div>
 
       <!-- Sur Mesure -->
@@ -938,8 +961,23 @@ footer{background:var(--dark);padding:3.5rem 0 2rem}
           <li>Premier échange offert, sans engagement</li>
         </ul>
         <a href="reservation.html?formule=Sur+Mesure&source=mariage" class="formule-cta">Discuter de votre projet</a>
+        <p class="formule-drone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+          Option drone disponible
+        </p>
       </div>
 
+  </div>
+
+  <div class="container">
+    <div class="drone-option-bar reveal">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h2m14 0h2M3 18h2m14 0h2M7 6l-2-3M17 6l2-3M7 18l-2 3M17 18l2 3"/><rect x="7" y="9" width="10" height="6" rx="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+      <div class="drone-option-bar-body">
+        <div class="drone-option-bar-title">Option Drone — à partir de la formule Essentielle</div>
+        <div class="drone-option-bar-desc">Séquences aériennes cinématiques de votre domaine, cérémonie et lieu de réception. Un regard unique sur votre journée, réalisé par un pilote certifié.</div>
+      </div>
+      <a href="reservation.html?formule=Option+Drone&source=mariage" class="drone-option-bar-cta">Ajouter à ma formule</a>
+    </div>
   </div>
 </section>
 
